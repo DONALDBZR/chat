@@ -4,7 +4,7 @@ class Block
 {
     // Class variables
     private int $index;
-    private $Transaction;
+    private array $transactions;
     private string $timestamp;
     private string $previousHash;
     private int $nonce;
@@ -23,15 +23,15 @@ class Block
     {
         $this->index = $index;
     }
-    // Transaction accessor method
-    public function getTransaction()
+    // Transactions accessor method
+    public function getTransactions()
     {
-        return $this->Transaction;
+        return $this->transactions;
     }
-    // Transaction mutator method
-    public function setTransaction($Transaction)
+    // Transactions mutator method
+    public function setTransactions(array $transactions)
     {
-        $this->Transaction = $Transaction;
+        $this->transactions = $transactions;
     }
     // Timestamp accessor method
     public function getTimestamp()
