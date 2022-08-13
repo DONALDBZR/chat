@@ -96,4 +96,9 @@ class Blockchain
             return false;
         }
     }
+    // Add New Transaction method
+    public function addNewTransaction($transaction)
+    {
+        array_push($this->unconfirmedTransactions, $transaction);
+    }
 }
