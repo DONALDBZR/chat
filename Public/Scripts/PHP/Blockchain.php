@@ -36,7 +36,7 @@ class Blockchain
         $GenesisBlock = $this->Block;
         // Setting all the data of the Genesis Block
         $GenesisBlock->setIndex(0);
-        $GenesisBlock->setTransaction($this->Block->getTransaction());
+        $GenesisBlock->setTransactions($this->Block->getTransactions());
         $GenesisBlock->setTimestamp();
         $GenesisBlock->setPreviousHash("0");
         $GenesisBlock->setNonce("0");
@@ -100,5 +100,31 @@ class Blockchain
     public function addNewTransaction($transaction)
     {
         array_push($this->unconfirmedTransactions, $transaction);
+    }
+    // Mine method
+    public function mine()
+    {
+        // If-statement to verify that there is no unconfirmed transaction
+        if (!$this->unconfirmedTransactions) {
+            return false;
+        } else {
+            // Fetching the last block
+            $lastBlock = $this->lastBlock();
+            // Creating a new block
+            $newBlock = $this->Block;
+            // Setting the data for the new block
+            $newBlock->setIndex($lastBlock->getIndex() + 1);
+            $newBlock->setTransactions($this->unconfirmedTransactions);
+            $newBlock->setTimestamp();
+            $newBlock->setPreviousHash($lastBlock->getHash());
+            // Setting the proof for the new block
+            $proof = $this->proofOfWork($newBlock);
+            // Adding the new block
+            $this->addBlock($newBlock, $proof);
+            // Clearing the unconfirmed transactions
+            $this->unconfirmedTransactions = array();
+            // Returning the new block's index
+            return $newBlock->getIndex();
+        }
     }
 }
