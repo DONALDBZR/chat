@@ -11,7 +11,9 @@ class Header extends Application {
     render() {
         return (
             <header>
-                <h1>Chat</h1>
+                <a href="/">
+                    <h1>Chat</h1>
+                </a>
             </header>
         );
     }
