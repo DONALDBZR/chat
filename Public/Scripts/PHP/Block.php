@@ -3,9 +3,9 @@
 class Block
 {
     // Class variables
-    private string $magicNumber;
-    private int $size;
-    private string $header;
-    private int $transactionCounter;
+    private int $index;
     private Transaction $Transaction;
+    private string $timestamp;
+    private string $previousHash;
+    private string $nonce;
 }
