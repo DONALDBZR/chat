@@ -8,6 +8,7 @@ class Block
     private string $timestamp;
     private string $previousHash;
     private string $nonce;
+    private string $hash;
     // Constructor method
     public function __construct()
     {
@@ -66,6 +67,16 @@ class Block
     public function setNonce(string $nonce)
     {
         $this->nonce = $nonce;
+    }
+    // Hash accessor method
+    public function getHash()
+    {
+        return $this->hash;
+    }
+    // Hash mutator method
+    public function setHash(string $hash)
+    {
+        $this->hash = $hash;
     }
     // Compute Hash method
     public function computeHash()
