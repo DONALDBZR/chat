@@ -7,7 +7,7 @@ class Block
     protected Transaction $Transaction;
     private string $timestamp;
     private string $previousHash;
-    private string $nonce;
+    private int $nonce;
     private string $hash;
     // Constructor method
     public function __construct()
@@ -64,7 +64,7 @@ class Block
         return $this->nonce;
     }
     // Nonce mutator method
-    public function setNonce(string $nonce)
+    public function setNonce(int $nonce)
     {
         $this->nonce = $nonce;
     }
