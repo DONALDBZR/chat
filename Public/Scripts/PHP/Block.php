@@ -80,7 +80,7 @@ class Block
     public function computeHash()
     {
         // Local variables
-        $blockString = $this->getIndex() . $this->getTransaction() . $this->getTimestamp() . $this->getPreviousHash() . $this->getNonce();
+        $blockString = $this->getIndex() . $this->getTransactions() . $this->getTimestamp() . $this->getPreviousHash() . $this->getNonce();
         // Returning the hash of the block string
         return hash("sha256", $blockString);
     }
