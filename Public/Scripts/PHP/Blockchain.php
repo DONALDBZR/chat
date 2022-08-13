@@ -6,6 +6,7 @@ class Blockchain
 {
     // Class variables
     private array $unconfirmedTransactions;
+    private int $difficulty;
     public array $chain;
     protected Block $Block;
     // Constructor method
@@ -13,8 +14,20 @@ class Blockchain
     {
         // Instantiating the Block
         $this->Block = new Block();
+        // Setting the difficulty of the blockchain
+        $this->setDifficulty(2);
         // Creating the genesis block
         $this->createGenesisBlock();
+    }
+    // Difficulty accessor method
+    public function getDifficulty()
+    {
+        return $this->difficulty;
+    }
+    // Difficulty mutator method
+    public function setDifficulty(int $difficulty)
+    {
+        $this->difficulty = $difficulty;
     }
     // Create Genesis Block method
     public function createGenesisBlock()
@@ -36,5 +49,22 @@ class Blockchain
     public function lastBlock()
     {
         return $this->chain[-1];
+    }
+    // Proof Of Work method
+    public function proofOfWork(Block $block)
+    {
+        // Setting the nonce of the block
+        $block->setNonce(0);
+        // Computing the hash of the block
+        $computedHash = $block->computeHash();
+        // While-Loop to iterate when it is not on the genesis block
+        while (!str_contains($computedHash, "0" * $this->getDifficulty())) {
+            // Incrementing the Nonce of the block
+            $block->setNonce($block->getNonce() + 1);
+            // Computing the hash of the block
+            $computedHash = $block->computeHash();
+        }
+        // Returning the hash
+        return $computedHash;
     }
 }
