@@ -67,4 +67,23 @@ class Blockchain
         // Returning the hash
         return $computedHash;
     }
+    // Add Block method
+    public function addBlock(Block $block, string $proof)
+    {
+        // Setting the hash of the previous block
+        $previousHash = $this->lastBlock()->getHash();
+        // If-statement to verify that the previous hash is not equal to the block's previous hash
+        if ($previousHash != $block->getPreviousHash()) {
+            return false;
+        }
+        // If-statement to verify that the proof is valid
+        if ($this->isValidProof($block, $proof)) {
+            return false;
+        }
+        // Setting the hash of the block to be the proof
+        $block->setHash($proof);
+        // Adding the block to the block chain
+        array_push($this->chain, $block);
+        return true;
+    }
 }
