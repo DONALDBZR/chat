@@ -35,4 +35,4 @@ class Main extends Application {
     }
 }
 // Rendering page
-ReactDOM.render(<Application />, document.getElementById("homepage"));
+ReactDOM.render(<Application />, document.getElementById("login"));
