@@ -9,7 +9,7 @@ class Blockchain
     public array $chain;
     protected Block $Block;
     // Constructor method
-    protected function __construct()
+    public function __construct()
     {
         // Instantiating the Block
         $this->Block = new Block();
@@ -17,7 +17,7 @@ class Blockchain
         $this->createGenesisBlock();
     }
     // Create Genesis Block method
-    protected function createGenesisBlock()
+    public function createGenesisBlock()
     {
         // Creating the Genesis Block
         $GenesisBlock = $this->Block;
@@ -31,5 +31,10 @@ class Blockchain
         $GenesisBlock->setHash($GenesisBlock->computeHash());
         // Adding the Genesis Block to the chain
         array_push($this->chain, $GenesisBlock);
+    }
+    // Last Block method
+    public function lastBlock()
+    {
+        return $this->chain[-1];
     }
 }
