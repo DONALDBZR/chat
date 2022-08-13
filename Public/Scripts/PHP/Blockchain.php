@@ -6,7 +6,7 @@ class Blockchain
 {
     // Class variables
     private array $unconfirmedTransactions;
-    private array $chain;
+    public array $chain;
     protected Block $Block;
     // Constructor method
     protected function __construct()
@@ -19,13 +19,17 @@ class Blockchain
     // Create Genesis Block method
     protected function createGenesisBlock()
     {
-        // Creating the genesis block as an empty array
-        $genesisBlock = array();
-        // Setting the data for the genesis block
-        $genesisBlock["index"] = $this->Block->setIndex(0);
-        $genesisBlock["transaction"] = $this->Block->setTransaction($this->Block->getTransaction());
-        $genesisBlock["timestamp"] = $this->Block->setTimestamp();
-        $genesisBlock["previousHash"] = $this->Block->setPreviousHash("0");
-        $genesisBlock["nonce"] = $this->Block->setNonce("0");
+        // Creating the Genesis Block
+        $GenesisBlock = $this->Block;
+        // Setting all the data of the Genesis Block
+        $GenesisBlock->setIndex(0);
+        $GenesisBlock->setTransaction($this->Block->getTransaction());
+        $GenesisBlock->setTimestamp();
+        $GenesisBlock->setPreviousHash("0");
+        $GenesisBlock->setNonce("0");
+        // Setting the hash of the Genesis Block
+        $GenesisBlock->setHash($GenesisBlock->computeHash());
+        // Adding the Genesis Block to the chain
+        array_push($this->chain, $GenesisBlock);
     }
 }
