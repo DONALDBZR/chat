@@ -13,7 +13,7 @@ class Router
         switch ($uri) {
             case "":
             case "/":
-                require_once $_SERVER["DOCUMENT_ROOT"] . "/Views/Homepage.php";
+                require_once $_SERVER["DOCUMENT_ROOT"] . "/Views/HTTP404.php";
                 break;
             default:
                 http_response_code(404);
