@@ -86,4 +86,14 @@ class Blockchain
         array_push($this->chain, $block);
         return true;
     }
+    // Is Valid Proof method
+    public function isValidProof(Block $block, string $blockHash)
+    {
+        // If-statement to verify that the proof is valid
+        if (str_contains($blockHash, "0" * $this->getDifficulty()) and $blockHash === $block->computeHash()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
