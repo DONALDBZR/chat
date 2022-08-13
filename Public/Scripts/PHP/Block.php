@@ -8,4 +8,10 @@ class Block
     private string $timestamp;
     private string $previousHash;
     private string $nonce;
+    // Constructor method
+    public function __construct()
+    {
+        // Instantiating Transaction
+        $this->Transaction = new Transaction();
+    }
 }
