@@ -9,10 +9,15 @@ class Block
     private string $previousHash;
     private string $nonce;
     // Constructor method
-    protected function __construct()
+    protected function __construct(int $index, string $previousHash)
     {
         // Instantiating Transaction
         $this->Transaction = new Transaction();
+        // Setting all the data required
+        $this->setIndex($index);
+        $this->setTimestamp();
+        $this->setPreviousHash($previousHash);
+        $this->setNonce("0");
     }
     // Index accessor method
     protected function getIndex()
