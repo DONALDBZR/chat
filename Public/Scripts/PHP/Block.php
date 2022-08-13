@@ -4,7 +4,7 @@ class Block
 {
     // Class variables
     private int $index;
-    private Transaction $Transaction;
+    protected Transaction $Transaction;
     private string $timestamp;
     private string $previousHash;
     private string $nonce;
