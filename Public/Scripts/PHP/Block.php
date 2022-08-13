@@ -4,7 +4,7 @@ class Block
 {
     // Class variables
     private int $index;
-    protected Transaction $Transaction;
+    private $Transaction;
     private string $timestamp;
     private string $previousHash;
     private int $nonce;
@@ -12,8 +12,6 @@ class Block
     // Constructor method
     public function __construct()
     {
-        // Instantiating Transaction
-        $this->Transaction = new Transaction();
     }
     // Index accessor method
     public function getIndex()
@@ -31,7 +29,7 @@ class Block
         return $this->Transaction;
     }
     // Transaction mutator method
-    public function setTransaction(Transaction $Transaction)
+    public function setTransaction($Transaction)
     {
         $this->Transaction = $Transaction;
     }
