@@ -7,7 +7,7 @@ class Blockchain
     // Class variables
     private array $unconfirmedTransactions;
     private int $difficulty;
-    public array $chain;
+    private array $chain;
     protected Block $Block;
     // Constructor method
     public function __construct()
