@@ -55,10 +55,11 @@ class Router
     public function request(string $requestMethod, string $route, string $path)
     {
         // Setting the data needed for the router
+        $this->setRequestMethod($requestMethod);
         $this->setRoute($route);
         $this->setPath($path);
         // Switch-statement to verify the request method of the route
-        switch ($requestMethod) {
+        switch ($this->getRequestMethod()) {
             case 'GET':
             case 'POST':
             case 'PATCH':
