@@ -54,6 +54,9 @@ class Router
     // Request method
     public function request(string $requestMethod, string $route, string $path)
     {
+        // Setting the data needed for the router
+        $this->setRoute($route);
+        $this->setPath($path);
         // Switch-statement to verify the request method of the route
         switch ($requestMethod) {
             case 'GET':
@@ -62,7 +65,7 @@ class Router
             case 'DELETE':
             default:
                 // Routing the route
-                $this->route($route, $path);
+                $this->route($this->getRoute(), $this->getPath());
                 break;
         }
     }
