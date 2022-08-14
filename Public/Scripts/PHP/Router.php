@@ -15,6 +15,12 @@ class Router
             case "/":
                 require_once $_SERVER["DOCUMENT_ROOT"] . "/Views/Homepage.php";
                 break;
+            case "/Login":
+                require_once $_SERVER["DOCUMENT_ROOT"] . "/Views/Login.php";
+                break;
+            case "/Register":
+                require_once $_SERVER["DOCUMENT_ROOT"] . "/Views/Register.php";
+                break;
             default:
                 http_response_code(404);
                 require_once $_SERVER["DOCUMENT_ROOT"] . "/Views/HTTP404.php";
