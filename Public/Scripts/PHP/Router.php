@@ -128,4 +128,10 @@ class Router
             }
         }
     }
+    // Out method
+    public function out(string $text)
+    {
+        // Converting the text into an HTML file
+        echo htmlspecialchars($text);
+    }
 }
