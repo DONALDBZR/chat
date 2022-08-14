@@ -57,14 +57,14 @@ class Routes
                         $this->Router->request($this->getRequestMethod(), $this->getRoute(), "/Views/Register.php");
                         break;
                     default:
-                        $this->Router->request("GET", "/404", "/Views/HTTP404.php");
+                        $this->Router->request($this->getRequestMethod(), $this->getRoute(), "/Views/HTTP404.php");
                         break;
                 }
             case 'POST':
             case 'PATCH':
             case 'DELETE':
             default:
-                $this->Router->request("GET", "/404", "/Views/HTTP404.php");
+                $this->Router->request($this->getRequestMethod(), $this->getRoute(), "/Views/HTTP404.php");
                 break;
         }
     }
