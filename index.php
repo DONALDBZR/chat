@@ -1,5 +1,5 @@
 <?php
-// Importing Routes
-require_once "{$_SERVER['DOCUMENT_ROOT']}/Public/Scripts/PHP/Routes.php";
-// Instantiating Routes
-$Routes = new Routes();
+// Importing Router
+require_once "{$_SERVER['DOCUMENT_ROOT']}/Public/Scripts/PHP/Router.php";
+// Instantiating Router
+$Router = new Router();
