@@ -20,6 +20,19 @@ class Header extends Application {
 }
 // Main class
 class Main extends Application {
+    // Constructor method
+    constructor(props) {
+        super(props);
+        this.state = {
+            // Input
+            name: "",
+            password: "",
+            // Output
+            success: "",
+            message: "",
+            url: "",
+        };
+    }
     // Render method
     render() {
         return (
@@ -49,6 +62,9 @@ class Main extends Application {
                     </div>
                     <div id="button">
                         <button>Login</button>
+                    </div>
+                    <div id="serverRendering">
+                        <h1 id={this.state.success}>{this.state.message}</h1>
                     </div>
                 </form>
             </main>
