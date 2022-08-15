@@ -8,4 +8,11 @@ class User
     private string $username;
     private string $mailAddress;
     private string $password;
+    protected PHPDataObject $PDO;
+    // Constructor method
+    public function __construct()
+    {
+        // Instantiating PDO
+        $this->PDO = new PHPDataObject();
+    }
 }
