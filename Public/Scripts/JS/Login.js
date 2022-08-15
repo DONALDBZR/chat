@@ -47,7 +47,7 @@ class Main extends Application {
     // Submit handler method
     handleSubmit(event) {
         // Local variables
-        const delay = 200;
+        const delay = 938;
         // Preventing default submission
         event.preventDefault();
         // Generating a POST request

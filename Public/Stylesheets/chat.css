@@ -20,6 +20,10 @@
     src: url("/Public/Fonts/Source Code Pro - Semi Bold Italic.otf");
     src: url("/Public/Fonts/Source Code Pro - Semi Bold.otf");
 }
+@font-face {
+    font-family: "Chopsic";
+    src: url("/Public/Fonts/Chopsic.otf");
+}
 :root {
     --percentage: 100%;
     --mobile: 0.729;
@@ -27,8 +31,10 @@
     --color1: rgb(32, 32, 32);
     --color2: rgb(255, 255, 255);
     --color3: rgb(255, 0, 0);
+    --color4: rgb(0, 255, 0);
     --proximaNova: "Proxima Nova";
     --sourceCodePro: "Source Code Pro";
+    --chopsic: "Chopsic";
 }
 body {
     background-color: var(--color1);
@@ -116,4 +122,19 @@ body {
 #login main form #button button:hover {
     color: var(--color2);
     background-color: var(--color1);
+}
+#login main form #serverRendering {
+    display: flex;
+    justify-content: center;
+}
+#login main form #serverRendering h1 {
+    font-family: var(--chopsic);
+    font-weight: bold;
+    width: unset;
+}
+#login main form #serverRendering #success {
+    color: var(--color4);
+}
+#login main form #serverRendering #failure {
+    color: var(--color3);
 }
