@@ -4,8 +4,8 @@ class PHPDataObject
 {
     public Environment $Environment;
     private string $dataSourceName = "mysql:dbname=Chat;host=localhost:3306";
-    private string $username = $this->Environment->mySqlUsername;
-    private string $password = $this->Environment->mySqlPassword;
+    private string $username = Environment::mySqlUsername;
+    private string $password = Environment::mySqlPassword;
     private PDO $databaseHandler;
     private $statement;
     public function __construct()
