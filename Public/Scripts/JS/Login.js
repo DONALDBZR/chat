@@ -69,18 +69,26 @@ class Main extends Application {
             }))
             .then(() => this.redirector(delay));
     }
+    // Redirector method
+    redirector(delay) {
+        setTimeout(() => {
+            window.location.href = this.state.url;
+        }, delay);
+    }
     // Render method
     render() {
         return (
             <main>
-                <form method="POST">
+                <form method="POST" onSubmit={this.handleSubmit.bind(this)}>
                     <div id="usernameOrMailAddress">
                         <div class="label">Username / MailAddress:</div>
                         <div>
                             <input
                                 type="text"
-                                name="usernameOrMailAddress"
+                                name="name"
                                 placeholder="Username / Mail Address"
+                                value={this.state.name}
+                                onChange={this.handleChange.bind(this)}
                                 required
                             />
                         </div>
@@ -92,6 +100,8 @@ class Main extends Application {
                                 type="password"
                                 name="password"
                                 placeholder="Password"
+                                value={this.state.password}
+                                onChange={this.handleChange.bind(this)}
                                 required
                             />
                         </div>
