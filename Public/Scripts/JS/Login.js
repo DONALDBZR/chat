@@ -44,6 +44,31 @@ class Main extends Application {
             [name]: value,
         });
     }
+    // Submit handler method
+    handleSubmit(event) {
+        // Local variables
+        const delay = 200;
+        // Preventing default submission
+        event.preventDefault();
+        // Generating a POST request
+        fetch("/Controllers/Login.php", {
+            method: "POST",
+            body: JSON.stringify({
+                name: this.state.name,
+                password: this.state.password,
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => this.setState({
+                success: data.success,
+                message: data.message,
+                url: data.url,
+            }))
+            .then(() => this.redirector(delay));
+    }
     // Render method
     render() {
         return (
