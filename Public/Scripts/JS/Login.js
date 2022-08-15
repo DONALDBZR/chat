@@ -33,6 +33,17 @@ class Main extends Application {
             url: "",
         };
     }
+    // Change handler method
+    handleChange(event) {
+        // Local variables
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+        // Setting the value of the targeted name
+        this.setState({
+            [name]: value,
+        });
+    }
     // Render method
     render() {
         return (
