@@ -2,7 +2,7 @@
 class Application extends React.Component {
     // Render method
     render() {
-        return [<Header />, <Main />];
+        return [<Header />, <Main />, <Footer />];
     }
 }
 // Header class
@@ -11,9 +11,9 @@ class Header extends Application {
     render() {
         return (
             <header>
-                <a href="/">
-                    <h1>Chat</h1>
-                </a>
+                <div>
+                    <a href="/">Chat</a>
+                </div>
             </header>
         );
     }
@@ -24,13 +24,43 @@ class Main extends Application {
     render() {
         return (
             <main>
-                <div>
-                    <a href="/Login">Login</a>
-                </div>
-                <div>
-                    <a href="/Register">Register</a>
-                </div>
+                <form method="POST">
+                    <div id="usernameOrMailAddress">
+                        <div class="label">Username / MailAddress:</div>
+                        <div>
+                            <input
+                                type="text"
+                                name="usernameOrMailAddress"
+                                placeholder="Username / Mail Address"
+                                required
+                            />
+                        </div>
+                    </div>
+                    <div id="password">
+                        <div class="label">Password:</div>
+                        <div>
+                            <input
+                                type="password"
+                                name="password"
+                                placeholder="Password"
+                                required
+                            />
+                        </div>
+                    </div>
+                    <div id="button">
+                        <button>Login</button>
+                    </div>
+                </form>
             </main>
+        );
+    }
+}
+// Footer class
+class Footer extends Application {
+    // Render method
+    render() {
+        return (
+            <footer></footer>
         );
     }
 }

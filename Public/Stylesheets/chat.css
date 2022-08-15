@@ -3,6 +3,23 @@
     src: url("/Public/Fonts/Proxima Nova.otf");
     src: url("/Public/Fonts/Proxima Nova - Alternate.otf");
 }
+@font-face {
+    font-family: "Source code Pro";
+    src: url("/Public/Fonts/Source Code Pro - Black Italic.otf");
+    src: url("/Public/Fonts/Source Code Pro - Black.otf");
+    src: url("/Public/Fonts/Source Code Pro - Bold Italic.otf");
+    src: url("/Public/Fonts/Source Code Pro - Bold.otf");
+    src: url("/Public/Fonts/Source Code Pro - Extra Light Italic.otf");
+    src: url("/Public/Fonts/Source Code Pro - Extra Light.otf");
+    src: url("/Public/Fonts/Source Code Pro - Italic.otf");
+    src: url("/Public/Fonts/Source Code Pro - Light Italic.otf");
+    src: url("/Public/Fonts/Source Code Pro - Light.otf");
+    src: url("/Public/Fonts/Source Code Pro - Medium Italic.otf");
+    src: url("/Public/Fonts/Source Code Pro - Medium.otf");
+    src: url("/Public/Fonts/Source Code Pro - Regular.otf");
+    src: url("/Public/Fonts/Source Code Pro - Semi Bold Italic.otf");
+    src: url("/Public/Fonts/Source Code Pro - Semi Bold.otf");
+}
 :root {
     --percentage: 100%;
     --mobile: 0.729;
@@ -11,6 +28,7 @@
     --color2: rgb(255, 255, 255);
     --color3: rgb(255, 0, 0);
     --proximaNova: "Proxima Nova";
+    --sourceCodePro: "Source Code Pro";
 }
 body {
     background-color: var(--color1);
@@ -48,4 +66,54 @@ body {
 #homepage main a:hover {
     background-color: var(--color1);
     color: var(--color2);
+}
+#login header div {
+    display: flex;
+    justify-content: center;
+}
+#login header div a {
+    text-decoration: none;
+    color: var(--color2);
+    font-family: var(--sourceCodePro);
+    font-size: calc(var(--percentage) * 2);
+}
+#login header div a:hover {
+    text-decoration: underline;
+}
+#login main form div {
+    display: flex;
+    margin: calc(var(--percentage) * 0.01);
+}
+#login main form div div {
+    width: calc(var(--percentage) / 2);
+    margin: calc(var(--percentage) * 0);
+    display: block;
+}
+#login main form div .label,
+#login main form div div input {
+    font-size: calc(var(--percentage) * 1.21);
+    font-family: var(--proximaNova);
+}
+#login main form div div input {
+    margin: calc(var(--percentage) * 0);
+    padding: calc(var(--percentage) * 0);
+    border: none;
+    width: var(--percentage);
+}
+#login main form #button {
+    justify-content: center;
+}
+#login main form #button button {
+    font-family: var(--proximaNova);
+    font-size: calc(var(--percentage) * 1.33);
+    color: var(--color1);
+    background-color: var(--color2);
+    border: none;
+    padding: calc(var(--percentage) * 0.00625) calc(var(--percentage) * 0.0125);
+    font-weight: bold;
+    cursor: pointer;
+}
+#login main form #button button:hover {
+    color: var(--color2);
+    background-color: var(--color1);
 }
