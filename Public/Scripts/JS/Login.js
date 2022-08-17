@@ -1,5 +1,17 @@
 // Application class
 class Application extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            // Input
+            name: "",
+            password: "",
+            // Output
+            success: "",
+            message: "",
+            url: "",
+        };
+    }
     // Render method
     render() {
         return [<Header />, <Main />, <Footer />];
@@ -23,16 +35,23 @@ class Main extends Application {
     // Constructor method
     constructor(props) {
         super(props);
-        this.state = {
-            // Input
-            name: "",
-            password: "",
-            // Output
-            success: "",
-            message: "",
-            url: "",
-        };
     }
+    // Render method
+    render() {
+        return (
+            <main>
+                <Form />
+            </main>
+        );
+    }
+}
+// Form class
+class Form extends Main {
+    // Constructor method
+    constructor(props) {
+        super(props);
+    }
+    
     // Change handler method
     handleChange(event) {
         // Local variables
@@ -78,42 +97,40 @@ class Main extends Application {
     // Render method
     render() {
         return (
-            <main>
-                <form method="POST" onSubmit={this.handleSubmit.bind(this)}>
-                    <div id="usernameOrMailAddress">
-                        <div class="label">Username / MailAddress:</div>
-                        <div>
-                            <input
-                                type="text"
-                                name="name"
-                                placeholder="Username / Mail Address"
-                                value={this.state.name}
-                                onChange={this.handleChange.bind(this)}
-                                required
-                            />
-                        </div>
+            <form method="POST" onSubmit={this.handleSubmit.bind(this)}>
+                <div id="usernameOrMailAddress">
+                    <div class="label">Username / MailAddress:</div>
+                    <div>
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Username / Mail Address"
+                            value={this.state.name}
+                            onChange={this.handleChange.bind(this)}
+                            required
+                        />
                     </div>
-                    <div id="password">
-                        <div class="label">Password:</div>
-                        <div>
-                            <input
-                                type="password"
-                                name="password"
-                                placeholder="Password"
-                                value={this.state.password}
-                                onChange={this.handleChange.bind(this)}
-                                required
-                            />
-                        </div>
+                </div>
+                <div id="password">
+                    <div class="label">Password:</div>
+                    <div>
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Password"
+                            value={this.state.password}
+                            onChange={this.handleChange.bind(this)}
+                            required
+                        />
                     </div>
-                    <div id="button">
-                        <button>Login</button>
-                    </div>
-                    <div id="serverRendering">
-                        <h1 id={this.state.success}>{this.state.message}</h1>
-                    </div>
-                </form>
-            </main>
+                </div>
+                <div id="button">
+                    <button>Login</button>
+                </div>
+                <div id="serverRendering">
+                    <h1 id={this.state.success}>{this.state.message}</h1>
+                </div>
+            </form>
         );
     }
 }
