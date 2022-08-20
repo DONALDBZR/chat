@@ -131,7 +131,29 @@ class User
                 $this->PDO->bind(":UsersUsername", $this->getUsername());
                 $this->PDO->execute();
                 if (empty($this->PDO->resultSet())) {
-                    // $this->generatePassword();
+                    if ($json->password == $json->confirmPassword) {
+                        $this->setPassword($json->password);
+                        $this->PDO->query("INSERT INTO Chat.Users(UsersUsername, UsersMailAddress, UsersPassword) VALUES (:UsersUsername, :UsersMailAddress, :UsersPassword)");
+                        $this->PDO->bind(":UsersUsername", $this->getUsername());
+                        $this->PDO->bind(":UsersMailAddress", $this->getMailAddress());
+                        $this->PDO->bind(":UsersPassword", password_hash($this->getPassword(), PASSWORD_ARGON2I));
+                        $this->PDO->execute();
+                        $json = array(
+                            "success" => "success",
+                            "url" => "{$this->domain}/Login",
+                            "message" => "Account created!"
+                        );
+                        header('Content-Type: application/json');
+                        echo json_encode($json);
+                    } else {
+                        $json = array(
+                            "success" => "failure",
+                            "url" => "{$this->domain}/Register",
+                            "message" => "The passwords are not equal!"
+                        );
+                        header('Content-Type: application/json');
+                        echo json_encode($json);
+                    }
                 } else {
                     $json = array(
                         "success" => "failure",
