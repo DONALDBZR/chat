@@ -80,7 +80,7 @@ class User
             $this->setUsername($this->PDO->resultSet()[0]['UsersUsername']);
             $this->setMailAddress($this->PDO->resultSet()[0]['UsersMailAddress']);
             if (password_verify($json->password, $this->PDO->resultSet()[0]['UsersPassword'])) {
-                session_start();
+                $this->setPassword($this->PDO->resultSet()[0]['UsersPassword']);
                 $user = array(
                     "username" => $this->getUsername(),
                     "mailAddress" => $this->getMailAddress(),
