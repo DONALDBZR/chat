@@ -113,6 +113,12 @@ class User
             echo json_encode($json);
         }
     }
+    /**
+     * 1. Checking whether the mail address or username retrieved from the JSON exists in the database.
+     * 2. In the condition that the mail address or username existed, verify that the passwords retrieved are the same.
+     * 3. In the condition that the passwords are actually the same, an account will be created.
+     * 4. A JSON will then be generated as a response which will be sent to the front-end.
+     */
     public function register()
     {
         $json = json_decode(file_get_contents('php://input'));
