@@ -113,4 +113,51 @@ class User
             echo json_encode($json);
         }
     }
+    public function register()
+    {
+        $json = json_decode(file_get_contents('php://input'));
+        $this->setUsername($json->username);
+        $this->setMailAddress($json->mailAddress);
+        $this->PDO->query("SELECT * FROM Chat.Users WHERE UsersUsername = :UsersUsername AND UsersMailAddress = :UsersMailAddress");
+        $this->PDO->bind(":UsersUsername", $this->getUsername());
+        $this->PDO->bind(":UsersMailAddress", $this->getMailAddress());
+        $this->PDO->execute();
+        if (empty($this->PDO->resultSet())) {
+            $this->PDO->query("SELECT * FROM Chat.Users WHERE UsersMailAddress = :UsersMailAddress");
+            $this->PDO->bind(":UsersMailAddress", $this->getMailAddress());
+            $this->PDO->execute();
+            if (empty($this->PDO->resultSet())) {
+                $this->PDO->query("SELECT * FROM Chat.Users WHERE UsersUsername = :UsersUsername");
+                $this->PDO->bind(":UsersUsername", $this->getUsername());
+                $this->PDO->execute();
+                if (empty($this->PDO->resultSet())) {
+                    // $this->generatePassword();
+                } else {
+                    $json = array(
+                        "success" => "failure",
+                        "url" => "{$this->domain}/Register",
+                        "message" => "This username already exists!  Choose another one!"
+                    );
+                    header('Content-Type: application/json');
+                    echo json_encode($json);
+                }
+            } else {
+                $json = array(
+                    "success" => "failure",
+                    "url" => "{$this->domain}/Login",
+                    "message" => "Account exists!"
+                );
+                header('Content-Type: application/json');
+                echo json_encode($json);
+            }
+        } else {
+            $json = array(
+                "success" => "failure",
+                "url" => "{$this->domain}/Login",
+                "message" => "Account exists!"
+            );
+            header('Content-Type: application/json');
+            echo json_encode($json);
+        }
+    }
 }
