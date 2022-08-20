@@ -62,6 +62,8 @@ class Application extends React.Component {
             body: JSON.stringify({
                 username: this.state.username,
                 mailAddress: this.state.mailAddress,
+                password: this.state.password,
+                confirmPassword: this.state.confirmPassword,
             }),
             headers: {
                 "Content-Type": "application/json",
