@@ -1,5 +1,8 @@
 <?php
 require_once $_SERVER["DOCUMENT_ROOT"] . "/Public/Scripts/PHP/Environment.php";
+/**
+ * A simpler version of PDO for developers to understand
+ */
 class PHPDataObject
 {
     /**
