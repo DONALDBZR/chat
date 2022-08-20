@@ -20,6 +20,7 @@ class Application extends React.Component {
              * Password of the user
              */
             password: "",
+            confirmPassword: "",
             /**
              * An HTML's id attribute that will be used for rendering the message that will be displayed to the user
              */
@@ -147,6 +148,32 @@ class Form extends Main {
                             name="mailAddress"
                             placeholder="Mail Address"
                             value={this.state.mailAddress}
+                            onChange={this.handleChange.bind(this)}
+                            required
+                        />
+                    </div>
+                </div>
+                <div id="password">
+                    <div class="label">Password:</div>
+                    <div>
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Password"
+                            value={this.state.password}
+                            onChange={this.handleChange.bind(this)}
+                            required
+                        />
+                    </div>
+                </div>
+                <div id="confirmPassword">
+                    <div class="label">Confirm Password:</div>
+                    <div>
+                        <input
+                            type="password"
+                            name="confirmPassword"
+                            placeholder="Confirm Password"
+                            value={this.state.confirmPassword}
                             onChange={this.handleChange.bind(this)}
                             required
                         />
