@@ -1,14 +1,31 @@
 <?php
 // Importing PDO
 require_once "{$_SERVER['DOCUMENT_ROOT']}/Public/Scripts/PHP/PDO.php";
-// User class
+/**
+ * • The class that stores all the properties that are related to the user as well as all the actions that are going to be performed in the application by any user.
+ * • The class variables are set the same way as the fields in the Users table.  In fact, the class represents a record.
+ */
 class User
 {
-    // Class variables
+    /**
+     * The username of the username which is also the primary key
+     */
     private string $username;
+    /**
+     * The mail address of the user
+     */
     private string $mailAddress;
+    /**
+     * The password of the user
+     */
     private string $password;
+    /**
+     * The domain of the application
+     */
     public $domain = "http://chat.local";
+    /**
+     * PDO which will interact with the database server
+     */
     protected PHPDataObject $PDO;
     // Constructor method
     public function __construct()
@@ -46,65 +63,53 @@ class User
     {
         $this->password = $password;
     }
-    // Login method
+    /**
+     * 1. Checking whether the mail address or username retrieved from the JSON exists in the database.
+     * 2. In the condition that the mail address or username existed, verify that the password retrieved is the same as the one that is in the database.
+     * 3. In the condition that the passwords are actually the same, a session variable will be created with all the data within that record.
+     * 4. A JSON will then be generated as a response which will be sent to the front-end.
+     */
     public function login()
     {
-        // Retrieving and decoding the JSON from the front-end
         $json = json_decode(file_get_contents('php://input'));
-        // Selecting the data from the database
         $this->PDO->query("SELECT * FROM Chat.Users WHERE UserMailAddress = :UserMailAddress OR UserUsername = :UserUsername");
         $this->PDO->bind(":UserMailAddress", $json->name);
         $this->PDO->bind(":UserUsername", $json->name);
         $this->PDO->execute();
-        // If-statement to verify that the user exists
         if (!empty($this->PDO->resultSet())) {
-            // Storing the data needed before further verification
             $this->setUsername($this->PDO->resultSet()[0]['UserUsername']);
             $this->setMailAddress($this->PDO->resultSet()[0]['UserMailAddress']);
-            // If-statement to verify the passwords
             if (password_verify($json->password, $this->PDO->resultSet()[0]['UserPassword'])) {
-                // Starting the session
                 session_start();
-                // Creating the session object
                 $user = array(
                     "username" => $this->getUsername(),
                     "mailAddress" => $this->getMailAddress(),
                     "password" => $this->getPassword()
                 );
-                // Setting the session variable
                 $_SESSION['user'] = $user;
-                // JSON to be encoded and to be sent to the client
                 $json = array(
                     "success" => "success",
                     "url" => "{$this->domain}/User/{$this->getUsername()}",
                     "message" => "You will be connected to the service as soon as possible..."
                 );
-                // Preparing the header for the JSON
                 header('Content-Type: application/json');
-                // Sending the JSON
                 echo json_encode($json);
             } else {
-                // JSON to be encoded and to be sent to the client
                 $json = array(
                     "success" => "failure",
                     "url" => "{$this->domain}/Login",
                     "message" => "Your password is incorrect!"
                 );
-                // Preparing the header for the JSON
                 header('Content-Type: application/json');
-                // Sending the JSON
                 echo json_encode($json);
             }
         } else {
-            // JSON to be encoded and to be sent to the client
             $json = array(
                 "success" => "failure",
                 "url" => "{$this->domain}/",
                 "message" => "You do not have an account!"
             );
-            // Preparing the header for the JSON
             header('Content-Type: application/json');
-            // Sending the JSON
             echo json_encode($json);
         }
     }
