@@ -72,14 +72,14 @@ class User
     public function login()
     {
         $json = json_decode(file_get_contents('php://input'));
-        $this->PDO->query("SELECT * FROM Chat.Users WHERE UserMailAddress = :UserMailAddress OR UserUsername = :UserUsername");
-        $this->PDO->bind(":UserMailAddress", $json->name);
-        $this->PDO->bind(":UserUsername", $json->name);
+        $this->PDO->query("SELECT * FROM Chat.Users WHERE UsersMailAddress = :UsersMailAddress OR UsersUsername = :UsersUsername");
+        $this->PDO->bind(":UsersMailAddress", $json->name);
+        $this->PDO->bind(":UsersUsername", $json->name);
         $this->PDO->execute();
         if (!empty($this->PDO->resultSet())) {
-            $this->setUsername($this->PDO->resultSet()[0]['UserUsername']);
-            $this->setMailAddress($this->PDO->resultSet()[0]['UserMailAddress']);
-            if (password_verify($json->password, $this->PDO->resultSet()[0]['UserPassword'])) {
+            $this->setUsername($this->PDO->resultSet()[0]['UsersUsername']);
+            $this->setMailAddress($this->PDO->resultSet()[0]['UsersMailAddress']);
+            if (password_verify($json->password, $this->PDO->resultSet()[0]['UsersPassword'])) {
                 session_start();
                 $user = array(
                     "username" => $this->getUsername(),
