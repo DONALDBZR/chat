@@ -1,13 +1,26 @@
 <?php
 // Starting session
 session_start();
-// Route class
+/**
+ * The router that will route all the requests to the application.
+ */
 class Router
 {
-    // Class variables
+    /**
+     * The request address
+     */
     private string $route;
+    /**
+     * The server on which the application is being hosted
+     */
     private string $root;
+    /**
+     * The path of the response
+     */
     private string $path;
+    /**
+     * The method of the request
+     */
     private string $requestMethod;
     // Constructor method
     public function __construct(string $requestMethod, string $route, string $path)
@@ -57,7 +70,9 @@ class Router
     {
         $this->requestMethod = $requestMethod;
     }
-    // Verify Request Method method
+    /**
+     * Verifying the request method before setting the route of the request for generating the adequate response
+     */
     public function verifyRequestMethod(string $requestMethod, string $route, string $path)
     {
         // Setting the data needed
@@ -76,7 +91,9 @@ class Router
                 break;
         }
     }
-    // Route method
+    /**
+     * Setting the route of the request to get an adequate response
+     */
     public function route(string $route, string $path)
     {
         // If-statement ti verify that the route is a 404 request
@@ -131,12 +148,16 @@ class Router
         require_once "{$this->getRoot()}/{$path}";
         exit();
     }
-    // Out method
+    /**
+     * Displaying HTML elements
+     */
     public function out(string $text)
     {
         echo htmlspecialchars($text);
     }
-    // CSRF Set method
+    /**
+     * Preventing Cross-Site Request Forgery
+     */
     public function csrfSet()
     {
         // If-statement to verify that there is not a csrf session variable
@@ -146,7 +167,9 @@ class Router
         }
         echo "<input type='hidden' name='csrf' value='{$_SESSION['csrf']}' />";
     }
-    // Verify CSRF method
+    /**
+     * Verifying the session variable that was set in order to prevent cross-site request forgery
+     */
     public function verifyCSRF()
     {
         // If-statement to the session variable and the post request are not set
