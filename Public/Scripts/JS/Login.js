@@ -1,75 +1,57 @@
-// Application class
+/**
+ * The application that is going to be rendered by React.js.
+ */
 class Application extends React.Component {
     constructor(props) {
         super(props);
+        /**
+         * The states of the properties of the component
+         */
         this.state = {
-            // Input
+            /**
+             * Username or Mail Address of the user
+             */
             name: "",
+            /**
+             * Password of the user
+             */
             password: "",
-            // Output
+            /**
+             * An HTML's id attribute that will be used for rendering the message that will be displayed to the user
+             */
             success: "",
+            /**
+             * The message that will be displayed to the user
+             */
             message: "",
+            /**
+             * the url to be redirected after displying the message
+             */
             url: "",
         };
     }
-    // Render method
-    render() {
-        return [<Header />, <Main />, <Footer />];
-    }
-}
-// Header class
-class Header extends Application {
-    // Render method
-    render() {
-        return (
-            <header>
-                <div>
-                    <a href="/">Chat</a>
-                </div>
-            </header>
-        );
-    }
-}
-// Main class
-class Main extends Application {
-    // Constructor method
-    constructor(props) {
-        super(props);
-    }
-    // Render method
-    render() {
-        return (
-            <main>
-                <Form />
-            </main>
-        );
-    }
-}
-// Form class
-class Form extends Main {
-    // Constructor method
-    constructor(props) {
-        super(props);
-    }
-    
-    // Change handler method
+    /**
+     * Handling any change that is made in the user interface
+     * @param {Event} event 
+     */
     handleChange(event) {
-        // Local variables
         const target = event.target;
         const value = target.value;
         const name = target.name;
-        // Setting the value of the targeted name
         this.setState({
             [name]: value,
         });
     }
-    // Submit handler method
+    /**
+     * Handling the form submission firstly preventing default submission before generating the JSON that will be sent to the back-end before retrieving a JSON as a response which contains the message and the destination to send the user.
+     * @param {Event} event 
+     */
     handleSubmit(event) {
-        // Local variables
+        /**
+         * The amount of milliseconds that the login process takes
+         */
         const delay = 938;
-        // Preventing default submission
         event.preventDefault();
-        // Generating a POST request
         fetch("/Controllers/Login.php", {
             method: "POST",
             body: JSON.stringify({
@@ -88,13 +70,55 @@ class Form extends Main {
             }))
             .then(() => this.redirector(delay));
     }
-    // Redirector method
+    /**
+     * Redirecting the user to an intended url
+     * @param {int} delay 
+     */
     redirector(delay) {
         setTimeout(() => {
             window.location.href = this.state.url;
         }, delay);
     }
-    // Render method
+    render() {
+        return [<Header />, <Main />, <Footer />];
+    }
+}
+/**
+ * The header component of the application which has the header tag as parent
+ */
+class Header extends Application {
+    render() {
+        return (
+            <header>
+                <div>
+                    <a href="/">Chat</a>
+                </div>
+            </header>
+        );
+    }
+}
+/**
+ * The main component of the application which has the main tag as parent
+ */
+class Main extends Application {
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        return (
+            <main>
+                <Form />
+            </main>
+        );
+    }
+}
+/**
+ * The form component of the application which has the form tag as parent
+ */
+class Form extends Main {
+    constructor(props) {
+        super(props);
+    }
     render() {
         return (
             <form method="POST" onSubmit={this.handleSubmit.bind(this)}>
@@ -134,7 +158,9 @@ class Form extends Main {
         );
     }
 }
-// Footer class
+/**
+ * The footer component of the application which has the footer tag as parent
+ */
 class Footer extends Application {
     // Render method
     render() {
