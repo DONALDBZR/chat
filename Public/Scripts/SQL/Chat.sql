@@ -6,5 +6,3 @@ CREATE TABLE Chat.Users (
     UsersMailAddress VARCHAR(64),
     UsersPassword VARCHAR(256)
 );
--- Test codes
-SELECT * FROM Chat.Users;
