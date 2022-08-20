@@ -14,4 +14,12 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 break;
         }
         break;
+    case 'POST':
+        // Switch-statement to verify the url
+        switch ($_SERVER['REQUEST_URI']) {
+            case '/Login':
+                $Router = new Router("POST", "/Login", "/Controllers/Login.php");
+                break;
+        }
+        break;
 }
