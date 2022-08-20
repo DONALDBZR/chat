@@ -1,13 +1,15 @@
-// Application class
+/**
+ * The application that is going to be rendered by React.js.
+ */
 class Application extends React.Component {
-    // Render method
     render() {
         return <Header />;
     }
 }
-// Header class
+/**
+ * The header component of the application which has the header tag as parent
+ */
 class Header extends Application {
-    // Render method
     render() {
         return (
             <header>
