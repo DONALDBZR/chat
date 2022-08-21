@@ -89,78 +89,60 @@ body {
 #register header div a:hover {
     text-decoration: underline;
 }
-#login main form div,
-#register main form div {
+#login main {
     display: flex;
-    margin: calc(var(--percentage) * 0.01);
-}
-#login main form div div,
-#register main form div div {
-    width: calc(var(--percentage) / 2);
-    margin: calc(var(--percentage) * 0);
-    display: block;
-}
-#login main form div .label,
-#login main form div div input,
-#register main form div .label,
-#register main form div div input {
-    font-size: calc(var(--percentage) * 1.21);
-    font-family: var(--proximaNova);
-}
-#login main form div div input,
-#register main form div div input {
-    margin: calc(var(--percentage) * 0);
-    padding: calc(var(--percentage) * 0);
-    border: none;
-    width: var(--percentage);
-}
-#login main form #button,
-#register main form #button {
     justify-content: center;
 }
-#login main form #button button,
-#register main form #button button {
-    font-family: var(--proximaNova);
-    font-size: calc(var(--percentage) * 1.33);
-    color: var(--color1);
+#login main form {
+    width: calc(var(--percentage) / 3);
+    padding: calc(var(--percentage) * 0.01);
     background-color: var(--color2);
-    border: none;
-    padding: calc(var(--percentage) * 0.00625) calc(var(--percentage) * 0.0125);
-    font-weight: bold;
-    cursor: pointer;
 }
-#login main form #button button:hover,
-#register main form #button button:hover {
+#login main form .label {
+    margin: calc(var(--percentage) * 0.02);
+    font-family: var(--sourceCodePro);
+    font-weight: bold;
+    font-size: calc(var(--percentage) * 1.331);
+    color: var(--color1);
+    text-align: center;
+}
+#login main form input {
+    width: calc(var(--percentage) * 0.94);
+    margin: calc(var(--percentage) * 0.01) calc(var(--percentage) * 0.02);
+    font-size: var(--percentage);
+    font-family: var(--proximaNova);
+    color: var(--color1);
+}
+#login main form #button {
+    margin: calc(var(--percentage) * 0.02);
+}
+#login main form #button button {
+    width: var(--percentage);
     color: var(--color2);
     background-color: var(--color1);
+    cursor: pointer;
+    font-size: var(--percentage);
+    font-family: var(--proximaNova);
+    font-weight: bold;
+    border: none;
+    padding: calc(var(--percentage) * 0.0125);
 }
-#login main form #serverRendering,
-#register main form #serverRendering {
+#login main form #button button:hover {
+    color: var(--color1);
+    background-color: var(--color2);
+}
+#login footer #serverRendering {
     display: flex;
     justify-content: center;
 }
-#login main form #serverRendering h1,
-#register main form #serverRendering h1 {
-    font-family: var(--chopsic);
+#login footer #serverRendering h1 {
+    font-family: var(--proximaNova);
     font-weight: bold;
     width: unset;
 }
-#login main form #serverRendering #success,
-#register main form #serverRendering #success {
+#login footer #serverRendering #success {
     color: var(--color4);
 }
-#login main form #serverRendering #failure,
-#register main form #serverRendering #failure {
+#login footer #serverRendering #failure {
     color: var(--color3);
-}
-#register footer {
-    text-align: center;
-}
-#register footer a {
-    color: var(--color2);
-    font-weight: bold;
-    text-decoration: none;
-}
-#register footer a:hover {
-    text-decoration: underline;
 }
