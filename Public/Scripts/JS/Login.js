@@ -59,7 +59,7 @@ class Application extends React.Component {
         fetch("/Controllers/Login.php", {
             method: "POST",
             body: JSON.stringify({
-                name: this.state.name,
+                username: this.state.username,
                 password: this.state.password,
             }),
             headers: {
