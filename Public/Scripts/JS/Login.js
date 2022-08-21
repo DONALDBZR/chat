@@ -9,9 +9,13 @@ class Application extends React.Component {
          */
         this.state = {
             /**
-             * Username or Mail Address of the user
+             * Username of the user
              */
-            name: "",
+            username: "",
+            /**
+             * Mail Address of the user
+             */
+            mailAddress: "",
             /**
              * Password of the user
              */
@@ -122,37 +126,25 @@ class Form extends Main {
     render() {
         return (
             <form method="POST" onSubmit={this.handleSubmit.bind(this)}>
-                <div id="usernameOrMailAddress">
-                    <div class="label">Username / MailAddress:</div>
-                    <div>
-                        <input
-                            type="text"
-                            name="name"
-                            placeholder="Username / Mail Address"
-                            value={this.state.name}
-                            onChange={this.handleChange.bind(this)}
-                            required
-                        />
-                    </div>
-                </div>
-                <div id="password">
-                    <div class="label">Password:</div>
-                    <div>
-                        <input
-                            type="password"
-                            name="password"
-                            placeholder="Password"
-                            value={this.state.password}
-                            onChange={this.handleChange.bind(this)}
-                            required
-                        />
-                    </div>
-                </div>
+                <div class="label">Login Form</div>
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="Username"
+                    value={this.state.username}
+                    onChange={this.handleChange.bind(this)}
+                    required
+                />
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    value={this.state.password}
+                    onChange={this.handleChange.bind(this)}
+                    required
+                />
                 <div id="button">
                     <button>Login</button>
-                </div>
-                <div id="serverRendering">
-                    <h1 id={this.state.success}>{this.state.message}</h1>
                 </div>
             </form>
         );
@@ -165,7 +157,11 @@ class Footer extends Application {
     // Render method
     render() {
         return (
-            <footer></footer>
+            <footer>
+                <div id="serverRendering">
+                    <h1 id={this.state.success}>{this.state.message}</h1>
+                </div>
+            </footer>
         );
     }
 }
