@@ -60,7 +60,7 @@ class Application extends React.Component {
          */
         const delay = 938;
         event.preventDefault();
-        fetch("/Controllers/Login.php", {
+        fetch("/Login", {
             method: "POST",
             body: JSON.stringify({
                 username: this.state.username,
