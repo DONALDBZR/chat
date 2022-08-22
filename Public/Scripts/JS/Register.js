@@ -165,6 +165,9 @@ class Form extends Main {
                 <div id="button">
                     <button>Register</button>
                 </div>
+                <div id="serverRendering">
+                    <h1 id={this.state.success}>{this.state.message}</h1>
+                </div>
             </form>
         );
     }
@@ -178,9 +181,6 @@ class Footer extends Application {
         return (
             <footer>
                 <div class="notice">If, you already have an account, you can click <a href="/Login">here</a> to login.</div>
-                <div id="serverRendering">
-                    <h1 id={this.state.success}>{this.state.message}</h1>
-                </div>
             </footer>
         );
     }
