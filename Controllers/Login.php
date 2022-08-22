@@ -8,7 +8,7 @@ $User = new User();
 // If-statement to verify that there is a json
 if (json_decode(file_get_contents("php://input")) != null) {
     // If-statement to verify that the JSON does not have any null value
-    if (!empty(json_decode(file_get_contents("php://input"))->name) && !empty(json_decode(file_get_contents("php://input"))->password)) {
+    if (!empty(json_decode(file_get_contents("php://input"))->username) && !empty(json_decode(file_get_contents("php://input"))->password)) {
         // Starting the login process
         $User->login();
     } else {

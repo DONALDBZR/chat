@@ -72,9 +72,8 @@ class User
     public function login()
     {
         $json = json_decode(file_get_contents('php://input'));
-        $this->PDO->query("SELECT * FROM Chat.Users WHERE UsersMailAddress = :UsersMailAddress OR UsersUsername = :UsersUsername");
-        $this->PDO->bind(":UsersMailAddress", $json->name);
-        $this->PDO->bind(":UsersUsername", $json->name);
+        $this->PDO->query("SELECT * FROM Chat.Users WHERE UsersUsername = :UsersUsername");
+        $this->PDO->bind(":UsersUsername", $json->username);
         $this->PDO->execute();
         if (!empty($this->PDO->resultSet())) {
             $this->setUsername($this->PDO->resultSet()[0]['UsersUsername']);
