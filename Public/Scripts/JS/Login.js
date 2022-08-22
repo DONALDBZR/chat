@@ -146,6 +146,9 @@ class Form extends Main {
                 <div id="button">
                     <button>Login</button>
                 </div>
+                <div id="serverRendering">
+                    <h1 id={this.state.success}>{this.state.message}</h1>
+                </div>
             </form>
         );
     }
@@ -156,13 +159,7 @@ class Form extends Main {
 class Footer extends Application {
     // Render method
     render() {
-        return (
-            <footer>
-                <div id="serverRendering">
-                    <h1 id={this.state.success}>{this.state.message}</h1>
-                </div>
-            </footer>
-        );
+        return <footer></footer>;
     }
 }
 // Rendering page
