@@ -93,7 +93,7 @@ class Application extends React.Component {
      * Retrieving the Session data that is stored in the JSON to be used on the front-end
      */
     retrieveData() {
-        fetch("/Controllers/User.php", {
+        fetch("/User", {
             method: "GET"
         }).then((response) => response.json()).then((data) => this.setState({
             username: data.username,
