@@ -86,7 +86,7 @@ class User
                     "password" => $this->getPassword(),
                     "domain" => $this->domain,
                 );
-                $_SESSION['user'] = $user;
+                $_SESSION['User'] = $user;
                 $json = array(
                     "success" => "success",
                     "url" => "{$this->domain}/User/Dashboard/{$this->getUsername()}",
