@@ -61,7 +61,7 @@ class Application extends React.Component {
          */
         const delay = 2525;
         event.preventDefault();
-        fetch("/Controllers/Register.php", {
+        fetch("/Register", {
             method: "POST",
             body: JSON.stringify({
                 username: this.state.username,
