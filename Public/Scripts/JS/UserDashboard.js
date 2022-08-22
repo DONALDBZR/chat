@@ -126,12 +126,33 @@ class Header extends Application {
      * @returns {Application} Components
      */
     render() {
-        const homeLink = `/User/Dashboard/${this.state.username}`;
+        /**
+         * The link to the dashboard of the user
+         */
+        const home = `/User/Dashboard/${this.state.username}`;
+        /**
+         * The link to the profile of the user
+         */
+        const profile = `/User/Profile/${this.state.username}`;
         return (
             <header>
-                <div>
-                    <a href={homeLink}>Chat</a>
-                </div>
+                <nav>
+                    <div id="home">
+                        <a href={home}>
+                            <i class="fa fa-home"></i>
+                        </a>
+                    </div>
+                    <div id="profile">
+                        <a href={profile}>
+                            <i class="fa fa-user"></i>
+                        </a>
+                    </div>
+                    <div id="logout">
+                        <a href="/Sign-Out">
+                            <i class="fa fa-sign-out"></i>
+                        </a>
+                    </div>
+                </nav>
             </header>
         );
     }
