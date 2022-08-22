@@ -113,6 +113,7 @@ class Application extends React.Component {
      * @returns {Application} Components
      */
     render() {
+        console.log(`Username: ${this.state.username}\nMail Address: ${this.state.mailAddress}\nPassword: ${this.state.password}\nDomain: ${this.state.domain}\n`);
         return [<Header />, <Main />, <Footer />];
     }
 }
