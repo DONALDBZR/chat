@@ -15,10 +15,8 @@ switch ($_SERVER['REQUEST_METHOD']) {
             case '/Register':
                 $Router = new Router("GET", "/Register", "/Views/Register.php");
                 break;
-            case '/User':
-                if (str_contains($_SERVER['REQUEST_URI'], '/User/Dashboard')) {
-                    $Router = new Router("GET", "/User/Dashboard", "/Views/UserDashboard.php");
-                }
+            case "/User/Dashboard/{$_SESSION['User']['username']}":
+                $Router = new Router("GET", "/User/Dashboard/{$_SESSION['User']['username']}", "/Views/UserDashboard.php");
                 break;
         }
         break;
