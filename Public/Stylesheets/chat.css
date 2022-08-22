@@ -138,10 +138,6 @@ body {
     color: var(--color1);
     background-color: var(--color2);
 }
-#login footer,
-#register footer {
-    margin-top: calc(var(--percentage) * 0.01);
-}
 #login main form #serverRendering,
 #register main form #serverRendering {
     text-align: center;
@@ -161,15 +157,16 @@ body {
 #register main form #serverRendering #failure {
     color: var(--color3);
 }
-#register footer .notice {
+#register footer {
+    margin-top: calc(var(--percentage) * 0.01);
     text-align: center;
     font-size: var(--percentage);
 }
-#register footer .notice a {
+#register footer a {
     text-decoration: none;
     color: var(--color2);
     font-weight: bold;
 }
-#register footer .notice a:hover {
+#register footer a:hover {
     text-decoration: underline;
 }
