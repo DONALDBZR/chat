@@ -22,6 +22,10 @@ class Application extends React.Component {
             password: "",
             confirmPassword: "",
             /**
+             * Domain of the application
+             */
+            domain: "",
+            /**
              * An HTML's id attribute that will be used for rendering the message that will be displayed to the user
              */
             success: "",

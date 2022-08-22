@@ -84,12 +84,13 @@ class User
                 $user = array(
                     "username" => $this->getUsername(),
                     "mailAddress" => $this->getMailAddress(),
-                    "password" => $this->getPassword()
+                    "password" => $this->getPassword(),
+                    "domain" => $this->domain,
                 );
                 $_SESSION['user'] = $user;
                 $json = array(
                     "success" => "success",
-                    "url" => "{$this->domain}/User/{$this->getUsername()}",
+                    "url" => "{$this->domain}/User/Dashboard/{$this->getUsername()}",
                     "message" => "You will be connected to the service as soon as possible..."
                 );
                 header('Content-Type: application/json');
