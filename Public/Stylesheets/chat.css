@@ -142,22 +142,23 @@ body {
 #register footer {
     margin-top: calc(var(--percentage) * 0.01);
 }
-#login footer #serverRendering,
-#register footer #serverRendering {
+#login main form #serverRendering,
+#register main form #serverRendering {
     text-align: center;
 }
-#login footer #serverRendering h1,
-#register footer #serverRendering h1 {
+#login main form #serverRendering h1,
+#register main form #serverRendering h1 {
     font-family: var(--proximaNova);
     font-weight: bold;
     width: unset;
+    font-size: calc(var(--percentage) * 1.331);
 }
-#login footer #serverRendering #success,
-#register footer #serverRendering #success {
+#login main form #serverRendering #success,
+#register main form #serverRendering #success {
     color: var(--color4);
 }
-#login footer #serverRendering #failure,
-#register footer #serverRendering #failure {
+#login main form #serverRendering #failure,
+#register main form #serverRendering #failure {
     color: var(--color3);
 }
 #register footer .notice {
