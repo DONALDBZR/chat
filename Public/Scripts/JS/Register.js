@@ -179,9 +179,7 @@ class Footer extends Application {
     // Render method
     render() {
         return (
-            <footer>
-                <div class="notice">If, you already have an account, you can click <a href="/Login">here</a> to login.</div>
-            </footer>
+            <footer>If, you already have an account, you can click <a href="/Login">here</a> to login.</footer>
         );
     }
 }
