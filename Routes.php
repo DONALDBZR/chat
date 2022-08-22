@@ -11,10 +11,8 @@ switch ($_SERVER['REQUEST_METHOD']) {
             $Router = new Router("GET", "/Login", "/Views/Login.php");
         } else if ($_SERVER['REQUEST_URI'] == '/Register') {
             $Router = new Router("GET", "/Register", "/Views/Register.php");
-        } else if (str_contains($_SERVER['REQUEST_URI'], '/User/Dashboard/')) {
+        } else if (str_contains($_SERVER['REQUEST_URI'], '/User/Dashboard')) {
             $Router = new Router("GET", "/User/Dashboard", "/Views/UserDashboard.php");
-        } else {
-            $Router = new Router("GET", "/404", "/Views/HTTP404.php");
         }
         break;
     case 'POST':
