@@ -32,6 +32,7 @@
     --color2: rgb(255, 255, 255);
     --color3: rgb(255, 0, 0);
     --color4: rgb(0, 255, 0);
+    --color5: rgba(255, 255, 255, 0.5);
     --proximaNova: "Proxima Nova";
     --sourceCodePro: "Source Code Pro";
     --chopsic: "Chopsic";
@@ -169,4 +170,23 @@ body {
 }
 #register footer a:hover {
     text-decoration: underline;
+}
+#userDashboard header nav {
+    display: flex;
+}
+#userDashboard header nav #home {
+    width: calc(var(--percentage) / 2);
+    text-align: center;
+}
+#userDashboard header nav #profile,
+#userDashboard header nav #logout {
+    width: calc(var(--percentage) / 4);
+    text-align: center;
+}
+#userDashboard header nav div a {
+    font-size: calc(var(--percentage) * 2);
+    color: var(--color5);
+}
+#userDashboard header nav div a:hover {
+    color: var(--color2);
 }
