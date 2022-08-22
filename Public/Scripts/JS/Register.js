@@ -129,63 +129,41 @@ class Form extends Main {
     render() {
         return (
             <form method="POST" onSubmit={this.handleSubmit.bind(this)}>
-                <div id="username">
-                    <div class="label">Username:</div>
-                    <div>
-                        <input
-                            type="text"
-                            name="username"
-                            placeholder="Username"
-                            value={this.state.username}
-                            onChange={this.handleChange.bind(this)}
-                            required
-                        />
-                    </div>
-                </div>
-                <div id="mailAddress">
-                    <div class="label">Mail Address:</div>
-                    <div>
-                        <input
-                            type="text"
-                            name="mailAddress"
-                            placeholder="Mail Address"
-                            value={this.state.mailAddress}
-                            onChange={this.handleChange.bind(this)}
-                            required
-                        />
-                    </div>
-                </div>
-                <div id="password">
-                    <div class="label">Password:</div>
-                    <div>
-                        <input
-                            type="password"
-                            name="password"
-                            placeholder="Password"
-                            value={this.state.password}
-                            onChange={this.handleChange.bind(this)}
-                            required
-                        />
-                    </div>
-                </div>
-                <div id="confirmPassword">
-                    <div class="label">Confirm Password:</div>
-                    <div>
-                        <input
-                            type="password"
-                            name="confirmPassword"
-                            placeholder="Confirm Password"
-                            value={this.state.confirmPassword}
-                            onChange={this.handleChange.bind(this)}
-                            required
-                        />
-                    </div>
-                </div>
+                <div class="label">Registration Form</div>
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="Username"
+                    value={this.state.username}
+                    onChange={this.handleChange.bind(this)}
+                    required
+                />
+                <input
+                    type="mail"
+                    name="mailAddress"
+                    placeholder="Mail Address"
+                    value={this.state.mailAddress}
+                    onChange={this.handleChange.bind(this)}
+                    required
+                />
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    value={this.state.password}
+                    onChange={this.handleChange.bind(this)}
+                    required
+                />
+                <input
+                    type="password"
+                    name="confirmPassword"
+                    placeholder="Confirm Password"
+                    value={this.state.confirmPassword}
+                    onChange={this.handleChange.bind(this)}
+                    required
+                />
                 <div id="button">
                     <button>Register</button>
-                </div>
-                <div id="serverRendering">
-                    <h1 id={this.state.success}>{this.state.message}</h1>
                 </div>
             </form>
         );
@@ -199,7 +177,10 @@ class Footer extends Application {
     render() {
         return (
             <footer>
-                If, you already have an account, you can click <a href="/Login">here</a> to login.
+                <div class="notice">If, you already have an account, you can click <a href="/Login">here</a> to login.</div>
+                <div id="serverRendering">
+                    <h1 id={this.state.success}>{this.state.message}</h1>
+                </div>
             </footer>
         );
     }
