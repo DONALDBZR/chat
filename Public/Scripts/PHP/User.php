@@ -110,6 +110,7 @@ class User
                 );
                 $_SESSION['User'] = $user;
                 $this->setOtp($this->otpGenerate());
+                $_SESSION['User']['otp'] = $this->getOtp();
                 $this->Mail->send($this->getMailAddress(), "Verification Needed!", "Your one-time password is {$this->getOtp()}.  Please use this password to complete the log in process on {$this->domain}/Login/Verification");
                 $json = array(
                     "success" => "success",
@@ -244,5 +245,32 @@ class User
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
         return $randomString;
+    }
+    /**
+     * Verifying the one-time password that was sent to the user
+     */
+    public function otpVerify()
+    {
+        $JSON = json_decode(file_get_contents('php://input'));
+        $this->setOtp($_SESSION['User']['otp']);
+        if ($JSON->oneTimePassword == $this->getOtp()) {
+            $this->setUsername($_SESSION['User']['username']);
+            $json = array(
+                "success" => "failure",
+                "url" => "{$this->domain}/User/Dashboard/{$this->getUsername()}",
+                "message" => "You will be connected to the service as soon as possible..."
+            );
+            header('Content-Type: application/json');
+            echo json_encode($json);
+        } else {
+            unset($_SESSION['User']);
+            $json = array(
+                "success" => "failure",
+                "url" => "{$this->domain}/",
+                "message" => "The Password does not correspond to the one that was sent to you!"
+            );
+            header('Content-Type: application/json');
+            echo json_encode($json);
+        }
     }
 }
