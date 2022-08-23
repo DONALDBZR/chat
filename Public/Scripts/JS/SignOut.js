@@ -47,48 +47,6 @@ class Application extends React.Component {
         };
     }
     /**
-     * Handling any change that is made in the user interface
-     * @param {Event} event 
-     */
-    handleChange(event) {
-        const target = event.target;
-        const value = target.value;
-        const name = target.name;
-        this.setState({
-            [name]: value,
-        });
-    }
-    /**
-     * Handling the form submission firstly preventing default submission before generating the JSON that will be sent to the back-end before retrieving a JSON as a response which contains the message and the destination to send the user.
-     * @param {Event} event 
-     */
-    handleSubmit(event) {
-        /**
-         * The amount of milliseconds that the registration process takes
-         */
-        const delay = 2525;
-        event.preventDefault();
-        fetch("/Controllers/Register.php", {
-            method: "POST",
-            body: JSON.stringify({
-                username: this.state.username,
-                mailAddress: this.state.mailAddress,
-                password: this.state.password,
-                confirmPassword: this.state.confirmPassword,
-            }),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        })
-            .then((response) => response.json())
-            .then((data) => this.setState({
-                success: data.success,
-                message: data.message,
-                url: data.url,
-            }))
-            .then(() => this.redirector(delay));
-    }
-    /**
      * Redirecting the user to an intended url
      * @param {int} delay 
      */
