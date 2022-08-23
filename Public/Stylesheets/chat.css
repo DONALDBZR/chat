@@ -150,12 +150,10 @@ body {
     width: unset;
     font-size: calc(var(--percentage) * 1.331);
 }
-#login main form #serverRendering #success,
-#register main form #serverRendering #success {
+#success {
     color: var(--color4);
 }
-#login main form #serverRendering #failure,
-#register main form #serverRendering #failure {
+#failure {
     color: var(--color3);
 }
 #register footer {
@@ -189,4 +187,9 @@ body {
 }
 #userDashboard header nav div a:hover {
     color: var(--color2);
+}
+#signOut header h1 {
+    text-align: center;
+    font-family: var(--sourceCodePro);
+    font-size: calc(var(--percentage) * 2);
 }
