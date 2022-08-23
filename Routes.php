@@ -18,9 +18,14 @@ switch ($_SERVER['REQUEST_METHOD']) {
             case "/User/Dashboard/{$_SESSION['User']['username']}":
                 $Router = new Router("GET", "/User/Dashboard/{$_SESSION['User']['username']}", "/Views/UserDashboard.php");
                 break;
-            case "/User":
+            case '/User':
                 $Router = new Router("GET", "/User", "/Controllers/User.php");
                 break;
+            case '/Sign-Out':
+                $Router = new Router("GET", "/Sign-Out", "/Views/SignOut.php");
+                break;
+            case '/User/LogOut':
+                $Router = new Router("GET", "/User/LogOut", "/Controllers/SignOut.php");
         }
         break;
     case 'POST':
