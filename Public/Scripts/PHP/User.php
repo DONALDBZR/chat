@@ -256,7 +256,7 @@ class User
         if ($JSON->oneTimePassword == $this->getOtp()) {
             $this->setUsername($_SESSION['User']['username']);
             $json = array(
-                "success" => "failure",
+                "success" => "success",
                 "url" => "{$this->domain}/User/Dashboard/{$this->getUsername()}",
                 "message" => "You will be connected to the service as soon as possible..."
             );
