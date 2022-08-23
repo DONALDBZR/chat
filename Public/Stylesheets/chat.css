@@ -168,17 +168,21 @@ body {
 #failure {
     color: var(--color3);
 }
-#register footer {
+#register footer,
+#login footer {
     margin-top: calc(var(--percentage) * 0.01);
     text-align: center;
     font-size: var(--percentage);
+    font-family: var(--sourceCodePro);
 }
-#register footer a {
+#register footer a,
+#login footer a {
     text-decoration: none;
     color: var(--color2);
     font-weight: bold;
 }
-#register footer a:hover {
+#register footer a:hover,
+#login footer a:hover {
     text-decoration: underline;
 }
 #userDashboard header nav {
