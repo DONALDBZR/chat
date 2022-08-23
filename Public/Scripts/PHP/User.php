@@ -139,7 +139,7 @@ class User
                     $json = array(
                         "success" => "success",
                         "url" => "{$this->domain}/Login",
-                        "message" => "Account created!"
+                        "message" => "Account created!  Please check your mail to obtain your password!"
                     );
                     header('Content-Type: application/json');
                     echo json_encode($json);
