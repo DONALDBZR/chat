@@ -1,12 +1,9 @@
 <?php
 // Importing the requisities of PHPMailer
-
-use PHPMailer\PHPMailer\PHPMailer;
-
-require_once "{$_SERVER['DOCUMENT_ROOT']}/PHPMailer/src/PHPMailer.php";
-require_once "{$_SERVER['DOCUMENT_ROOT']}/PHPMailer/src/Exception.php";
-require_once "{$_SERVER['DOCUMENT_ROOT']}/PHPMailer/src/SMTP.php";
-require_once $_SERVER["DOCUMENT_ROOT"] . "/Public/Scripts/PHP/Environment.php";
+require_once "{$_SERVER['DOCUMENT_ROOT']}/Modules/PHPMailer/src/PHPMailer.php";
+require_once "{$_SERVER['DOCUMENT_ROOT']}/Modules/PHPMailer/src/Exception.php";
+require_once "{$_SERVER['DOCUMENT_ROOT']}/Modules/PHPMailer/src/SMTP.php";
+require_once "{$_SERVER['DOCUMENT_ROOT']}/Public/Scripts/PHP/Environment.php";
 /**
  * Simplifying the use of PHPMailer
  */
@@ -33,7 +30,7 @@ class Mail
      */
     public function __construct()
     {
-        $this->PHPMailer = new PHPMailer(true);
+        $this->PHPMailer = new PHPMailer\PHPMailer\PHPMailer(true);
     }
     // Recipient accessor method
     public function getRecipient()
