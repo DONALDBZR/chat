@@ -88,6 +88,17 @@ class Login extends User
             $this->PDO->bind(":LoginsUser", $this->getUser());
             $this->PDO->bind(":LoginsTimeIn", $this->getTimeIn());
             $this->PDO->execute();
+            $this->PDO->query("SELECT * FROM Chat.Logins WHERE LoginsUser = :LoginsUser AND LoginsTimeIn = :LoginsTimeIn");
+            $this->PDO->bind(":LoginsUser", $this->getUser());
+            $this->PDO->bind(":LoginsTimeIn", $this->getTimeIn());
+            $this->PDO->execute();
+            $this->setId($this->PDO->resultSet()[0]['LoginsId']);
+            $login = array(
+                "id" => $this->getId(),
+                "user" => $this->getUser(),
+                "timeIn" => $this->getTimeIn()
+            );
+            $_SESSION['Login'] = $login;
             $this->login();
         } else {
             $json = array(
