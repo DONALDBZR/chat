@@ -25,6 +25,7 @@ class Login extends User
     // Constructor method
     public function __construct()
     {
+        $this->PDO = new PHPDataObject();
     }
     // ID accessor method
     public function getId()
