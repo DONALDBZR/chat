@@ -1,6 +1,8 @@
 <?php
 // Importing PDO
 require_once "{$_SERVER['DOCUMENT_ROOT']}/Public/Scripts/PHP/PDO.php";
+// Importing Mail
+require_once "{$_SERVER['DOCUMENT_ROOT']}/Public/Scripts/PHP/Mail.php";
 /**
  * • The class that stores all the properties that are related to the user as well as all the actions that are going to be performed in the application by any user.
  * • The class variables are set the same way as the fields in the Users table.  In fact, the class represents a record.
@@ -27,11 +29,17 @@ class User
      * PDO which will interact with the database server
      */
     protected PHPDataObject $PDO;
+    /**
+     * Mail which will interact with PHPMailer
+     */
+    protected Mail $Mail;
     // Constructor method
     public function __construct()
     {
         // Instantiating PDO
         $this->PDO = new PHPDataObject();
+        // Instantiating Mail
+        $this->Mail = new Mail();
     }
     // Username accessor method
     public function getUsername()
@@ -121,29 +129,20 @@ class User
                 $this->PDO->bind(":UsersUsername", $this->getUsername());
                 $this->PDO->execute();
                 if (empty($this->PDO->resultSet())) {
-                    if ($json->password == $json->confirmPassword) {
-                        $this->setPassword($json->password);
-                        $this->PDO->query("INSERT INTO Chat.Users(UsersUsername, UsersMailAddress, UsersPassword) VALUES (:UsersUsername, :UsersMailAddress, :UsersPassword)");
-                        $this->PDO->bind(":UsersUsername", $this->getUsername());
-                        $this->PDO->bind(":UsersMailAddress", $this->getMailAddress());
-                        $this->PDO->bind(":UsersPassword", password_hash($this->getPassword(), PASSWORD_ARGON2I));
-                        $this->PDO->execute();
-                        $json = array(
-                            "success" => "success",
-                            "url" => "{$this->domain}/Login",
-                            "message" => "Account created!"
-                        );
-                        header('Content-Type: application/json');
-                        echo json_encode($json);
-                    } else {
-                        $json = array(
-                            "success" => "failure",
-                            "url" => "{$this->domain}/Register",
-                            "message" => "The passwords are not equal!"
-                        );
-                        header('Content-Type: application/json');
-                        echo json_encode($json);
-                    }
+                    $this->setPassword($this->generatePassword());
+                    $this->Mail->send($this->getMailAddress(), "Registration Complete", "Your password is {$this->getPassword()}.  Please consider to change it after logging in!");
+                    $this->PDO->query("INSERT INTO Chat.Users(UsersUsername, UsersMailAddress, UsersPassword) VALUES (:UsersUsername, :UsersMailAddress, :UsersPassword)");
+                    $this->PDO->bind(":UsersUsername", $this->getUsername());
+                    $this->PDO->bind(":UsersMailAddress", $this->getMailAddress());
+                    $this->PDO->bind(":UsersPassword", password_hash($this->getPassword(), PASSWORD_ARGON2I));
+                    $this->PDO->execute();
+                    $json = array(
+                        "success" => "success",
+                        "url" => "{$this->domain}/Login",
+                        "message" => "Account created!"
+                    );
+                    header('Content-Type: application/json');
+                    echo json_encode($json);
                 } else {
                     $json = array(
                         "success" => "failure",
@@ -157,7 +156,7 @@ class User
                 $json = array(
                     "success" => "failure",
                     "url" => "{$this->domain}/Login",
-                    "message" => "Account exists!"
+                    "message" => "Account exists with this mail address!"
                 );
                 header('Content-Type: application/json');
                 echo json_encode($json);
@@ -189,8 +188,9 @@ class User
     /**
      * Generating a password for the user
      */
-    public function generatePassword(int $length = 16)
+    public function generatePassword()
     {
+        $length = 16;
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+-*/.';
         $charactersLength = strlen($characters);
         $randomString = '';
