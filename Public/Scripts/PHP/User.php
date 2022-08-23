@@ -186,4 +186,17 @@ class User
         header('Content-Type: application/json');
         echo json_encode($json);
     }
+    /**
+     * Generating a password for the user
+     */
+    public function generatePassword(int $length = 16)
+    {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+-*/.';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($index = 0; $index < $length; $index++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
 }
