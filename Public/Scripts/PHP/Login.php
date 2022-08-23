@@ -22,4 +22,50 @@ class Login extends User
      * The time at which the user has logged out the application
      */
     private string $timeOut;
+    // Constructor method
+    public function __construct()
+    {
+    }
+    // ID accessor method
+    public function getId()
+    {
+        return $this->id;
+    }
+    // ID mutator method
+    public function setId(int $id)
+    {
+        $this->id = $id;
+    }
+    // User accessor method
+    public function getUser()
+    {
+        return $this->user;
+    }
+    // User mutator method
+    public function setUser(string $user)
+    {
+        $this->user = $user;
+    }
+    // Time In accessor method
+    public function getTimeIn()
+    {
+        return $this->timeIn;
+    }
+    // Time In mutator method
+    public function setTimeIn()
+    {
+        date_default_timezone_set('Indian/Mauritius');
+        $this->timeIn = date("Y-m-d H:i:s");
+    }
+    // Time Out accessor method
+    public function getTimeOut()
+    {
+        return $this->timeOut;
+    }
+    // Time Out mutator method
+    public function setTimeOut()
+    {
+        date_default_timezone_set('Indian/Mauritius');
+        $this->timeOut = date("Y-m-d H:i:s");
+    }
 }
