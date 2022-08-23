@@ -70,7 +70,6 @@ class Login extends User
         $this->timeOut = date("Y-m-d H:i:s");
     }
     /**
-     * Tracking the login time of the user
      * 1. Verifying whether the user exists before allowing it to log into the application.
      */
     public function trackIn()
@@ -110,5 +109,19 @@ class Login extends User
             header('Content-Type: application/json');
             echo json_encode($json);
         }
+    }
+    /**
+     * Tracking the logout time of the user
+     */
+    public function trackOut()
+    {
+        $this->setId($_SESSION['Login']['id']);
+        $this->setTimeOut();
+        $this->PDO->query("UPDATE Chat.Logins SET LoginsTimeOut = :LoginsTimeOut WHERE LoginsId = :LoginsId");
+        $this->PDO->bind(":LoginsTimeOut", $this->getTimeOut());
+        $this->PDO->bind(":LoginsId", $this->getId());
+        $this->PDO->execute();
+        unset($_SESSION['Login']);
+        $this->logout();
     }
 }
