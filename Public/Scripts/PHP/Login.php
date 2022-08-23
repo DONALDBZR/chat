@@ -68,4 +68,35 @@ class Login extends User
         date_default_timezone_set('Indian/Mauritius');
         $this->timeOut = date("Y-m-d H:i:s");
     }
+    /**
+     * Tracking the login time of the user
+     * 1. Verifying whether the user exists before allowing it to log into the application.
+     */
+    public function trackIn()
+    {
+        $JSON = json_decode(file_get_contents('php://input'));
+        $this->PDO->query("SELECT * FROM Chat.Users WHERE UsersUsername = :UsersUsername");
+        $this->PDO->bind(":UsersUsername", $JSON->username);
+        $this->PDO->execute();
+        if (!empty($this->PDO->resultSet())) {
+            $this->setUsername($this->PDO->resultSet()[0]['UsersUsername']);
+            $this->setMailAddress($this->PDO->resultSet()[0]['UsersMailAddress']);
+            $this->setPassword($this->PDO->resultSet()[0]['UsersPassword']);
+            $this->setUser($this->getUsername());
+            $this->setTimeIn();
+            $this->PDO->query("INSERT INTO Chat.Logins (LoginsUser, LoginsTimeIn) VALUES (:LoginsUser, :LoginsTimeIn)");
+            $this->PDO->bind(":LoginsUser", $this->getUser());
+            $this->PDO->bind(":LoginsTimeIn", $this->getTimeIn());
+            $this->PDO->execute();
+            $this->login();
+        } else {
+            $json = array(
+                "success" => "failure",
+                "url" => "{$this->domain}/",
+                "message" => "You do not have an account!"
+            );
+            header('Content-Type: application/json');
+            echo json_encode($json);
+        }
+    }
 }
