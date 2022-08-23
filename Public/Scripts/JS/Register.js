@@ -20,7 +20,6 @@ class Application extends React.Component {
              * Password of the user
              */
             password: "",
-            confirmPassword: "",
             /**
              * Domain of the application
              */
@@ -66,8 +65,6 @@ class Application extends React.Component {
             body: JSON.stringify({
                 username: this.state.username,
                 mailAddress: this.state.mailAddress,
-                password: this.state.password,
-                confirmPassword: this.state.confirmPassword,
             }),
             headers: {
                 "Content-Type": "application/json",
@@ -147,22 +144,6 @@ class Form extends Main {
                     name="mailAddress"
                     placeholder="Mail Address"
                     value={this.state.mailAddress}
-                    onChange={this.handleChange.bind(this)}
-                    required
-                />
-                <input
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    value={this.state.password}
-                    onChange={this.handleChange.bind(this)}
-                    required
-                />
-                <input
-                    type="password"
-                    name="confirmPassword"
-                    placeholder="Confirm Password"
-                    value={this.state.confirmPassword}
                     onChange={this.handleChange.bind(this)}
                     required
                 />
