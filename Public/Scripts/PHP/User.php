@@ -72,42 +72,26 @@ class User
     public function login()
     {
         $json = json_decode(file_get_contents('php://input'));
-        $this->PDO->query("SELECT * FROM Chat.Users WHERE UsersUsername = :UsersUsername");
-        $this->PDO->bind(":UsersUsername", $json->username);
-        $this->PDO->execute();
-        if (!empty($this->PDO->resultSet())) {
-            $this->setUsername($this->PDO->resultSet()[0]['UsersUsername']);
-            $this->setMailAddress($this->PDO->resultSet()[0]['UsersMailAddress']);
-            if (password_verify($json->password, $this->PDO->resultSet()[0]['UsersPassword'])) {
-                $this->setPassword($this->PDO->resultSet()[0]['UsersPassword']);
-                $user = array(
-                    "username" => $this->getUsername(),
-                    "mailAddress" => $this->getMailAddress(),
-                    "password" => $this->getPassword(),
-                    "domain" => $this->domain,
-                );
-                $_SESSION['User'] = $user;
-                $json = array(
-                    "success" => "success",
-                    "url" => "{$this->domain}/User/Dashboard/{$this->getUsername()}",
-                    "message" => "You will be connected to the service as soon as possible..."
-                );
-                header('Content-Type: application/json');
-                echo json_encode($json);
-            } else {
-                $json = array(
-                    "success" => "failure",
-                    "url" => "{$this->domain}/Login",
-                    "message" => "Your password is incorrect!"
-                );
-                header('Content-Type: application/json');
-                echo json_encode($json);
-            }
+        if (password_verify($json->password, $this->getPassword())) {
+            $user = array(
+                "username" => $this->getUsername(),
+                "mailAddress" => $this->getMailAddress(),
+                "password" => $this->getPassword(),
+                "domain" => $this->domain,
+            );
+            $_SESSION['User'] = $user;
+            $json = array(
+                "success" => "success",
+                "url" => "{$this->domain}/User/Dashboard/{$this->getUsername()}",
+                "message" => "You will be connected to the service as soon as possible..."
+            );
+            header('Content-Type: application/json');
+            echo json_encode($json);
         } else {
             $json = array(
                 "success" => "failure",
-                "url" => "{$this->domain}/",
-                "message" => "You do not have an account!"
+                "url" => "{$this->domain}/Login",
+                "message" => "Your password is incorrect!"
             );
             header('Content-Type: application/json');
             echo json_encode($json);
