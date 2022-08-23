@@ -172,4 +172,18 @@ class User
             echo json_encode($json);
         }
     }
+    /**
+     * Logging out the user from the application
+     */
+    public function logout()
+    {
+        unset($_SESSION['User']);
+        $json = array(
+            "success" => "success",
+            "url" => "{$this->domain}",
+            "message" => "You have been successfully logged out!"
+        );
+        header('Content-Type: application/json');
+        echo json_encode($json);
+    }
 }
