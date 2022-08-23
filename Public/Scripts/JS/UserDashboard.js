@@ -25,6 +25,14 @@ class Application extends React.Component {
              */
             domain: "",
             /**
+             * The link to the dashboard of the user
+             */
+            home: "",
+            /**
+             * The link to the profile of the user
+             */
+            profile: "",
+            /**
              * An HTML's id attribute that will be used for rendering the message that will be displayed to the user
              */
             success: "",
@@ -100,6 +108,8 @@ class Application extends React.Component {
             mailAddress: data.mailAddress,
             password: data.password,
             domain: data.domain,
+            home: `/User/Dashboard/${data.username}`,
+            profile: `/User/Profile/${data.username}`,
         }));
     }
     /**
@@ -113,7 +123,6 @@ class Application extends React.Component {
      * @returns {Application} Components
      */
     render() {
-        console.log(`Username: ${this.state.username}\nMail Address: ${this.state.mailAddress}\nPassword: ${this.state.password}\nDomain: ${this.state.domain}\n`);
         return [<Header />, <Main />, <Footer />];
     }
 }
@@ -121,39 +130,51 @@ class Application extends React.Component {
  * The header component of the application which has the header tag as parent
  */
 class Header extends Application {
+    constructor(props) {
+        super(props);
+    }
     /**
      * Returning components to the DOM for them to be rendered
      * @returns {Application} Components
      */
     render() {
-        /**
-         * The link to the dashboard of the user
-         */
-        const home = `/User/Dashboard/${this.state.username}`;
-        /**
-         * The link to the profile of the user
-         */
-        const profile = `/User/Profile/${this.state.username}`;
         return (
             <header>
-                <nav>
-                    <div id="home">
-                        <a href={home}>
-                            <i class="fa fa-home"></i>
-                        </a>
-                    </div>
-                    <div id="profile">
-                        <a href={profile}>
-                            <i class="fa fa-user"></i>
-                        </a>
-                    </div>
-                    <div id="logout">
-                        <a href="/Sign-Out">
-                            <i class="fa fa-sign-out"></i>
-                        </a>
-                    </div>
-                </nav>
+                <NavigationBar />
             </header>
+        );
+    }
+}
+/**
+ * The navigation bar component of the application othe header which has the nav tag as parent
+ */
+class NavigationBar extends Header {
+    constructor(props) {
+        super(props);
+    }
+    /**
+     * Returning components to the DOM for them to be rendered
+     * @returns {Application} Components
+     */
+    render() {
+        return (
+            <nav>
+                <div id="home">
+                    <a href={this.state.home}>
+                        <i class="fa fa-home"></i>
+                    </a>
+                </div>
+                <div id="profile">
+                    <a href={this.state.profile}>
+                        <i class="fa fa-user"></i>
+                    </a>
+                </div>
+                <div id="logout">
+                    <a href="/Sign-Out">
+                        <i class="fa fa-sign-out"></i>
+                    </a>
+                </div>
+            </nav>
         );
     }
 }
