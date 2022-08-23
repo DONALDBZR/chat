@@ -22,6 +22,10 @@ class User
      */
     private string $password;
     /**
+     * The one-time password needed for the user to complete the login process
+     */
+    private string $otp;
+    /**
      * The domain of the application
      */
     public $domain = "http://chat.local";
@@ -71,6 +75,16 @@ class User
     {
         $this->password = $password;
     }
+    // One-Time Password accessor method
+    public function getOtp()
+    {
+        return $this->otp;
+    }
+    // One-Time Password mutator method
+    public function setOtp(string $otp)
+    {
+        $this->otp = $otp;
+    }
     /**
      * 1. Checking whether the mail address or username retrieved from the JSON exists in the database.
      * 2. In the condition that the mail address or username existed, verify that the password retrieved is the same as the one that is in the database.
@@ -95,10 +109,12 @@ class User
                     "domain" => $this->domain,
                 );
                 $_SESSION['User'] = $user;
+                $this->setOtp($this->otpGenerate());
+                $this->Mail->send($this->getMailAddress(), "Verification Needed!", "Your one-time password is {$this->getOtp()}.  Please use this password to complete the log in process on {$this->domain}/Login/Verification");
                 $json = array(
                     "success" => "success",
                     "url" => "{$this->domain}/Login/Verification",
-                    "message" => "You will be redirected to the verification process just to be sure! 🙏"
+                    "message" => "You will be redirected to the verification process just to be sure and a password has been sent to you for that! 🙏"
                 );
                 header('Content-Type: application/json');
                 echo json_encode($json);
@@ -208,6 +224,20 @@ class User
     {
         $length = 16;
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+-*/.';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($index = 0; $index < $length; $index++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
+    /**
+     * Generating an one-time password for the user
+     */
+    public function otpGenerate()
+    {
+        $length = 6;
+        $characters = '0123456789';
         $charactersLength = strlen($characters);
         $randomString = '';
         for ($index = 0; $index < $length; $index++) {
