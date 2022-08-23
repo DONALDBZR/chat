@@ -163,7 +163,11 @@ class Form extends Main {
 class Footer extends Application {
     // Render method
     render() {
-        return <footer></footer>;
+        return (
+            <footer>
+                <div>You have forgotten your password?  You can reset it <a href="/ForgotPassword">here</a></div>
+            </footer>
+        );
     }
 }
 // Rendering page
