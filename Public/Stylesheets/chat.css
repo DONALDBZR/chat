@@ -75,11 +75,13 @@ body {
     color: var(--color2);
 }
 #login header div,
+#loginVerfication header div,
 #register header div {
     display: flex;
     justify-content: center;
 }
 #login header div a,
+#loginVerfication header div a,
 #register header div a {
     text-decoration: none;
     color: var(--color2);
@@ -87,21 +89,25 @@ body {
     font-size: calc(var(--percentage) * 2);
 }
 #login header div a:hover,
+#loginVerfication header div a:hover,
 #register header div a:hover {
     text-decoration: underline;
 }
 #login main,
+#loginVerification main,
 #register main {
     display: flex;
     justify-content: center;
 }
 #login main form,
+#loginVerification main form,
 #register main form {
     width: calc(var(--percentage) / 3);
     padding: calc(var(--percentage) * 0.01);
     background-color: var(--color2);
 }
 #login main form .label,
+#loginVerification main form .label,
 #register main form .label {
     margin: calc(var(--percentage) * 0.02);
     font-family: var(--sourceCodePro);
@@ -111,6 +117,7 @@ body {
     text-align: center;
 }
 #login main form input,
+#loginVerification main form input,
 #register main form input {
     width: calc(var(--percentage) * 0.94);
     margin: calc(var(--percentage) * 0.01) calc(var(--percentage) * 0.02);
@@ -119,10 +126,12 @@ body {
     color: var(--color1);
 }
 #login main form #button,
+#loginVerification main form #button,
 #register main form #button {
     margin: calc(var(--percentage) * 0.02);
 }
 #login main form #button button,
+#loginVerification main form #button button,
 #register main form #button button {
     width: var(--percentage);
     color: var(--color2);
@@ -135,15 +144,18 @@ body {
     padding: calc(var(--percentage) * 0.0125);
 }
 #login main form #button button:hover,
+#loginVerification main form #button button:hover,
 #register main form #button button:hover {
     color: var(--color1);
     background-color: var(--color2);
 }
 #login main form #serverRendering,
+#loginVerification main form #serverRendering,
 #register main form #serverRendering {
     text-align: center;
 }
 #login main form #serverRendering h1,
+#loginVerification main form #serverRendering h1,
 #register main form #serverRendering h1 {
     font-family: var(--proximaNova);
     font-weight: bold;
