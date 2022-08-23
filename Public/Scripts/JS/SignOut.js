@@ -101,16 +101,17 @@ class Application extends React.Component {
      * Retrieving the Session data that is stored in the JSON to be used on the front-end
      */
     retrieveData() {
-        fetch("/User", {
+        /**
+         * The amount of milliseconds that the registration process takes
+         */
+        const delay = 3600000;
+        fetch("/User/LogOut", {
             method: "GET"
         }).then((response) => response.json()).then((data) => this.setState({
-            username: data.username,
-            mailAddress: data.mailAddress,
-            password: data.password,
-            domain: data.domain,
-            home: `/User/Dashboard/${data.username}`,
-            profile: `/User/Profile/${data.username}`,
-        }));
+            success: data.success,
+            message: data.message,
+            url: data.url,
+        })).then(() => this.redirector(delay));
     }
     /**
      * 1. Retrieving the session data as soon as the component is mount
@@ -140,41 +141,8 @@ class Header extends Application {
     render() {
         return (
             <header>
-                <NavigationBar />
+                <h1 id={this.state.success}>{this.state.message}</h1>
             </header>
-        );
-    }
-}
-/**
- * The navigation bar component of the application othe header which has the nav tag as parent
- */
-class NavigationBar extends Header {
-    constructor(props) {
-        super(props);
-    }
-    /**
-     * Returning components to the DOM for them to be rendered
-     * @returns {Application} Components
-     */
-    render() {
-        return (
-            <nav>
-                <div id="home">
-                    <a href={this.state.home}>
-                        <i class="fa fa-home"></i>
-                    </a>
-                </div>
-                <div id="profile">
-                    <a href={this.state.profile}>
-                        <i class="fa fa-user"></i>
-                    </a>
-                </div>
-                <div id="logout">
-                    <a href="/Sign-Out">
-                        <i class="fa fa-sign-out"></i>
-                    </a>
-                </div>
-            </nav>
         );
     }
 }
@@ -210,4 +178,4 @@ class Footer extends Application {
     }
 }
 // Rendering page
-ReactDOM.render(<Application />, document.getElementById("userDashboard"));
+ReactDOM.render(<Application />, document.getElementById("signOut"));
