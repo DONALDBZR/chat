@@ -90,6 +90,19 @@ class Application extends React.Component {
             window.location.href = this.state.url;
         }, delay);
     }
+    /**
+     * Adding the stylesheet to the Application
+     */
+    stylesheet() {
+        const link = document.createElement("link");
+        link.href = "/Public/Stylesheets/chat.css";
+        link.rel = "stylesheet";
+        link.type = "text/css";
+        document.head.appendChild(link);
+    }
+    componentDidMount() {
+        this.stylesheet();
+    }
     render() {
         return [<Header />, <Main />, <Footer />];
     }
