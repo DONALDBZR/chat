@@ -58,7 +58,7 @@ class Application extends React.Component {
         /**
          * The amount of milliseconds that the login process takes
          */
-        const delay = 3200;
+        const delay = 2025;
         event.preventDefault();
         fetch("/Controllers/Login.php", {
             method: "POST",
