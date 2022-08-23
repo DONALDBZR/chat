@@ -74,9 +74,8 @@ class Login extends User
      */
     public function trackIn()
     {
-        $JSON = json_decode(file_get_contents('php://input'));
         $this->PDO->query("SELECT * FROM Chat.Users WHERE UsersUsername = :UsersUsername");
-        $this->PDO->bind(":UsersUsername", $JSON->username);
+        $this->PDO->bind(":UsersUsername", $_SESSION['User']['username']);
         $this->PDO->execute();
         if (!empty($this->PDO->resultSet())) {
             $this->setUsername($this->PDO->resultSet()[0]['UsersUsername']);
@@ -99,7 +98,7 @@ class Login extends User
                 "timeIn" => $this->getTimeIn()
             );
             $_SESSION['Login'] = $login;
-            $this->login();
+            $this->otpVerify();
         } else {
             $json = array(
                 "success" => "failure",
