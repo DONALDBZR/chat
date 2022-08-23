@@ -164,9 +164,7 @@ class Footer extends Application {
     // Render method
     render() {
         return (
-            <footer>
-                <div>You have forgotten your password?  You can reset it <a href="/ForgotPassword">here</a></div>
-            </footer>
+            <footer>You have forgotten your password?  You can reset it <a href="/ForgotPassword">here</a></footer>
         );
     }
 }
