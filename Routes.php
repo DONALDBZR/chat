@@ -47,6 +47,9 @@ switch ($_SERVER['REQUEST_METHOD']) {
             case '/Login/Verification':
                 $Router = new Router("POST", "/Login/Verification", "/Controllers/LoginVerification.php");
                 break;
+            case '/ForgotPassword':
+                $Router = new Router("POST", "/ForgotPassword", "/Controllers/ForgotPassword.php");
+                break;
         }
         break;
 }
