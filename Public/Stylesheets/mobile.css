@@ -72,27 +72,16 @@ body {
     margin-top: calc(var(--percentage) * 0.01);
     font-size: calc(var(--percentage) * var(--mobile) * 1.458);
 }
-#userDashboard header nav {
-    display: flex;
-}
 #userDashboard header nav #home {
     width: calc(var(--percentage) / 2);
-    text-align: center;
 }
 #userDashboard header nav #profile,
 #userDashboard header nav #logout {
     width: calc(var(--percentage) / 4);
-    text-align: center;
 }
 #userDashboard header nav div a {
-    font-size: calc(var(--percentage) * 2);
-    color: var(--color5);
-}
-#userDashboard header nav div a:hover {
-    color: var(--color2);
+    font-size: calc(var(--percentage) * var(--mobile) * 2);
 }
 #signOut header h1 {
-    text-align: center;
-    font-family: var(--sourceCodePro);
-    font-size: calc(var(--percentage) * 2);
+    font-size: calc(var(--percentage) * var(--mobile) * 2);
 }
