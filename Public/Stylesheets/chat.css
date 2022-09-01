@@ -78,7 +78,6 @@ body {
     text-decoration: none;
     color: var(--color2);
     font-family: var(--sourceCodePro);
-    font-size: calc(var(--percentage) * 2);
 }
 #login header div a:hover,
 #loginVerification header div a:hover,
@@ -97,18 +96,14 @@ body {
 #loginVerification main form,
 #register main form,
 #forgotPassword main form {
-    width: calc(var(--percentage) / 3);
-    padding: calc(var(--percentage) * 0.01);
     background-color: var(--color2);
 }
 #login main form .label,
 #loginVerification main form .label,
 #register main form .label,
 #forgotPassword main form .label {
-    margin: calc(var(--percentage) * 0.02);
     font-family: var(--sourceCodePro);
     font-weight: bold;
-    font-size: calc(var(--percentage) * 1.331);
     color: var(--color1);
     text-align: center;
 }
@@ -116,31 +111,19 @@ body {
 #loginVerification main form input,
 #register main form input,
 #forgotPassword main form input {
-    width: calc(var(--percentage) * 0.94);
-    margin: calc(var(--percentage) * 0.01) calc(var(--percentage) * 0.02);
-    font-size: var(--percentage);
     font-family: var(--proximaNova);
     color: var(--color1);
-}
-#login main form #button,
-#loginVerification main form #button,
-#register main form #button,
-#forgotPassword main form #button {
-    margin: calc(var(--percentage) * 0.02);
 }
 #login main form #button button,
 #loginVerification main form #button button,
 #register main form #button button,
 #forgotPassword main form #button button {
-    width: var(--percentage);
     color: var(--color2);
     background-color: var(--color1);
     cursor: pointer;
-    font-size: var(--percentage);
     font-family: var(--proximaNova);
     font-weight: bold;
     border: none;
-    padding: calc(var(--percentage) * 0.0125);
 }
 #login main form #button button:hover,
 #loginVerification main form #button button:hover,
@@ -162,7 +145,6 @@ body {
     font-family: var(--proximaNova);
     font-weight: bold;
     width: unset;
-    font-size: calc(var(--percentage) * 1.331);
 }
 #success {
     color: var(--color4);
@@ -172,9 +154,7 @@ body {
 }
 #register footer,
 #login footer {
-    margin-top: calc(var(--percentage) * 0.01);
     text-align: center;
-    font-size: var(--percentage);
     font-family: var(--sourceCodePro);
 }
 #register footer a,
@@ -210,6 +190,4 @@ body {
     text-align: center;
     font-family: var(--sourceCodePro);
     font-size: calc(var(--percentage) * 2);
-}
-@media screen and (min-width: var(--desktopWidth)) {
 }
