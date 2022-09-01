@@ -9,7 +9,7 @@ body {
 }
 #http404 header h1,
 #homepage header h1 {
-    font-size: calc(var(--percentage) * 2 * var(--tablet));
+    font-size: calc(var(--percentage) * var(--tablet) * 4);
     margin: calc(var(--percentage) * 0);
 }
 #http404 header h1 {
@@ -22,8 +22,8 @@ body {
     margin-top: calc(var(--percentage) * 0.01);
 }
 #homepage main a {
-    font-size: calc(var(--percentage) * 1.8 * var(--tablet));
-    padding: calc(var(--percentage) * 0.1) calc(var(--percentage) * 0.2);
+    font-size: calc(var(--percentage) * var(--tablet) * 2.9282);
+    padding: calc(var(--pixelate) / 240) calc(var(--pixelate) / 120);
 }
 #login header div,
 #loginVerification header div,
