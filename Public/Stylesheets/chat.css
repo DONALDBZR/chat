@@ -25,13 +25,6 @@
     src: url("/Public/Fonts/Chopsic.otf");
 }
 :root {
-    --percentage: 100%;
-    --pixelate: 1080px;
-    --desktopWidth: calc(var(--pixelate) * 683 / 540);
-    --tabletWidth: calc(var(--pixelate) * 16 / 27);
-    --phoneWidth: calc(var(--pixelate) * 8 / 27);
-    --tablet: 0.729;
-    --mobile: 0.531441;
     --color1: rgb(32, 32, 32);
     --color2: rgb(255, 255, 255);
     --color3: rgb(255, 0, 0);
@@ -45,14 +38,10 @@ body {
     background-color: var(--color1);
     color: var(--color2);
     font-family: sans-serif;
-    margin: calc(var(--percentage) * 0);
-    font-size: var(--percentage);
 }
 #http404 header h1,
 #homepage header h1 {
     text-align: center;
-    font-size: calc(var(--percentage) * 2);
-    margin: calc(var(--percentage) * 0);
 }
 #http404 header h1 {
     text-transform: uppercase;
@@ -63,16 +52,13 @@ body {
 #homepage main {
     display: flex;
     justify-content: space-evenly;
-    margin-top: calc(var(--percentage) * 0.01);
 }
 #homepage main a {
     font-family: var(--proximaNova);
-    font-size: calc(var(--percentage) * 1.8);
     text-decoration: none;
     font-weight: bold;
     background-color: var(--color2);
     color: var(--color1);
-    padding: calc(var(--percentage) * 0.1) calc(var(--percentage) * 0.2);
 }
 #homepage main a:hover {
     background-color: var(--color1);
