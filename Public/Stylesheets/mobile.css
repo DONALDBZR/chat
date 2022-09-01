@@ -80,7 +80,7 @@ body {
     width: calc(var(--percentage) / 4);
 }
 #userDashboard header nav div a {
-    font-size: calc(var(--percentage) * var(--mobile) * 2);
+    font-size: calc(var(--percentage) * var(--mobile) * 4);
 }
 #signOut header h1 {
     font-size: calc(var(--percentage) * var(--mobile) * 2);
