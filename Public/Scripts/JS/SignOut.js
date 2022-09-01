@@ -62,7 +62,7 @@ class Application extends React.Component {
         /**
          * The amount of milliseconds that the registration process takes
          */
-        const delay = 2880;
+        const delay = 8294400;
         fetch("/User/LogOut", {
             method: "GET"
         }).then((response) => response.json()).then((data) => this.setState({
