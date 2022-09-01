@@ -154,46 +154,20 @@ class User
         $this->PDO->bind(":UsersMailAddress", $this->getMailAddress());
         $this->PDO->execute();
         if (empty($this->PDO->resultSet())) {
-            $this->PDO->query("SELECT * FROM Chat.Users WHERE UsersMailAddress = :UsersMailAddress");
+            $this->setPassword($this->generatePassword());
+            $this->Mail->send($this->getMailAddress(), "Registration Complete", "Your account with username, {$this->getUsername()} and password, {$this->getPassword()} has been created.  Please consider to change it after logging in!");
+            $this->PDO->query("INSERT INTO Chat.Users(UsersUsername, UsersMailAddress, UsersPassword) VALUES (:UsersUsername, :UsersMailAddress, :UsersPassword)");
+            $this->PDO->bind(":UsersUsername", $this->getUsername());
             $this->PDO->bind(":UsersMailAddress", $this->getMailAddress());
+            $this->PDO->bind(":UsersPassword", password_hash($this->getPassword(), PASSWORD_ARGON2I));
             $this->PDO->execute();
-            if (empty($this->PDO->resultSet())) {
-                $this->PDO->query("SELECT * FROM Chat.Users WHERE UsersUsername = :UsersUsername");
-                $this->PDO->bind(":UsersUsername", $this->getUsername());
-                $this->PDO->execute();
-                if (empty($this->PDO->resultSet())) {
-                    $this->setPassword($this->generatePassword());
-                    $this->Mail->send($this->getMailAddress(), "Registration Complete", "Your password is {$this->getPassword()} and please consider to change it after logging in!");
-                    $this->PDO->query("INSERT INTO Chat.Users(UsersUsername, UsersMailAddress, UsersPassword) VALUES (:UsersUsername, :UsersMailAddress, :UsersPassword)");
-                    $this->PDO->bind(":UsersUsername", $this->getUsername());
-                    $this->PDO->bind(":UsersMailAddress", $this->getMailAddress());
-                    $this->PDO->bind(":UsersPassword", password_hash($this->getPassword(), PASSWORD_ARGON2I));
-                    $this->PDO->execute();
-                    $json = array(
-                        "success" => "success",
-                        "url" => "{$this->domain}/Login",
-                        "message" => "Account created!  Please check your mail to obtain your password!"
-                    );
-                    header('Content-Type: application/json');
-                    echo json_encode($json);
-                } else {
-                    $json = array(
-                        "success" => "failure",
-                        "url" => "{$this->domain}/Register",
-                        "message" => "This username already exists!  Choose another one!"
-                    );
-                    header('Content-Type: application/json');
-                    echo json_encode($json);
-                }
-            } else {
-                $json = array(
-                    "success" => "failure",
-                    "url" => "{$this->domain}/Login",
-                    "message" => "Account exists with this mail address!"
-                );
-                header('Content-Type: application/json');
-                echo json_encode($json);
-            }
+            $json = array(
+                "success" => "success",
+                "url" => "{$this->domain}/Login",
+                "message" => "Account created!  Please check your mail to obtain your password!"
+            );
+            header('Content-Type: application/json');
+            echo json_encode($json);
         } else {
             $json = array(
                 "success" => "failure",
