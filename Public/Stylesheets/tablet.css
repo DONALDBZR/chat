@@ -12,9 +12,6 @@ body {
     font-size: calc(var(--percentage) * var(--tablet) * 4);
     margin: calc(var(--percentage) * 0);
 }
-#http404 header h1 {
-    text-transform: uppercase;
-}
 #http404 header #code {
     color: var(--color3);
 }
