@@ -1,8 +1,6 @@
 :root {
     --percentage: 100%;
     --pixelate: 1080px;
-    --tablet: 0.729;
-    --mobile: 0.531441;
 }
 body {
     margin: calc(var(--percentage) * 0);
