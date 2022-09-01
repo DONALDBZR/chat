@@ -58,7 +58,7 @@ class Application extends React.Component {
         /**
          * The amount of milliseconds that the registration process takes
          */
-        const delay = 2225;
+        const delay = 3760;
         event.preventDefault();
         fetch("/Controllers/Register.php", {
             method: "POST",
