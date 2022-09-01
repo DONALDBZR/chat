@@ -23,13 +23,13 @@ body {
 #loginVerification header div a,
 #register header div a,
 #forgotPassword header div a {
-    font-size: calc(var(--percentage) * var(--mobile) * 2);
+    font-size: calc(var(--percentage) * var(--mobile) * 4);
 }
 #login main form,
 #loginVerification main form,
 #register main form,
 #forgotPassword main form {
-    width: calc(var(--percentage) / 3);
+    width: calc(var(--percentage) * 0.9);
     padding: calc(var(--percentage) * 0.01);
 }
 #login main form .label,
@@ -37,7 +37,7 @@ body {
 #register main form .label,
 #forgotPassword main form .label {
     margin: calc(var(--percentage) * 0.02);
-    font-size: calc(var(--percentage) * var(--mobile) * 1.331);
+    font-size: calc(var(--percentage) * var(--mobile) * 2.662);
 }
 #login main form input,
 #loginVerification main form input,
@@ -45,7 +45,7 @@ body {
 #forgotPassword main form input {
     width: calc(var(--percentage) * 0.94);
     margin: calc(var(--percentage) * 0.01) calc(var(--percentage) * 0.02);
-    font-size: calc(var(--percentage) * var(--mobile));
+    font-size: calc(var(--percentage) * var(--mobile) * 2);
 }
 #login main form #button,
 #loginVerification main form #button,
@@ -58,19 +58,19 @@ body {
 #register main form #button button,
 #forgotPassword main form #button button {
     width: var(--percentage);
-    font-size: calc(var(--percentage) * var(--mobile));
+    font-size: calc(var(--percentage) * var(--mobile) * 2);
     padding: calc(var(--percentage) * 0.0125);
 }
 #login main form #serverRendering h1,
 #loginVerification main form #serverRendering h1,
 #register main form #serverRendering h1,
 #forgotPassword main form #serverRendering h1 {
-    font-size: calc(var(--percentage) * var(--mobile) * 1.331);
+    font-size: calc(var(--percentage) * var(--mobile) * 2.662);
 }
 #register footer,
 #login footer {
     margin-top: calc(var(--percentage) * 0.01);
-    font-size: calc(var(--percentage) * var(--mobile));
+    font-size: calc(var(--percentage) * var(--mobile) * 1.458);
 }
 #userDashboard header nav {
     display: flex;
