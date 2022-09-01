@@ -12,9 +12,6 @@ body {
     font-size: calc(var(--percentage) * var(--tablet) * 4);
     margin: calc(var(--percentage) * 0);
 }
-#http404 header #code {
-    color: var(--color3);
-}
 #homepage main {
     margin-top: calc(var(--percentage) * 0.01);
 }
@@ -22,34 +19,11 @@ body {
     font-size: calc(var(--percentage) * var(--tablet) * 2.9282);
     padding: calc(var(--pixelate) / 240) calc(var(--pixelate) / 120);
 }
-#login header div,
-#loginVerification header div,
-#register header div,
-#forgotPassword header div {
-    display: flex;
-    justify-content: center;
-}
 #login header div a,
 #loginVerification header div a,
 #register header div a,
 #forgotPassword header div a {
-    text-decoration: none;
-    color: var(--color2);
-    font-family: var(--sourceCodePro);
-    font-size: calc(var(--percentage) * 2);
-}
-#login header div a:hover,
-#loginVerification header div a:hover,
-#register header div a:hover,
-#forgotPassword header div a:hover {
-    text-decoration: underline;
-}
-#login main,
-#loginVerification main,
-#register main,
-#forgotPassword main {
-    display: flex;
-    justify-content: center;
+    font-size: calc(var(--percentage) * var(--tablet) * 2);
 }
 #login main form,
 #loginVerification main form,
@@ -57,18 +31,13 @@ body {
 #forgotPassword main form {
     width: calc(var(--percentage) / 3);
     padding: calc(var(--percentage) * 0.01);
-    background-color: var(--color2);
 }
 #login main form .label,
 #loginVerification main form .label,
 #register main form .label,
 #forgotPassword main form .label {
     margin: calc(var(--percentage) * 0.02);
-    font-family: var(--sourceCodePro);
-    font-weight: bold;
-    font-size: calc(var(--percentage) * 1.331);
-    color: var(--color1);
-    text-align: center;
+    font-size: calc(var(--percentage) * var(--tablet) * 1.331);
 }
 #login main form input,
 #loginVerification main form input,
@@ -76,9 +45,7 @@ body {
 #forgotPassword main form input {
     width: calc(var(--percentage) * 0.94);
     margin: calc(var(--percentage) * 0.01) calc(var(--percentage) * 0.02);
-    font-size: var(--percentage);
-    font-family: var(--proximaNova);
-    color: var(--color1);
+    font-size: calc(var(--percentage) * var(--tablet));
 }
 #login main form #button,
 #loginVerification main form #button,
@@ -91,59 +58,19 @@ body {
 #register main form #button button,
 #forgotPassword main form #button button {
     width: var(--percentage);
-    color: var(--color2);
-    background-color: var(--color1);
-    cursor: pointer;
-    font-size: var(--percentage);
-    font-family: var(--proximaNova);
-    font-weight: bold;
-    border: none;
+    font-size: calc(var(--percentage) * var(--tablet));
     padding: calc(var(--percentage) * 0.0125);
-}
-#login main form #button button:hover,
-#loginVerification main form #button button:hover,
-#register main form #button button:hover,
-#forgotPassword main form #button button:hover {
-    color: var(--color1);
-    background-color: var(--color2);
-}
-#login main form #serverRendering,
-#loginVerification main form #serverRendering,
-#register main form #serverRendering,
-#forgotPassword main form #serverRendering {
-    text-align: center;
 }
 #login main form #serverRendering h1,
 #loginVerification main form #serverRendering h1,
 #register main form #serverRendering h1,
 #forgotPassword main form #serverRendering h1 {
-    font-family: var(--proximaNova);
-    font-weight: bold;
-    width: unset;
-    font-size: calc(var(--percentage) * 1.331);
-}
-#success {
-    color: var(--color4);
-}
-#failure {
-    color: var(--color3);
+    font-size: calc(var(--percentage) * var(--tablet) * 1.331);
 }
 #register footer,
 #login footer {
     margin-top: calc(var(--percentage) * 0.01);
-    text-align: center;
-    font-size: var(--percentage);
-    font-family: var(--sourceCodePro);
-}
-#register footer a,
-#login footer a {
-    text-decoration: none;
-    color: var(--color2);
-    font-weight: bold;
-}
-#register footer a:hover,
-#login footer a:hover {
-    text-decoration: underline;
+    font-size: calc(var(--percentage) * var(--tablet));
 }
 #userDashboard header nav {
     display: flex;
@@ -168,6 +95,4 @@ body {
     text-align: center;
     font-family: var(--sourceCodePro);
     font-size: calc(var(--percentage) * 2);
-}
-@media screen and (min-width: var(--desktopWidth)) {
 }
