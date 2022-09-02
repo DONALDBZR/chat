@@ -123,13 +123,58 @@ class Header extends Application {
  * The main component of the application which has the main tag as parent
  */
 class Main extends Application {
+    constructor(props) {
+        super(props);
+
+    }
     /**
      * Returning components to the DOM for them to be rendered
      * @returns {Application} Components
      */
     render() {
         return (
-            <main></main>
+            <main>
+                <NavigationBar />
+                <Contacts />
+            </main>
+        );
+    }
+}
+/**
+ * The navigation bar component of the application which has the nav tag as parent
+ */
+class NavigationBar extends Main {
+    constructor(props) {
+        super(props);
+    }
+    /**
+     * Returning components to the DOM for them to be rendered
+     * @returns {Application} Components
+     */
+    render() {
+        return (
+            <nav>
+                NavigationBar
+            </nav>
+        );
+    }
+}
+/**
+ * The contacts component of the application which display all the contacts that the user currently have
+ */
+class Contacts extends Main {
+    constructor(props) {
+        super(props);
+    }
+    /**
+     * Returning components to the DOM for them to be rendered
+     * @returns {Application} Components
+     */
+    render() {
+        return (
+            <div id="contacts">
+                Contacts
+            </div>
         );
     }
 }
