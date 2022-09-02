@@ -177,6 +177,9 @@ body {
     font-weight: normal;
     font-family: var(--digital7);
 }
+#userDashboard main {
+    display: flex;
+}
 #signOut header h1 {
     text-align: center;
     font-family: var(--sourceCodePro);
