@@ -120,45 +120,9 @@ class Header extends Application {
     }
 }
 /**
- * The navigation bar component of the application othe header which has the nav tag as parent
- */
-class NavigationBar extends Header {
-    constructor(props) {
-        super(props);
-    }
-    /**
-     * Returning components to the DOM for them to be rendered
-     * @returns {Application} Components
-     */
-    render() {
-        return (
-            <nav>
-                <div id="home">
-                    <a href={this.state.home}>
-                        <i class="fa fa-home"></i>
-                    </a>
-                </div>
-                <div id="profile">
-                    <a href={this.state.profile}>
-                        <i class="fa fa-user"></i>
-                    </a>
-                </div>
-                <div id="logout">
-                    <a href="/Sign-Out">
-                        <i class="fa fa-sign-out"></i>
-                    </a>
-                </div>
-            </nav>
-        );
-    }
-}
-/**
  * The main component of the application which has the main tag as parent
  */
 class Main extends Application {
-    constructor(props) {
-        super(props);
-    }
     /**
      * Returning components to the DOM for them to be rendered
      * @returns {Application} Components
