@@ -24,6 +24,10 @@
     font-family: "Chopsic";
     src: url("/Public/Fonts/Chopsic.otf");
 }
+@font-face {
+    font-family: "Digital 7";
+    src: url("/Public/Fonts/Digital 7.ttf");
+}
 :root {
     --color1: rgb(32, 32, 32);
     --color2: rgb(255, 255, 255);
@@ -33,6 +37,7 @@
     --proximaNova: "Proxima Nova";
     --sourceCodePro: "Source Code Pro";
     --chopsic: "Chopsic";
+    --digital7: "Digital 7";
 }
 body {
     background-color: var(--color1);
@@ -167,21 +172,10 @@ body {
 #login footer a:hover {
     text-decoration: underline;
 }
-#userDashboard header nav {
-    display: flex;
-}
-#userDashboard header nav #home {
+#userDashboard header h1 {
     text-align: center;
-}
-#userDashboard header nav #profile,
-#userDashboard header nav #logout {
-    text-align: center;
-}
-#userDashboard header nav div a {
-    color: var(--color5);
-}
-#userDashboard header nav div a:hover {
-    color: var(--color2);
+    font-weight: normal;
+    font-family: var(--digital7);
 }
 #signOut header h1 {
     text-align: center;
