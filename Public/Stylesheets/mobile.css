@@ -82,6 +82,12 @@ body {
 #userDashboard main #contacts {
     width: calc(var(--percentage) * 0.9);
 }
+#userDashboard main nav .link {
+    margin: calc(var(--percentage) * 0.2) calc(var(--percentage) * 0);
+}
+#userDashboard main nav .link a {
+    font-size: calc(var(--percentage) * var(--mobile) * 4);
+}
 #signOut header h1 {
     font-size: calc(var(--percentage) * var(--mobile) * 2);
 }

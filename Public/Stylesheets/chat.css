@@ -72,7 +72,8 @@ body {
 #login header div,
 #loginVerification header div,
 #register header div,
-#forgotPassword header div {
+#forgotPassword header div,
+#userDashboard main nav .link {
     display: flex;
     justify-content: center;
 }
@@ -179,6 +180,13 @@ body {
 }
 #userDashboard main {
     display: flex;
+}
+#userDashboard main nav .link a {
+    text-decoration: none;
+    color: var(--color5);
+}
+#userDashboard main nav .link a:hover {
+    color: var(--color2);
 }
 #signOut header h1 {
     text-align: center;

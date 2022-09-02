@@ -76,10 +76,16 @@ body {
     font-size: calc(var(--percentage) * 2);
 }
 #userDashboard main nav {
-    width: calc(var(--percentage) * 0.1);
+    width: calc(var(--percentage) * 0.05);
 }
 #userDashboard main #contacts {
-    width: calc(var(--percentage) * 0.9);
+    width: calc(var(--percentage) * 0.95);
+}
+#userDashboard main nav .link {
+    margin: calc(var(--percentage) * 0.2) calc(var(--percentage) * 0);
+}
+#userDashboard main nav .link a {
+    font-size: calc(var(--percentage) * 2);
 }
 #signOut header h1 {
     font-size: calc(var(--percentage) * 2);
