@@ -81,6 +81,31 @@ class Application extends React.Component {
 class Header extends Application {
     constructor(props) {
         super(props);
+        /**
+         * The states of the properties of the component
+         */
+        this.state = {
+            /**
+             * The clock of the component
+             */
+            time: new Date()
+        };
+    }
+    /**
+     * This method will update the time for each second
+     */
+    update() {
+        setInterval(() => {
+            this.setState({
+                time: new Date()
+            });
+        }, 1000);
+    }
+    componentDidMount() {
+        this.update();
+    }
+    componentWillUnmount() {
+        clearInterval();
     }
     /**
      * Returning components to the DOM for them to be rendered
@@ -89,7 +114,7 @@ class Header extends Application {
     render() {
         return (
             <header>
-                <NavigationBar />
+                <h1>{this.state.time.toLocaleTimeString('en-GB')}</h1>
             </header>
         );
     }
@@ -157,6 +182,12 @@ class Footer extends Application {
             <footer></footer>
         );
     }
+}
+/**
+ * The clock component of the application which will be a digital clock which will be the child of the Header component
+ */
+class Clock extends Application {
+
 }
 // Rendering page
 ReactDOM.render(<Application />, document.getElementById("userDashboard"));
