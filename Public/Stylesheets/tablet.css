@@ -72,14 +72,8 @@ body {
     margin-top: calc(var(--percentage) * 0.01);
     font-size: calc(var(--percentage) * var(--tablet) * 1.61051);
 }
-#userDashboard header nav #home {
-    width: calc(var(--percentage) / 2);
-}
-#userDashboard header nav #profile,
-#userDashboard header nav #logout {
-    width: calc(var(--percentage) / 4);
-}
-#userDashboard header nav div a {
+#userDashboard header h1 {
+    margin: calc(var(--percentage) * 0);
     font-size: calc(var(--percentage) * var(--tablet) * 3.22102);
 }
 #signOut header h1 {
