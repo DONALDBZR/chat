@@ -154,7 +154,15 @@ class NavigationBar extends Main {
     render() {
         return (
             <nav>
-                NavigationBar
+                <div class="link">
+                    <a href={this.state.home} class="fa fa-home"></a>
+                </div>
+                <div class="link">
+                    <a href={this.state.profile} class="fa fa-user"></a>
+                </div>
+                <div class="link">
+                    <a href="/Sign-Out" class="fa fa-sign-out"></a>
+                </div>
             </nav>
         );
     }
