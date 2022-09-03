@@ -40,7 +40,7 @@ class User
     /**
      * Profile Picture of the user
      */
-    private string $profilePicture;
+    private $profilePicture;
     // Constructor method
     public function __construct()
     {
@@ -55,7 +55,7 @@ class User
         return $this->username;
     }
     // Username mutator method
-    public function setUsername(string $username)
+    public function setUsername($username)
     {
         $this->username = $username;
     }
