@@ -115,4 +115,6 @@ body {
 }
 #userProfile main #profile #header div a:hover {
     text-decoration: none;
+    color: var(--color2);
+    background-color: var(--color1);
 }
