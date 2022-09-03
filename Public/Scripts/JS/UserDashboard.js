@@ -54,14 +54,9 @@ class Application extends React.Component {
      * Retrieving the Session data that is stored in the JSON to be used on the front-end
      */
     retrieveData() {
-        Promise.all([
-            fetch("/Controllers/User.php", {
-                method: "GET"
-            }),
-            fetch("/Controllers/GetContacts.php", {
-                method: "GET"
-            })
-        ])
+        fetch("/User", {
+            method: "GET"
+        })
             .then((response) => response.json())
             .then((data) => this.setState({
                 username: data.username,
@@ -70,8 +65,6 @@ class Application extends React.Component {
                 domain: data.domain,
                 home: `/User/Dashboard/${data.username}`,
                 profile: `/User/Profile/${data.username}`,
-                message: data.message,
-                contacts: data.contacts,
             }));
     }
     /**
