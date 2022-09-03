@@ -216,7 +216,7 @@ class Profile extends Main {
                 <div id="mailAddress">
                     <a href={"mailto:" + this.state.mailAddress}>{this.state.mailAddress}</a>
                 </div>
-                <div id="contacts"><div>{this.countContacts()}</div> contacts</div>
+                <div id="contacts"><div id="amountContacts">{this.countContacts()}</div> contacts</div>
             </div>
         );
     }
