@@ -188,13 +188,24 @@ class Contacts extends Main {
         super(props);
     }
     /**
+     * Verifying whether there is a contact before rendering the correct state
+     * @returns {string | []}
+     */
+    getContact() {
+        if (this.state.contacts.length > 0) {
+            return this.state.contacts;
+        } else {
+            return this.state.message;
+        }
+    }
+    /**
      * Returning components to the DOM for them to be rendered
      * @returns {Application} Components
      */
     render() {
         return (
             <div id="contacts">
-                Contacts
+                {this.getContact()}
             </div>
         );
     }
