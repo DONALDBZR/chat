@@ -115,12 +115,14 @@ class User
             $this->setUsername($this->PDO->resultSet()[0]['UsersUsername']);
             $this->setMailAddress($this->PDO->resultSet()[0]['UsersMailAddress']);
             $this->setPassword($this->PDO->resultSet()[0]['UsersPassword']);
+            $this->setProfilePicture($this->PDO->resultSet()[0]['UsersProfilePicture']);
             if (password_verify($json->password, $this->getPassword())) {
                 $user = array(
                     "username" => $this->getUsername(),
                     "mailAddress" => $this->getMailAddress(),
                     "password" => $this->getPassword(),
                     "domain" => $this->domain,
+                    "profilePicture" => $this->getProfilePicture()
                 );
                 $_SESSION['User'] = $user;
                 $this->setOtp($this->otpGenerate());
@@ -169,7 +171,7 @@ class User
         $this->PDO->execute();
         if (empty($this->PDO->resultSet())) {
             $this->setPassword($this->generatePassword());
-            $this->Mail->send($this->getMailAddress(), "Registration Complete", "Your account with username, {$this->getUsername()} and password, {$this->getPassword()} has been created.  Please consider to change it after logging in!");
+            $this->Mail->send($this->getMailAddress(), "Registration Complete", "Your account with username, {$this->getUsername()} and password, {$this->getPassword()} has been created.  Please consUsernameer to change it after logging in!");
             $this->PDO->query("INSERT INTO Chat.Users(UsersUsername, UsersMailAddress, UsersPassword) VALUES (:UsersUsername, :UsersMailAddress, :UsersPassword)");
             $this->PDO->bind(":UsersUsername", $this->getUsername());
             $this->PDO->bind(":UsersMailAddress", $this->getMailAddress());
@@ -273,7 +275,7 @@ class User
         $this->PDO->execute();
         if (!empty($this->PDO->resultSet())) {
             $this->setPassword($this->generatePassword());
-            $this->Mail->send($this->getMailAddress(), "Password Reset!", "Your new password is {$this->getPassword()} and please consider to change it after logging in!");
+            $this->Mail->send($this->getMailAddress(), "Password Reset!", "Your new password is {$this->getPassword()} and please consUsernameer to change it after logging in!");
             $this->PDO->query("UPDATE Chat.Users SET UsersPassword = :UsersPassword WHERE UsersMailAddress = :UsersMailAddress");
             $this->PDO->bind(":UsersPassword", password_hash($this->getPassword(), PASSWORD_ARGON2I));
             $this->PDO->bind(":UsersMailAddress", $this->getMailAddress());
@@ -290,6 +292,31 @@ class User
                 "success" => "failure",
                 "url" => "{$this->domain}",
                 "message" => "There is no account that is linked to this mail address!"
+            );
+            header('Content-Type: application/json');
+            echo json_encode($json);
+        }
+    }
+    /**
+     * Changing the profile picture of the user
+     */
+    public function changeProfilePicture()
+    {
+        $this->setUsername($_SESSION['User']['username']);
+        $imageDirectory = "/Public/Images/ProfilePictures/";
+        $imageFile = $imageDirectory . $this->getUsername() . pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+        $uploadedPath = $_SERVER['DOCUMENT_ROOT'] . $imageFile;
+        if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadedPath)) {
+            $this->setProfilePicture($imageFile);
+            $this->PDO->query("UPDATE Chat.Users UsersProfilePicture = :UsersProfilePicture WHERE UsersUsername = :UsersUsername");
+            $this->PDO->bind(":UsersProfilePicture", $this->getProfilePicture());
+            $this->PDO->bind(":UsersUsername", $this->getUsername());
+            $this->PDO->execute();
+            $_SESSION['User']['profilePicture'] = $this->getProfilePicture();
+            $json = array(
+                "success" => "success",
+                "url" => "{$this->domain}/User/Profile/{$this->getUsername()}",
+                "message" => "Your profile picture has been changed."
             );
             header('Content-Type: application/json');
             echo json_encode($json);
