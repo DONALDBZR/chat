@@ -55,10 +55,10 @@ class Application extends React.Component {
      */
     retrieveData() {
         Promise.all([
-            fetch("/User", {
+            fetch("/Controllers/User.php", {
                 method: "GET"
             }),
-            fetch("/Contacts/Get", {
+            fetch("/Controllers/GetContacts.php", {
                 method: "GET"
             })
         ])
@@ -85,7 +85,6 @@ class Application extends React.Component {
      * @returns {Application} Components
      */
     render() {
-        console.log(`Home: ${this.state.home}\nProfile: ${this.state.profile}\nMessage: ${this.state.message}\nContacts: ${this.state.contacts}\n`);
         return [<Header />, <Main />, <Footer />];
     }
 }
@@ -165,6 +164,7 @@ class NavigationBar extends Main {
      * @returns {Application} Components
      */
     render() {
+        console.log(`Home: ${this.state.home}\nProfile: ${this.state.profile}\n`);
         return (
             <nav>
                 <div class="link">
@@ -203,6 +203,7 @@ class Contacts extends Main {
      * @returns {Application} Components
      */
     render() {
+        console.log(`Message: ${this.state.message}\nContacts: ${this.state.contacts}\n`);
         return (
             <div id="contacts">
                 {this.getContact()}
