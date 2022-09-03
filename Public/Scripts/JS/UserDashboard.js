@@ -48,6 +48,10 @@ class Application extends React.Component {
              * The contacts of the current user
              */
             contacts: [],
+            /**
+             * The class of the html element
+             */
+            class: "",
         };
     }
     /**
@@ -73,6 +77,7 @@ class Application extends React.Component {
             .then((data) => this.setState({
                 message: data.message,
                 contacts: data.contacts,
+                class: data.class,
             }));
     }
     /**
@@ -196,7 +201,9 @@ class Contacts extends Main {
         if (this.state.contacts.length > 0) {
             return this.state.contacts;
         } else {
-            return this.state.message;
+            return (
+                <div class={this.state.class}>{this.state.message}</div>
+            );
         }
     }
     /**

@@ -77,6 +77,7 @@ class Contact extends User
                 array_push($contacts, $contact);
             }
             $json = array(
+                "class" => "contact",
                 "message" => "",
                 "contacts" => $contacts
             );
@@ -84,6 +85,7 @@ class Contact extends User
             echo json_encode($json);
         } else {
             $json = array(
+                "class" => "foreverAlone",
                 "message" => "You do not have any contact yet! 😢",
                 "contacts" => $contacts
             );
