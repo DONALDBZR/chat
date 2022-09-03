@@ -198,7 +198,7 @@ class Profile extends Main {
                 </div>
                 <div id="username">{this.state.username}</div>
                 <div id="mailAddress">
-                    <a mailto={this.state.mailAddress}>{this.state.mailAddress}</a>
+                    <a href={"mailto:" + this.state.mailAddress}>{this.state.mailAddress}</a>
                 </div>
                 <div id="contacts">n contacts</div>
             </div>
