@@ -225,3 +225,11 @@ body {
     color: var(--color1);
     background-color: var(--color2);
 }
+#userProfile main #profile #mailAddress {
+    font-family: var(--sourceCodePro);
+    font-weight: normal;
+}
+#userProfile main #profile #username {
+    font-family: var(--proximaNova);
+    font-weight: bold;
+}

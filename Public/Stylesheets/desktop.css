@@ -116,3 +116,9 @@ body {
     border-radius: calc(var(--percentage) / 2);
     padding: calc(var(--percentage) / 80) calc(var(--percentage) / 20);
 }
+#userProfile main #profile #mailAddress {
+    font-size: var(--percentage);
+}
+#userProfile main #profile #username {
+    font-size: calc(var(--percentage) * 2);
+}

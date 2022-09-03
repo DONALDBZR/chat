@@ -118,3 +118,9 @@ body {
     color: var(--color2);
     background-color: var(--color1);
 }
+#userProfile main #profile #mailAddress {
+    font-size: calc(var(--percentage) * var(--mobile));
+}
+#userProfile main #profile #username {
+    font-size: calc(var(--percentage) * var(--mobile) * 2);
+}
