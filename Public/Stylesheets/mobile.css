@@ -72,20 +72,25 @@ body {
     margin-top: calc(var(--percentage) * 0.01);
     font-size: calc(var(--percentage) * var(--mobile) * 1.458);
 }
-#userDashboard header #clock {
+#userDashboard header #clock,
+#userProfile header #clock {
     margin: calc(var(--percentage) * 0);
     font-size: calc(var(--percentage) * var(--mobile) * 4);
 }
-#userDashboard main nav {
+#userDashboard main nav,
+#userProfile main nav {
     width: calc(var(--percentage) * 0.1);
 }
-#userDashboard main #contacts {
+#userDashboard main #contacts,
+#userProfile main #profile {
     width: calc(var(--percentage) * 0.9);
 }
-#userDashboard main nav .link {
+#userDashboard main nav .link,
+#userProfile main nav .link {
     margin: calc(var(--percentage) * 0.2) calc(var(--percentage) * 0);
 }
-#userDashboard main nav .link a {
+#userDashboard main nav .link a,
+#userProfile main nav .link a {
     font-size: calc(var(--percentage) * var(--mobile) * 4);
 }
 #userDashboard main #contacts .foreverAlone {

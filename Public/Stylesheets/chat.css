@@ -73,7 +73,8 @@ body {
 #loginVerification header div,
 #register header div,
 #forgotPassword header div,
-#userDashboard main nav .link {
+#userDashboard main nav .link,
+#userProfile main nav .link {
     display: flex;
     justify-content: center;
 }
@@ -173,19 +174,23 @@ body {
 #login footer a:hover {
     text-decoration: underline;
 }
-#userDashboard header #clock {
+#userDashboard header #clock,
+#userProfile header #clock {
     text-align: center;
     font-weight: normal;
     font-family: var(--digital7);
 }
-#userDashboard main {
+#userDashboard main,
+#userProfile main {
     display: flex;
 }
-#userDashboard main nav .link a {
+#userDashboard main nav .link a,
+#userProfile main nav .link a {
     text-decoration: none;
     color: var(--color5);
 }
-#userDashboard main nav .link a:hover {
+#userDashboard main nav .link a:hover,
+#userProfile main nav .link a:hover {
     color: var(--color2);
 }
 #userDashboard main #contacts .foreverAlone {
