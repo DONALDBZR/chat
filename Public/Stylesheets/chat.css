@@ -225,9 +225,14 @@ body {
     color: var(--color1);
     background-color: var(--color2);
 }
-#userProfile main #profile #mailAddress {
+#userProfile main #profile #mailAddress a {
     font-family: var(--sourceCodePro);
     font-weight: normal;
+    color: var(--color2);
+    text-decoration: none;
+}
+#userProfile main #profile #mailAddress a:hover {
+    text-decoration: underline;
 }
 #userProfile main #profile #username {
     font-family: var(--proximaNova);
