@@ -3,7 +3,7 @@
 /**
  * • The class that stores all the properties that are related to the contacts given that it should inherit the user class
  */
-class Contacts extends User
+class Contact extends User
 {
     /**
      * Primary Key of the record
@@ -77,13 +77,15 @@ class Contacts extends User
                 array_push($contacts, $contact);
             }
             $json = array(
-                "Contacts" => $contacts
+                "message" => "",
+                "contacts" => $contacts
             );
             header('Content-Type: application/json');
             echo json_encode($json);
         } else {
             $json = array(
-                "message" => "You do not have any contact yet!"
+                "message" => "You do not have any contact yet!",
+                "contacts" => $contacts
             );
             header('Content-Type: application/json');
             echo json_encode($json);
