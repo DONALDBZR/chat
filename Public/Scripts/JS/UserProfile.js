@@ -189,7 +189,17 @@ class Profile extends Main {
      */
     render() {
         return (
-            <div id="profile">Profile</div>
+            <div id="profile">
+                <div id="header">
+                    <div>Profile Picture</div>
+                    <div>
+                        <a href="./Edit">Edit</a>
+                    </div>
+                </div>
+                <div id="username">Username</div>
+                <div id="mailAddress">Mail Address</div>
+                <div id="contacts">n contacts</div>
+            </div>
         );
     }
 }
