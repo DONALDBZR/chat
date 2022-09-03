@@ -4,7 +4,8 @@ CREATE DATABASE Chat;
 CREATE TABLE Chat.Users (
     UsersUsername VARCHAR(32) PRIMARY KEY,
     UsersMailAddress VARCHAR(64),
-    UsersPassword VARCHAR(256)
+    UsersPassword VARCHAR(256),
+    UsersProfilePicture VARCHAR(512)
 );
 -- Creating the Logins table
 CREATE TABLE Chat.Logins (

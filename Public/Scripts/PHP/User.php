@@ -37,6 +37,10 @@ class User
      * Mail which will interact with PHPMailer
      */
     protected Mail $Mail;
+    /**
+     * Profile Picture of the user
+     */
+    private string $profilePicture;
     // Constructor method
     public function __construct()
     {
@@ -84,6 +88,16 @@ class User
     public function setOtp(string $otp)
     {
         $this->otp = $otp;
+    }
+    // Profile Picture accessor method
+    public function getProfilePicture()
+    {
+        return $this->profilePicture;
+    }
+    // Profile Picture mutator method
+    public function setProfilePicture(string $profilePicture)
+    {
+        $this->profilePicture = $profilePicture;
     }
     /**
      * 1. Checking whether the mail address or username retrieved from the JSON exists in the database.
