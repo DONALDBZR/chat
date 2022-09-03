@@ -52,6 +52,10 @@ class Application extends React.Component {
              * The class of the html element
              */
             class: "",
+            /**
+             * Profile Picture of the user
+             */
+            profilePicture: "",
         };
     }
     /**
@@ -69,6 +73,7 @@ class Application extends React.Component {
                 domain: data.domain,
                 home: `/User/Dashboard/${data.username}`,
                 profile: `/User/Profile/${data.username}`,
+                profilePicture: data.profilePicture,
             }));
         fetch("/Contacts/Get", {
             method: "GET"
