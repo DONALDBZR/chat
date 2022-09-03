@@ -33,6 +33,9 @@ switch ($_SERVER['REQUEST_METHOD']) {
             case '/ForgotPassword':
                 $Router = new Router("GET", "/ForgotPassword", "/Views/ForgotPassword.php");
                 break;
+            case '/Contacts/Get':
+                $Router = new Router("GET", "/Contacts/Get", "/Controllers/GetContacts.php");
+                break;
         }
         break;
     case 'POST':

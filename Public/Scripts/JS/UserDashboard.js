@@ -44,22 +44,35 @@ class Application extends React.Component {
              * the url to be redirected after displying the message
              */
             url: "",
+            /**
+             * The contacts of the current user
+             */
+            contacts: [],
         };
     }
     /**
      * Retrieving the Session data that is stored in the JSON to be used on the front-end
      */
     retrieveData() {
-        fetch("/User", {
-            method: "GET"
-        }).then((response) => response.json()).then((data) => this.setState({
-            username: data.username,
-            mailAddress: data.mailAddress,
-            password: data.password,
-            domain: data.domain,
-            home: `/User/Dashboard/${data.username}`,
-            profile: `/User/Profile/${data.username}`,
-        }));
+        Promise.all([
+            fetch("/User", {
+                method: "GET"
+            }),
+            fetch("/Contacts/Get", {
+                method: "GET"
+            })
+        ])
+            .then((response) => response.json())
+            .then((data) => this.setState({
+                username: data.username,
+                mailAddress: data.mailAddress,
+                password: data.password,
+                domain: data.domain,
+                home: `/User/Dashboard/${data.username}`,
+                profile: `/User/Profile/${data.username}`,
+                message: data.message,
+                contacts: data.contacts,
+            }));
     }
     /**
      * 1. Retrieving the session data as soon as the component is mount
@@ -72,6 +85,7 @@ class Application extends React.Component {
      * @returns {Application} Components
      */
     render() {
+        console.log(`Home: ${this.state.home}\nProfile: ${this.state.profile}\nMessage: ${this.state.message}\nContacts: ${this.state.contacts}\n`);
         return [<Header />, <Main />, <Footer />];
     }
 }
@@ -125,7 +139,6 @@ class Header extends Application {
 class Main extends Application {
     constructor(props) {
         super(props);
-
     }
     /**
      * Returning components to the DOM for them to be rendered
