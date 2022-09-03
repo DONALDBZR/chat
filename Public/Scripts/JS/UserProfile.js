@@ -70,6 +70,15 @@ class Application extends React.Component {
                 home: `/User/Dashboard/${data.username}`,
                 profile: `/User/Profile/${data.username}`,
             }));
+        fetch("/Contacts/Get", {
+            method: "GET"
+        })
+            .then((response) => response.json())
+            .then((data) => this.setState({
+                message: data.message,
+                contacts: data.contacts,
+                class: data.class,
+            }));
     }
     /**
      * 1. Retrieving the session data as soon as the component is mount
@@ -184,6 +193,13 @@ class Profile extends Main {
         super(props);
     }
     /**
+     * Counting all the contacts that the current user has
+     * @returns {int} Amount of contacts
+     */
+    countContacts() {
+        return this.state.contacts.length;
+    }
+    /**
      * Returning components to the DOM for them to be rendered
      * @returns {Application} Components
      */
@@ -200,7 +216,7 @@ class Profile extends Main {
                 <div id="mailAddress">
                     <a href={"mailto:" + this.state.mailAddress}>{this.state.mailAddress}</a>
                 </div>
-                <div id="contacts">n contacts</div>
+                <div id="contacts"><div>{this.countContacts()}</div> contacts</div>
             </div>
         );
     }
