@@ -107,13 +107,14 @@ body {
     width: var(--percentage);
 }
 #userProfile main #profile #header div {
-    width: calc(var(--percentage) / 6);
+    width: calc(var(--percentage) / 2);
 }
 #userProfile main #profile #header div a {
-    font-size: calc(var(--percentage) * 3.22102);
-    border-style: solid;
-    border-width: calc(var(--pixelate) / 1080);
-    height: max-content;
-    border-radius: calc(var(--percentage) / 2);
-    padding: calc(var(--percentage) / 80) calc(var(--percentage) / 20);
+    font-size: calc(var(--percentage) * var(--tablet) * 3.22102);
+    text-decoration: underline;
+}
+#userProfile main #profile #header div a:hover {
+    text-decoration: none;
+    color: var(--color2);
+    background-color: var(--color1);
 }
