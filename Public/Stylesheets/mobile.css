@@ -90,7 +90,7 @@ body {
 }
 #userDashboard main #contacts .foreverAlone {
     height: var(--percentage);
-    font-size: calc(var(--percentage) * 3.22102);
+    font-size: calc(var(--percentage) * 4);
 }
 #signOut header h1 {
     font-size: calc(var(--percentage) * var(--mobile) * 2);
