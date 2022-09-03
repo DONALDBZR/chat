@@ -133,7 +133,7 @@ class Header extends Application {
     render() {
         return (
             <header>
-                <h1>{this.state.time.toLocaleTimeString('en-GB')}</h1>
+                <Clock />
             </header>
         );
     }
@@ -236,8 +236,16 @@ class Footer extends Application {
 /**
  * The clock component of the application which will be a digital clock which will be the child of the Header component
  */
-class Clock extends Application {
-
+class Clock extends Header {
+    /**
+     * Returning components to the DOM for them to be rendered
+     * @returns {Application} Components
+     */
+    render() {
+        return (
+            <div id="clock">{this.state.time.toLocaleTimeString('en-GB')}</div>
+        );
+    }
 }
 // Rendering page
 ReactDOM.render(<Application />, document.getElementById("userDashboard"));
