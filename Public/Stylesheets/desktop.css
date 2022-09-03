@@ -71,7 +71,7 @@ body {
     margin-top: calc(var(--percentage) * 0.01);
     font-size: var(--percentage);
 }
-#userDashboard header h1 {
+#userDashboard header #clock {
     margin: calc(var(--percentage) * 0);
     font-size: calc(var(--percentage) * 2);
 }
