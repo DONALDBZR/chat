@@ -70,15 +70,6 @@ class Application extends React.Component {
                 home: `/User/Dashboard/${data.username}`,
                 profile: `/User/Profile/${data.username}`,
             }));
-        fetch("/Contacts/Get", {
-            method: "GET"
-        })
-            .then((response) => response.json())
-            .then((data) => this.setState({
-                message: data.message,
-                contacts: data.contacts,
-                class: data.class,
-            }));
     }
     /**
      * 1. Retrieving the session data as soon as the component is mount
@@ -153,7 +144,7 @@ class Main extends Application {
         return (
             <main>
                 <NavigationBar />
-                <Contacts />
+                <Profile />
             </main>
         );
     }
@@ -186,35 +177,19 @@ class NavigationBar extends Main {
     }
 }
 /**
- * The contacts component of the application which display all the contacts that the user currently have
+ * The profile component of the application which display all the details about the current user
  */
-class Contacts extends Main {
+class Profile extends Main {
     constructor(props) {
         super(props);
-    }
-    /**
-     * Verifying whether there is a contact before rendering the correct state
-     * @returns {string | []}
-     */
-    getContact() {
-        if (this.state.contacts.length > 0) {
-            return this.state.contacts;
-        } else {
-            return (
-                <div class={this.state.class}>{this.state.message}</div>
-            );
-        }
     }
     /**
      * Returning components to the DOM for them to be rendered
      * @returns {Application} Components
      */
     render() {
-        console.log(`Message: ${this.state.message}\nContacts: ${this.state.contacts}\n`);
         return (
-            <div id="contacts">
-                {this.getContact()}
-            </div>
+            <div id="profile">Profile</div>
         );
     }
 }
@@ -247,4 +222,4 @@ class Clock extends Header {
     }
 }
 // Rendering page
-ReactDOM.render(<Application />, document.getElementById("userDashboard"));
+ReactDOM.render(<Application />, document.getElementById("userProfile"));
