@@ -95,7 +95,7 @@ class User
         return $this->profilePicture;
     }
     // Profile Picture mutator method
-    public function setProfilePicture(string $profilePicture)
+    public function setProfilePicture($profilePicture)
     {
         $this->profilePicture = $profilePicture;
     }
