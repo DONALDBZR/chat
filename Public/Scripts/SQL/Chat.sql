@@ -18,7 +18,7 @@ CREATE TABLE Chat.Logins (
 CREATE TABLE Chat.Contacts (
     ContactsId INT PRIMARY KEY AUTO_INCREMENT,
     ContactsUser VARCHAR(32),
-    ContactsFriends VARCHAR(32),
+    ContactsFriend VARCHAR(32),
     CONSTRAINT fkContactsUserUsersUsername FOREIGN KEY (ContactsUser) REFERENCES Chat.Users (UsersUsername),
-    CONSTRAINT fkContactsFriendsUsersUsername FOREIGN KEY (ContactsFriends) REFERENCES Chat.Users (UsersUsername)
+    CONSTRAINT fkContactsFriendsUsersUsername FOREIGN KEY (ContactsFriend) REFERENCES Chat.Users (UsersUsername)
 );
