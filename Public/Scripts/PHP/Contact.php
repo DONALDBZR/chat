@@ -84,7 +84,7 @@ class Contact extends User
             echo json_encode($json);
         } else {
             $json = array(
-                "message" => "You do not have any contact yet!",
+                "message" => "You do not have any contact yet! 😢",
                 "contacts" => $contacts
             );
             header('Content-Type: application/json');
