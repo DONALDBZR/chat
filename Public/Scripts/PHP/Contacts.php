@@ -55,4 +55,38 @@ class Contacts extends User
     {
         $this->friend = $friend;
     }
+    /**
+     * Getting all the contacts that the current user has to send to the client as a response.
+     */
+    public function getContacts()
+    {
+        $contacts = array();
+        $this->PDO->query("SELECT * FROM Chat.Contacts WHERE ContactsUser = :ContactsUser");
+        $this->PDO->bind(":ContactsUser", $_SESSION["User"]["username"]);
+        $this->PDO->execute();
+        if (!empty($this->PDO->resultSet())) {
+            for ($index = 0; $index < count($this->PDO->resultSet()); $index++) {
+                $this->setId($this->PDO->resultSet()[$index]['ContactsId']);
+                $this->setUser($this->PDO->resultSet()[$index]['ContactsUser']);
+                $this->setFriend($this->PDO->resultSet()[$index]['ContactsFriend']);
+                $contact = array(
+                    "id" => $this->getId(),
+                    "user" => $this->getUser(),
+                    "friend" => $this->getFriend()
+                );
+                array_push($contacts, $contact);
+            }
+            $json = array(
+                "Contacts" => $contacts
+            );
+            header('Content-Type: application/json');
+            echo json_encode($json);
+        } else {
+            $json = array(
+                "message" => "You do not have any contact yet!"
+            );
+            header('Content-Type: application/json');
+            echo json_encode($json);
+        }
+    }
 }
