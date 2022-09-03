@@ -118,9 +118,9 @@ body {
     color: var(--color2);
     background-color: var(--color1);
 }
-#userProfile main #profile #mailAddress {
-    font-size: calc(var(--percentage) * var(--tablet));
+#userProfile main #profile #mailAddress a {
+    font-size: calc(var(--percentage) * var(--tablet) * 1.61051);
 }
 #userProfile main #profile #username {
-    font-size: calc(var(--percentage) * var(--tablet));
+    font-size: calc(var(--percentage) * var(--tablet) * 3.22102);
 }
