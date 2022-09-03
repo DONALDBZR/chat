@@ -238,3 +238,6 @@ body {
     font-family: var(--proximaNova);
     font-weight: bold;
 }
+#userProfile main #profile #contacts {
+    display: flex;
+}

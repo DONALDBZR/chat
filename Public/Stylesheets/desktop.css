@@ -122,3 +122,6 @@ body {
 #userProfile main #profile #username {
     font-size: calc(var(--percentage) * 2);
 }
+#userProfile main #profile #contacts #amountContacts {
+    margin-right: calc(var(--percentage) * 0.01);
+}

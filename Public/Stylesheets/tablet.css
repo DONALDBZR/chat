@@ -124,3 +124,6 @@ body {
 #userProfile main #profile #username {
     font-size: calc(var(--percentage) * var(--tablet) * 3.22102);
 }
+#userProfile main #profile #contacts #amountContacts {
+    margin-right: calc(var(--percentage) * 0.01);
+}
