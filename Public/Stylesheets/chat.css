@@ -203,3 +203,25 @@ body {
     text-align: center;
     font-family: var(--sourceCodePro);
 }
+#userProfile main #profile {
+    display: flex;
+    flex-wrap: wrap;
+}
+#userProfile main #profile #header {
+    display: flex;
+}
+#userProfile main #profile #header div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#userProfile main #profile #header div a {
+    color: var(--color2);
+    border-color: var(--color2);
+    font-family: var(--proximaNova);
+    text-decoration: none;
+}
+#userProfile main #profile #header div a:hover {
+    color: var(--color1);
+    background-color: var(--color2);
+}

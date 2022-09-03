@@ -81,7 +81,7 @@ body {
     width: calc(var(--percentage) * 0.05);
 }
 #userDashboard main #contacts,
-#userDashboard main #profile {
+#userProfile main #profile {
     width: calc(var(--percentage) * 0.95);
 }
 #userDashboard main nav .link,
@@ -98,4 +98,21 @@ body {
 }
 #signOut header h1 {
     font-size: calc(var(--percentage) * 2);
+}
+#userProfile main #profile #header,
+#userProfile main #profile #username,
+#userProfile main #profile #mailAddress,
+#userProfile main #profile #contacts {
+    width: var(--percentage);
+}
+#userProfile main #profile #header div {
+    width: calc(var(--percentage) / 6);
+}
+#userProfile main #profile #header div a {
+    font-size: calc(var(--percentage) * 2);
+    border-style: solid;
+    border-width: calc(var(--pixelate) / 1080);
+    height: max-content;
+    border-radius: calc(var(--percentage) / 2);
+    padding: calc(var(--percentage) / 80) calc(var(--percentage) / 20);
 }

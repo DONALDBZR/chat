@@ -100,3 +100,20 @@ body {
 #signOut header h1 {
     font-size: calc(var(--percentage) * var(--mobile) * 2);
 }
+#userProfile main #profile #header,
+#userProfile main #profile #username,
+#userProfile main #profile #mailAddress,
+#userProfile main #profile #contacts {
+    width: var(--percentage);
+}
+#userProfile main #profile #header div {
+    width: calc(var(--percentage) / 6);
+}
+#userProfile main #profile #header div a {
+    font-size: calc(var(--percentage) * 4);
+    border-style: solid;
+    border-width: calc(var(--pixelate) / 1080);
+    height: max-content;
+    border-radius: calc(var(--percentage) / 2);
+    padding: calc(var(--percentage) / 80) calc(var(--percentage) / 20);
+}
