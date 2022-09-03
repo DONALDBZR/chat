@@ -66,6 +66,14 @@ class Application extends React.Component {
                 home: `/User/Dashboard/${data.username}`,
                 profile: `/User/Profile/${data.username}`,
             }));
+        fetch("/Contacts/Get", {
+            method: "GET"
+        })
+            .then((response) => response.json())
+            .then((data) => this.setState({
+                message: data.message,
+                contacts: data.contacts,
+            }));
     }
     /**
      * 1. Retrieving the session data as soon as the component is mount
