@@ -88,6 +88,10 @@ body {
 #userDashboard main nav .link a {
     font-size: calc(var(--percentage) * var(--mobile) * 4);
 }
+#userDashboard main #contacts .foreverAlone {
+    height: var(--percentage);
+    font-size: calc(var(--percentage) * 3.22102);
+}
 #signOut header h1 {
     font-size: calc(var(--percentage) * var(--mobile) * 2);
 }

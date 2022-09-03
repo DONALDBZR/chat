@@ -188,6 +188,12 @@ body {
 #userDashboard main nav .link a:hover {
     color: var(--color2);
 }
+#userDashboard main #contacts .foreverAlone {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--proximaNova);
+}
 #signOut header h1 {
     text-align: center;
     font-family: var(--sourceCodePro);
