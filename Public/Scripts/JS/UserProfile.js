@@ -306,6 +306,9 @@ class Footer extends Application {
  * The clock component of the application which will be a digital clock which will be the child of the Header component
  */
 class Clock extends Header {
+    constructor(props) {
+        super(props);
+    }
     /**
      * Returning components to the DOM for them to be rendered
      * @returns {Application} Components
