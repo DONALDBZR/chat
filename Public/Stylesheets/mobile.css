@@ -127,3 +127,6 @@ body {
 #userProfile main #profile #contacts #amountContacts {
     margin-right: calc(var(--percentage) * 0.01);
 }
+#userProfile main #profile #header div i {
+    font-size: calc(var(--percentage) * var(--mobile) * 8);
+}
