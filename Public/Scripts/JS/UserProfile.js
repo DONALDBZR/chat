@@ -244,7 +244,7 @@ class Profile extends Main {
         return (
             <div id="profile">
                 <div id="header">
-                    <div>Profile Picture</div>
+                    <ProfilePicture />
                     <div>
                         <a href="./Edit">Edit</a>
                     </div>
@@ -254,6 +254,36 @@ class Profile extends Main {
                     <a href={"mailto:" + this.state.mailAddress}>{this.state.mailAddress}</a>
                 </div>
                 <div id="contacts"><div id="amountContacts">{this.countContacts()}</div> contacts</div>
+            </div>
+        );
+    }
+}
+/**
+ * Profile Picture component which is a child of the Profile tab component
+ */
+class ProfilePicture extends Profile {
+    constructor(props) {
+        super(props);
+    }
+    /**
+     * Werifying whether there is a profile picture for the current user
+     * @returns {JSX} Component
+     */
+    verifyProfilePicture() {
+        if (this.state.profilePicture != null) {
+            return <img src={this.state.profilePicture} />;
+        } else {
+            return <i class="fa fa-user"></i>;
+        }
+    }
+    /**
+     * Returning components to the DOM for them to be rendered
+     * @returns {Application} Components
+     */
+    render() {
+        return (
+            <div>
+                {this.verifyProfilePicture()}
             </div>
         );
     }
