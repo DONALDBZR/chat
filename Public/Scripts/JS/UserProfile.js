@@ -52,6 +52,10 @@ class Application extends React.Component {
              * The class of the html element
              */
             class: "",
+            /**
+             * Profile Picture of the user
+             */
+            profilePicture: "",
         };
     }
     /**
@@ -69,6 +73,7 @@ class Application extends React.Component {
                 domain: data.domain,
                 home: `/User/Dashboard/${data.username}`,
                 profile: `/User/Profile/${data.username}`,
+                profilePicture: data.profilePicture,
             }));
         fetch("/Contacts/Get", {
             method: "GET"
@@ -175,13 +180,45 @@ class NavigationBar extends Main {
                 <div class="link">
                     <a href={this.state.home} class="fa fa-home"></a>
                 </div>
-                <div class="link">
-                    <a href={this.state.profile} class="fa fa-user"></a>
-                </div>
+                <ProfileLink />
                 <div class="link">
                     <a href="/Sign-Out" class="fa fa-sign-out"></a>
                 </div>
-            </nav>
+            </nav >
+        );
+    }
+}
+/**
+ * The component which renders the profile link depending on the state of the profile picture.
+ */
+class ProfileLink extends NavigationBar {
+    constructor(props) {
+        super(props);
+    }
+    /**
+     * Verifying the state before rendering the anchor tag needed
+     * @returns {JSX} Component
+     */
+    verifyState() {
+        if (this.state.profilePicture != null) {
+            return (
+                <a href={this.state.profile}>
+                    <img src={this.state.profilePicture} />
+                </a>
+            );
+        } else {
+            return <a href={this.state.profile} class="fa fa-user"></a>;
+        }
+    }
+    /**
+     * Returning components to the DOM for them to be rendered
+     * @returns {Application} Components
+     */
+    render() {
+        return (
+            <div class="link">
+                {this.verifyState()}
+            </div>
         );
     }
 }
