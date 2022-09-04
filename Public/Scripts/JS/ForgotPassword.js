@@ -91,17 +91,33 @@ class Application extends React.Component {
         }, delay);
     }
     /**
-     * Adding the stylesheet to the Application
+     * Adding the main stylesheet to the Application
      */
-    stylesheet() {
+    mainStylesheet() {
         const link = document.createElement("link");
         link.href = "/Public/Stylesheets/chat.css";
         link.rel = "stylesheet";
         link.type = "text/css";
         document.head.appendChild(link);
     }
+    /**
+     * Adding the media queries stylesheets to the Application
+     */
+    mediaQueriesStylesheets() {
+        const stylesheets = ["/Public/Stylesheets/desktop.css", "/Public/Stylesheets/tablet.css", "/Public/Stylesheets/mobile.css"];
+        const mediaQueries = ["screen and (min-width: 1024px)", "screen and (min-width: 640px) and (max-width: 1023px)", "screen and (max-width: 639px)"];
+        for (let index = 0; index < stylesheets.length; index++) {
+            const link = document.createElement("link");
+            link.href = stylesheets[index];
+            link.media = mediaQueries[index];
+            link.rel = "stylesheet";
+            link.type = "text/css";
+            document.head.appendChild(link);
+        }
+    }
     componentDidMount() {
-        this.stylesheet();
+        this.mainStylesheet();
+        this.mediaQueriesStylesheets();
     }
     render() {
         return [<Header />, <Main />, <Footer />];
