@@ -38,12 +38,12 @@ class Contact extends User
     // User accessor method
     public function getUser()
     {
-        return $this->id;
+        return $this->user;
     }
     // User mutator method
-    public function setUser(int $id)
+    public function setUser(string $user)
     {
-        $this->id = $id;
+        $this->user = $user;
     }
     // Friend accessor method
     public function getFriend()
@@ -51,7 +51,7 @@ class Contact extends User
         return $this->friend;
     }
     // Friend mutator method
-    public function setFriend(int $friend)
+    public function setFriend(string $friend)
     {
         $this->friend = $friend;
     }
