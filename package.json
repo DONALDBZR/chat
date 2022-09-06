@@ -1,6 +1,6 @@
 {
     "name": "chat.local",
-    "version": "0.6.31",
+    "version": "0.6.33",
     "description": "A web-based chat application",
     "main": "index.php",
     "repository": {
