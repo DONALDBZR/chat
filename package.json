@@ -1,0 +1,21 @@
+{
+    "name": "chat.local",
+    "version": "0.6.31",
+    "description": "A web-based chat application",
+    "main": "index.php",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DONALDBZR/chat.git"
+    },
+    "keywords": [
+        "React.JS",
+        "PHP",
+        "MySQL"
+    ],
+    "author": "Darkness4869",
+    "license": "AGPL",
+    "bugs": {
+        "url": "https://github.com/DONALDBZR/chat/issues"
+    },
+    "homepage": "https://github.com/DONALDBZR/chat#readme"
+}
