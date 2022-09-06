@@ -246,7 +246,7 @@ class Profile extends Main {
                 <div id="header">
                     <ProfilePicture />
                     <div>
-                        <a href="./Edit">Edit</a>
+                        <a href={this.state.profile + "/Edit"}>Edit</a>
                     </div>
                 </div>
                 <div id="username">{this.state.username}</div>
