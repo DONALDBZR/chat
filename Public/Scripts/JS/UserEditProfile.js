@@ -56,7 +56,9 @@ class Application extends React.Component {
              * Profile Picture of the user
              */
             profilePicture: "",
+            array: [],
         };
+        this.handleFileChange = this.handleFileChange.bind(this);
     }
     /**
      * Retrieving the Session data that is stored in the JSON to be used on the front-end
@@ -87,12 +89,10 @@ class Application extends React.Component {
      * Handling any change that is made in the user interface
      * @param {Event} event 
      */
-    handleChange(event) {
-        const target = event.target;
-        const value = target.value;
-        const name = target.name;
+    handleFileChange(event) {
         this.setState({
-            [name]: value,
+            profilePicture: event.target.files,
+            array: [],
         });
     }
     /**
@@ -104,15 +104,17 @@ class Application extends React.Component {
          * The amount of milliseconds that the registration process takes
          */
         const delay = 3760;
+        /**
+         * Using Form-Data to upload the file
+         */
+        const formData = new FormData();
+        for (let index = 0; index < this.state.profilePicture.length; index++) {
+            formData.append("image", this.state.profilePicture[index]);
+        }
         event.preventDefault();
         fetch("/Controllers/UserEditProfile.php", {
             method: "POST",
-            body: JSON.stringify({
-                profilePicture: this.state.profilePicture,
-            }),
-            headers: {
-                "Content-Type": "application/json",
-            },
+            body: formData,
         })
             .then((response) => response.json())
             .then((data) => this.setState({
@@ -280,7 +282,7 @@ class Form extends Main {
         return (
             <form method="POST" enctype="multipart/form-data" onSubmit={this.handleSubmit.bind(this)}>
                 <div id="label">You can customize your profile picture</div>
-                <input type="file" name="image" accept="image/*" value={this.state.profilePicture} onChange={this.handleChange.bind(this)} required />
+                <input type="file" name="image" accept="image/*" files={this.state.profilePicture} onChange={this.handleFileChange.bind(this)} required />
                 <div id="button">
                     <button>Change Profile Picture</button>
                 </div>

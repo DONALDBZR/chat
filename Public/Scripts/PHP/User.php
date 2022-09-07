@@ -304,11 +304,11 @@ class User
     {
         $this->setUsername($_SESSION['User']['username']);
         $imageDirectory = "/Public/Images/ProfilePictures/";
-        $imageFile = $imageDirectory . $this->getUsername() . pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+        $imageFile = $imageDirectory . $this->getUsername() . "." . pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
         $uploadedPath = $_SERVER['DOCUMENT_ROOT'] . $imageFile;
         if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadedPath)) {
             $this->setProfilePicture($imageFile);
-            $this->PDO->query("UPDATE Chat.Users UsersProfilePicture = :UsersProfilePicture WHERE UsersUsername = :UsersUsername");
+            $this->PDO->query("UPDATE Chat.Users SET UsersProfilePicture = :UsersProfilePicture WHERE UsersUsername = :UsersUsername");
             $this->PDO->bind(":UsersProfilePicture", $this->getProfilePicture());
             $this->PDO->bind(":UsersUsername", $this->getUsername());
             $this->PDO->execute();
