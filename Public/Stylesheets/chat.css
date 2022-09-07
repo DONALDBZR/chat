@@ -104,8 +104,10 @@ body {
 #loginVerification main form,
 #register main form,
 #forgotPassword main form,
-#userEditProfile main form {
+#userEditProfile main form,
+#userAccount main form {
     background-color: var(--color2);
+    color: var(--color1);
 }
 #login main form .label,
 #loginVerification main form .label,
@@ -130,7 +132,8 @@ body {
 #loginVerification main form #button button,
 #register main form #button button,
 #forgotPassword main form #button button,
-#userEditProfile main form #button button {
+#userEditProfile main form #button button,
+#userAccount main form #button button {
     color: var(--color2);
     background-color: var(--color1);
     cursor: pointer;
@@ -142,7 +145,8 @@ body {
 #loginVerification main form #button button:hover,
 #register main form #button button:hover,
 #forgotPassword main form #button button:hover,
-#userEditProfile main form #button button:hover {
+#userEditProfile main form #button button:hover,
+#userAccount main form #button button:hover {
     color: var(--color1);
     background-color: var(--color2);
 }
@@ -150,14 +154,17 @@ body {
 #loginVerification main form #serverRendering,
 #register main form #serverRendering,
 #forgotPassword main form #serverRendering,
-#userEditProfile main form #serverRendering {
+#userEditProfile main form #serverRendering,
+#userAccount main form #serverRendering {
     text-align: center;
+    display: block;
 }
 #login main form #serverRendering h1,
 #loginVerification main form #serverRendering h1,
 #register main form #serverRendering h1,
 #forgotPassword main form #serverRendering h1,
-#userEditProfile main form #serverRendering h1 {
+#userEditProfile main form #serverRendering h1,
+#userAccount main form #serverRendering h1 {
     font-family: var(--proximaNova);
     font-weight: bold;
     width: unset;
@@ -185,26 +192,30 @@ body {
 }
 #userDashboard header #clock,
 #userProfile header #clock,
-#userEditProfile header #clock {
+#userEditProfile header #clock,
+#userAccount header #clock {
     text-align: center;
     font-weight: normal;
     font-family: var(--digital7);
 }
 #userDashboard main,
 #userProfile main,
-#userEditProfile main {
+#userEditProfile main,
+#userAccount main {
     display: flex;
 }
 #userDashboard main nav .link a,
 #userProfile main nav .link a,
-#userEditProfile main nav .link a {
+#userEditProfile main nav .link a,
+#userAccount main nav .link a {
     text-decoration: none;
     color: var(--color2);
     opacity: calc(var(--percentage) / 2);
 }
 #userDashboard main nav .link a:hover,
 #userProfile main nav .link a:hover,
-#userEditProfile main nav .link a:hover {
+#userEditProfile main nav .link a:hover,
+#userAccount main nav .link a:hover {
     opacity: var(--percentage);
 }
 #userDashboard main #contacts .foreverAlone {
@@ -266,4 +277,38 @@ body {
 #userEditProfile main form input::-webkit-file-upload-button:hover {
     background-color: var(--color2);
     color: var(--color1);
+}
+#userDashboard main nav .link,
+#userProfile main nav .link,
+#userEditProfile main nav .link,
+#userAccount main nav .link {
+    text-align: center;
+}
+#userAccount main form #header {
+    font-family: var(--sourceCodePro);
+    text-align: center;
+    display: block;
+}
+#userAccount main form div {
+    display: flex;
+}
+#userAccount main form div .label {
+    display: block;
+    font-family: var(--sourceCodePro);
+}
+#userAccount main form div .input {
+    display: block;
+}
+#userAccount main form div .input input {
+    font-family: var(--proximaNova);
+    color: var(--color1);
+    background-color: var(--color2);
+    border-color: var(--color1);
+    border-style: solid;
+}
+#userAccount main form div .input input:disabled {
+    border: none;
+}
+#userAccount main form #button {
+    display: block;
 }
