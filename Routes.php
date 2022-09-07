@@ -42,6 +42,9 @@ switch ($_SERVER['REQUEST_METHOD']) {
             case "/User/Profile/{$_SESSION['User']['username']}/Edit":
                 $Router = new Router("GET", "/User/Profile/{$_SESSION['User']['username']}/Edit", "/Views/UserEditProfile.php");
                 break;
+            case "/User/Account/{$_SESSION['User']['username']}":
+                $Router = new Router("GET", "/User/Account/{$_SESSION['User']['username']}", "/Views/UserAccount.php");
+                break;
         }
         break;
     case 'POST':
