@@ -174,8 +174,8 @@ body {
 }
 #userAccount main form {
     padding: calc(var(--percentage) / 100);
-    margin: calc(var(--percentage) * 0) calc(var(--percentage) * 0.29);
-    width: calc(var(--percentage) * 0.4);
+    margin: calc(var(--percentage) * 0) calc(var(--percentage) * 0.02);
+    width: calc(var(--percentage) * 0.94);
 }
 #userAccount main form div .label {
     font-size: calc(var(--percentage) * var(--mobile) * 2);
