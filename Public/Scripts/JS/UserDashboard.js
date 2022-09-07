@@ -73,6 +73,7 @@ class Application extends React.Component {
                 domain: data.domain,
                 home: `/User/Dashboard/${data.username}`,
                 profile: `/User/Profile/${data.username}`,
+                security: `/User/Account/${data.username}`,
                 profilePicture: data.profilePicture,
             }));
         fetch("/Contacts/Get", {
@@ -181,6 +182,9 @@ class NavigationBar extends Main {
                     <a href={this.state.home} class="fa fa-home"></a>
                 </div>
                 <ProfileLink />
+                <div class="link">
+                    <a href={this.state.security} class="fa fa-cog"></a>
+                </div>
                 <div class="link">
                     <a href="/Sign-Out" class="fa fa-sign-out"></a>
                 </div>
