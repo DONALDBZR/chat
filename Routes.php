@@ -59,6 +59,9 @@ switch ($_SERVER['REQUEST_METHOD']) {
             case '/ForgotPassword':
                 $Router = new Router("POST", "/ForgotPassword", "/Controllers/ForgotPassword.php");
                 break;
+            case "/User/Profile/{$_SESSION['User']['username']}/Edit":
+                $Router = new Router("POST", "/User/Profile/{$_SESSION['User']['username']}/Edit", "/Controllers/UserEditProfile.php");
+                break;
         }
         break;
 }

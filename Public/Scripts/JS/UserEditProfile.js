@@ -105,11 +105,10 @@ class Application extends React.Component {
          */
         const delay = 3760;
         event.preventDefault();
-        fetch("/Controllers/Register.php", {
+        fetch("/Controllers/UserEditProfile.php", {
             method: "POST",
             body: JSON.stringify({
-                username: this.state.username,
-                mailAddress: this.state.mailAddress,
+                profilePicture: this.state.profilePicture,
             }),
             headers: {
                 "Content-Type": "application/json",
