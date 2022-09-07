@@ -75,21 +75,61 @@ class Application extends React.Component {
                 profile: `/User/Profile/${data.username}`,
                 profilePicture: data.profilePicture,
             }));
-        fetch("/Contacts/Get", {
-            method: "GET"
-        })
-            .then((response) => response.json())
-            .then((data) => this.setState({
-                message: data.message,
-                contacts: data.contacts,
-                class: data.class,
-            }));
     }
     /**
      * 1. Retrieving the session data as soon as the component is mount
      */
     componentDidMount() {
         this.retrieveData();
+    }
+    /**
+     * Handling any change that is made in the user interface
+     * @param {Event} event 
+     */
+    handleChange(event) {
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
+        this.setState({
+            [name]: value,
+        });
+    }
+    /**
+     * Handling the form submission firstly preventing default submission before generating the JSON that will be sent to the back-end before retrieving a JSON as a response which contains the message and the destination to send the user.
+     * @param {Event} event 
+     */
+    handleSubmit(event) {
+        /**
+         * The amount of milliseconds that the registration process takes
+         */
+        const delay = 3760;
+        event.preventDefault();
+        fetch("/Controllers/Register.php", {
+            method: "POST",
+            body: JSON.stringify({
+                username: this.state.username,
+                mailAddress: this.state.mailAddress,
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => this.setState({
+                success: data.success,
+                message: data.message,
+                url: data.url,
+            }))
+            .then(() => this.redirector(delay));
+    }
+    /**
+     * Redirecting the user to an intended url
+     * @param {int} delay 
+     */
+    redirector(delay) {
+        setTimeout(() => {
+            window.location.href = this.state.url;
+        }, delay);
     }
     /**
      * Returning components to the DOM for them to be rendered
@@ -158,7 +198,7 @@ class Main extends Application {
         return (
             <main>
                 <NavigationBar />
-                <Profile />
+                <Form />
             </main>
         );
     }
@@ -223,18 +263,11 @@ class ProfileLink extends NavigationBar {
     }
 }
 /**
- * The profile component of the application which display all the details about the current user
+ * The form component of the application which allows the user to edit his/her profile
  */
-class Profile extends Main {
+class Form extends Main {
     constructor(props) {
         super(props);
-    }
-    /**
-     * Counting all the contacts that the current user has
-     * @returns {int} Amount of contacts
-     */
-    countContacts() {
-        return this.state.contacts.length;
     }
     /**
      * Returning components to the DOM for them to be rendered
@@ -242,49 +275,29 @@ class Profile extends Main {
      */
     render() {
         return (
-            <div id="profile">
-                <div id="header">
-                    <ProfilePicture />
-                    <div>
-                        <a href={this.state.profile + "/Edit"}>Edit</a>
-                    </div>
+            <form method="POST" enctype="multipart/form-data" onSubmit={this.handleSubmit.bind(this)}>
+                <div id="label">You can customize your profile picture</div>
+                <input type="file" name="image" accept="image/*" value={this.state.profilePicture} onChange={this.handleChange.bind(this)} required />
+                <button>Change Profile Picture</button>
+                <Security />
+                <div id="serverRendering">
+                    <h1 id={this.state.success}>{this.state.message}</h1>
                 </div>
-                <div id="username">{this.state.username}</div>
-                <div id="mailAddress">
-                    <a href={"mailto:" + this.state.mailAddress}>{this.state.mailAddress}</a>
-                </div>
-                <div id="contacts"><div id="amountContacts">{this.countContacts()}</div> contacts</div>
-            </div>
+            </form>
         );
     }
 }
 /**
- * Profile Picture component which is a child of the Profile tab component
+ * The security component will display the link needed which allows the user to change his/her important data.
  */
-class ProfilePicture extends Profile {
-    constructor(props) {
-        super(props);
-    }
-    /**
-     * Werifying whether there is a profile picture for the current user
-     * @returns {JSX} Component
-     */
-    verifyProfilePicture() {
-        if (this.state.profilePicture != null) {
-            return <img src={this.state.profilePicture} />;
-        } else {
-            return <i class="fa fa-user"></i>;
-        }
-    }
+class Security extends Main {
     /**
      * Returning components to the DOM for them to be rendered
      * @returns {Application} Components
      */
     render() {
         return (
-            <div>
-                {this.verifyProfilePicture()}
-            </div>
+            <div>Security</div>
         );
     }
 }
