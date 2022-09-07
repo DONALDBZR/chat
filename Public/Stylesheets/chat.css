@@ -148,13 +148,15 @@ body {
 #login main form #serverRendering,
 #loginVerification main form #serverRendering,
 #register main form #serverRendering,
-#forgotPassword main form #serverRendering {
+#forgotPassword main form #serverRendering,
+#userEditProfile main form #serverRendering {
     text-align: center;
 }
 #login main form #serverRendering h1,
 #loginVerification main form #serverRendering h1,
 #register main form #serverRendering h1,
-#forgotPassword main form #serverRendering h1 {
+#forgotPassword main form #serverRendering h1,
+#userEditProfile main form #serverRendering h1 {
     font-family: var(--proximaNova);
     font-weight: bold;
     width: unset;
