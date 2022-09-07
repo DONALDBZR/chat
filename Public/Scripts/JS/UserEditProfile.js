@@ -73,6 +73,7 @@ class Application extends React.Component {
                 domain: data.domain,
                 home: `/User/Dashboard/${data.username}`,
                 profile: `/User/Profile/${data.username}`,
+                security: `/User/Account/${data.username}`,
                 profilePicture: data.profilePicture,
             }));
     }
@@ -222,6 +223,9 @@ class NavigationBar extends Main {
                 </div>
                 <ProfileLink />
                 <div class="link">
+                    <a href={this.state.security} class="fa fa-cog"></a>
+                </div>
+                <div class="link">
                     <a href="/Sign-Out" class="fa fa-sign-out"></a>
                 </div>
             </nav >
@@ -281,25 +285,10 @@ class Form extends Main {
                 <div id="button">
                     <button>Change Profile Picture</button>
                 </div>
-                <Security />
                 <div id="serverRendering">
                     <h1 id={this.state.success}>{this.state.message}</h1>
                 </div>
             </form>
-        );
-    }
-}
-/**
- * The security component will display the link needed which allows the user to change his/her important data.
- */
-class Security extends Main {
-    /**
-     * Returning components to the DOM for them to be rendered
-     * @returns {Application} Components
-     */
-    render() {
-        return (
-            <div>Security</div>
         );
     }
 }
