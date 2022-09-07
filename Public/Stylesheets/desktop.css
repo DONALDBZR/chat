@@ -148,3 +148,15 @@ body {
     margin: calc(var(--percentage) * 0.02);
     font-size: var(--percentage);
 }
+#userDashboard main nav .link a img,
+#userProfile main nav .link a img,
+#userEditProfile main nav .link a img,
+#userProfile main #profile #header div img {
+    width: calc(var(--percentage) * 0.9);
+    padding: calc(var(--percentage) * 0) calc(var(--percentage) / 20);
+    height: auto;
+}
+#userProfile main #profile #header div img {
+    width: var(--percentage);
+    height: auto;
+}

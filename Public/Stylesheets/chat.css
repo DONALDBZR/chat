@@ -38,6 +38,7 @@
     --sourceCodePro: "Source Code Pro";
     --chopsic: "Chopsic";
     --digital7: "Digital 7";
+    --percentage: 100%;
 }
 body {
     background-color: var(--color1);
@@ -198,12 +199,13 @@ body {
 #userProfile main nav .link a,
 #userEditProfile main nav .link a {
     text-decoration: none;
-    color: var(--color5);
+    color: var(--color2);
+    opacity: calc(var(--percentage) / 2);
 }
 #userDashboard main nav .link a:hover,
 #userProfile main nav .link a:hover,
 #userEditProfile main nav .link a:hover {
-    color: var(--color2);
+    opacity: var(--percentage);
 }
 #userDashboard main #contacts .foreverAlone {
     display: flex;
