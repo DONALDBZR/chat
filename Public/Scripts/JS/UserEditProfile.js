@@ -278,7 +278,9 @@ class Form extends Main {
             <form method="POST" enctype="multipart/form-data" onSubmit={this.handleSubmit.bind(this)}>
                 <div id="label">You can customize your profile picture</div>
                 <input type="file" name="image" accept="image/*" value={this.state.profilePicture} onChange={this.handleChange.bind(this)} required />
-                <button>Change Profile Picture</button>
+                <div id="button">
+                    <button>Change Profile Picture</button>
+                </div>
                 <Security />
                 <div id="serverRendering">
                     <h1 id={this.state.success}>{this.state.message}</h1>

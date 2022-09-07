@@ -41,7 +41,8 @@ body {
 #login main form input,
 #loginVerification main form input,
 #register main form input,
-#forgotPassword main form input {
+#forgotPassword main form input,
+#userEditProfile main form input {
     width: calc(var(--percentage) * 0.94);
     margin: calc(var(--percentage) * 0.01) calc(var(--percentage) * 0.02);
     font-size: var(--percentage);
@@ -49,13 +50,15 @@ body {
 #login main form #button,
 #loginVerification main form #button,
 #register main form #button,
-#forgotPassword main form #button {
+#forgotPassword main form #button,
+#userEditProfile main form #button {
     margin: calc(var(--percentage) * 0.02);
 }
 #login main form #button button,
 #loginVerification main form #button button,
 #register main form #button button,
-#forgotPassword main form #button button {
+#forgotPassword main form #button button,
+#userEditProfile main form #button button {
     width: var(--percentage);
     font-size: var(--percentage);
     padding: calc(var(--percentage) * 0.0125);
@@ -72,24 +75,29 @@ body {
     font-size: var(--percentage);
 }
 #userDashboard header #clock,
-#userProfile header #clock {
+#userProfile header #clock,
+#userEditProfile header #clock {
     margin: calc(var(--percentage) * 0);
     font-size: calc(var(--percentage) * 2);
 }
 #userDashboard main nav,
-#userProfile main nav {
+#userProfile main nav,
+#userEditProfile main nav {
     width: calc(var(--percentage) * 0.05);
 }
 #userDashboard main #contacts,
-#userProfile main #profile {
+#userProfile main #profile,
+#userEditProfile main form {
     width: calc(var(--percentage) * 0.95);
 }
 #userDashboard main nav .link,
-#userProfile main nav .link {
+#userProfile main nav .link,
+#userEditProfile main nav .link {
     margin: calc(var(--percentage) * 0.2) calc(var(--percentage) * 0);
 }
 #userDashboard main nav .link a,
-#userProfile main nav .link a {
+#userProfile main nav .link a,
+#userEditProfile main nav .link a {
     font-size: calc(var(--percentage) * 2);
 }
 #userDashboard main #contacts .foreverAlone {
@@ -127,4 +135,15 @@ body {
 }
 #userProfile main #profile #header div i {
     font-size: calc(var(--percentage) * 4);
+}
+#userEditProfile main form {
+    padding: calc(var(--percentage) * 0.01);
+    margin: calc(var(--percentage) * 0) calc(var(--percentage) / 3);
+}
+#userEditProfile main form input::-webkit-file-upload-button {
+    padding: calc(var(--percentage) / 100) calc(var(--percentage) / 50);
+}
+#userEditProfile main form #label {
+    margin: calc(var(--percentage) * 0.02);
+    font-size: var(--percentage);
 }

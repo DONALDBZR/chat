@@ -102,13 +102,15 @@ body {
 #login main form,
 #loginVerification main form,
 #register main form,
-#forgotPassword main form {
+#forgotPassword main form,
+#userEditProfile main form {
     background-color: var(--color2);
 }
 #login main form .label,
 #loginVerification main form .label,
 #register main form .label,
-#forgotPassword main form .label {
+#forgotPassword main form .label,
+#userEditProfile main form #label {
     font-family: var(--sourceCodePro);
     font-weight: bold;
     color: var(--color1);
@@ -117,14 +119,17 @@ body {
 #login main form input,
 #loginVerification main form input,
 #register main form input,
-#forgotPassword main form input {
+#forgotPassword main form input,
+#userEditProfile main form input,
+#userEditProfile main form input::file-selector-button {
     font-family: var(--proximaNova);
     color: var(--color1);
 }
 #login main form #button button,
 #loginVerification main form #button button,
 #register main form #button button,
-#forgotPassword main form #button button {
+#forgotPassword main form #button button,
+#userEditProfile main form #button button {
     color: var(--color2);
     background-color: var(--color1);
     cursor: pointer;
@@ -135,7 +140,8 @@ body {
 #login main form #button button:hover,
 #loginVerification main form #button button:hover,
 #register main form #button button:hover,
-#forgotPassword main form #button button:hover {
+#forgotPassword main form #button button:hover,
+#userEditProfile main form #button button:hover {
     color: var(--color1);
     background-color: var(--color2);
 }
@@ -175,22 +181,26 @@ body {
     text-decoration: underline;
 }
 #userDashboard header #clock,
-#userProfile header #clock {
+#userProfile header #clock,
+#userEditProfile header #clock {
     text-align: center;
     font-weight: normal;
     font-family: var(--digital7);
 }
 #userDashboard main,
-#userProfile main {
+#userProfile main,
+#userEditProfile main {
     display: flex;
 }
 #userDashboard main nav .link a,
-#userProfile main nav .link a {
+#userProfile main nav .link a,
+#userEditProfile main nav .link a {
     text-decoration: none;
     color: var(--color5);
 }
 #userDashboard main nav .link a:hover,
-#userProfile main nav .link a:hover {
+#userProfile main nav .link a:hover,
+#userEditProfile main nav .link a:hover {
     color: var(--color2);
 }
 #userDashboard main #contacts .foreverAlone {
@@ -240,4 +250,16 @@ body {
 }
 #userProfile main #profile #contacts {
     display: flex;
+}
+#userEditProfile main form input::-webkit-file-upload-button {
+    font-family: var(--proximaNova);
+    border: none;
+    background-color: var(--color1);
+    color: var(--color2);
+    font-weight: bold;
+    cursor: pointer;
+}
+#userEditProfile main form input::-webkit-file-upload-button:hover {
+    background-color: var(--color2);
+    color: var(--color1);
 }
