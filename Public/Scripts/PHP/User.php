@@ -140,6 +140,13 @@ class User extends Password
         $this->PDO->bind(":UsersMailAddress", $this->getMailAddress());
         $this->PDO->execute();
         if (empty($this->PDO->resultSet())) {
+            $this->PDO->query("SELECT * FROM Chat.Passwords ORDER BY PasswordsId DESC");
+            $this->PDO->execute();
+            if (empty($this->PDO->resultSet() || $this->PDO->resultSet()[0]['PasswordsId'] == null)) {
+                $this->setID(1);
+            } else {
+                $this->setID($this->PDO->resultSet()[0]['PasswordsId'] + 1);
+            }
             $this->setPassword($this->generatePassword());
             $this->Mail->send($this->getMailAddress(), "Registration Complete", "Your account with username, {$this->getUsername()} and password, {$this->getPassword()} has been created.  Please consUsernameer to change it after logging in!");
             $this->setSalt($this->generateSalt());
@@ -149,11 +156,6 @@ class User extends Password
             $this->PDO->bind(":PasswordsSalt", $this->getSalt());
             $this->PDO->bind(":PasswordsHash", $this->getHash());
             $this->PDO->execute();
-            $this->PDO->query("SELECT * FROM Chats.Passwords WHERE PasswordsSalt = :PasswordSalt AND PasswordsHash = :PasswordsHash");
-            $this->PDO->bind(":PasswordsSalt", $this->getSalt());
-            $this->PDO->bind(":PasswordsHash", $this->getHash());
-            $this->PDO->execute();
-            $this->setID($this->PDO->resultSet()[0]['PasswordsId']);
             $this->PDO->query("INSERT INTO Chat.Users(UsersUsername, UsersMailAddress, UsersPassword) VALUES (:UsersUsername, :UsersMailAddress, :UsersPassword)");
             $this->PDO->bind(":UsersUsername", $this->getUsername());
             $this->PDO->bind(":UsersMailAddress", $this->getMailAddress());
