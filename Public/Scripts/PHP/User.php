@@ -185,7 +185,7 @@ class User extends Password
      */
     public function logout()
     {
-        unset($_SESSION['User']);
+        unset($_SESSION);
         $json = array(
             "success" => "success",
             "url" => "{$this->domain}",
