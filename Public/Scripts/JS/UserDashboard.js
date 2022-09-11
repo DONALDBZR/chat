@@ -17,10 +17,6 @@ class Application extends React.Component {
              */
             mailAddress: "",
             /**
-             * Password of the user
-             */
-            password: "",
-            /**
              * Domain of the application
              */
             domain: "",
@@ -69,7 +65,6 @@ class Application extends React.Component {
             .then((data) => this.setState({
                 username: data.username,
                 mailAddress: data.mailAddress,
-                password: data.password,
                 domain: data.domain,
                 home: `/User/Dashboard/${data.username}`,
                 profile: `/User/Profile/${data.username}`,

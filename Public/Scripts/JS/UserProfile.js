@@ -17,10 +17,6 @@ class Application extends React.Component {
              */
             mailAddress: "",
             /**
-             * Password of the user
-             */
-            password: "",
-            /**
              * Domain of the application
              */
             domain: "",
