@@ -165,7 +165,7 @@ body {
     height: auto;
 }
 #userProfile main #profile #header div img {
-    width: var(--percentage);
+    width: calc(var(--percentage) / 2);
     height: auto;
 }
 #userAccount main form #header {
