@@ -17,10 +17,6 @@ class Application extends React.Component {
              */
             mailAddress: "",
             /**
-             * Password of the user
-             */
-            password: "",
-            /**
              * Domain of the application
              */
             domain: "",
@@ -56,6 +52,18 @@ class Application extends React.Component {
              * Profile Picture of the user
              */
             profilePicture: "",
+            /**
+             * The old password of the user
+             */
+            oldPassword: "",
+            /**
+             * The new password of the user
+             */
+            newPassword: "",
+            /**
+             * The cofirmation of the new password
+             */
+            confirmNewPassword: "",
         };
     }
     /**
@@ -69,7 +77,6 @@ class Application extends React.Component {
             .then((data) => this.setState({
                 username: data.username,
                 mailAddress: data.mailAddress,
-                password: data.password,
                 domain: data.domain,
                 home: `/User/Dashboard/${data.username}`,
                 profile: `/User/Profile/${data.username}`,
@@ -105,11 +112,14 @@ class Application extends React.Component {
          */
         const delay = 3760;
         event.preventDefault();
-        fetch("/Controllers/Register.php", {
+        fetch("/Controllers/UserAccount.php", {
             method: "POST",
             body: JSON.stringify({
                 username: this.state.username,
                 mailAddress: this.state.mailAddress,
+                oldPassword: this.state.oldPassword,
+                newPassword: this.state.newPassword,
+                confirmNewPassword: this.state.confirmNewPassword,
             }),
             headers: {
                 "Content-Type": "application/json",
