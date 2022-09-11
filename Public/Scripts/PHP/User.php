@@ -317,7 +317,7 @@ class User extends Password
             if ($JSON->newPassword == $JSON->confirmNewPassword) {
                 $this->setPassword($JSON->newPassword);
                 $this->Mail->send($this->getMailAddress(), "Password Changed!", "Your new password is {$this->getPassword()} and you have just changed your old one.  If, you have not made that change, consider into reseting the password on this link:  {$this->domain}/ForgotPassword");
-                $this->PDO->query("SELECT * FROM Chat.Passwords");
+                $this->PDO->query("SELECT * FROM Chat.Passwords ORDER BY PasswordsId DESC");
                 $this->PDO->execute();
                 if (empty($this->PDO->resultSet()) || $this->PDO->resultSet()[0]['PasswordsId'] == null) {
                     $this->setID(1);
