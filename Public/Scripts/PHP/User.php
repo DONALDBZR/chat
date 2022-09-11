@@ -81,13 +81,15 @@ class User extends Password
             $this->setUsername($this->PDO->resultSet()[0]['UsersUsername']);
             $this->setMailAddress($this->PDO->resultSet()[0]['UsersMailAddress']);
             $this->setId($this->PDO->resultSet()[0]['UsersPassword']);
+            $this->setPassword($json->password);
             $this->setProfilePicture($this->PDO->resultSet()[0]['UsersProfilePicture']);
             $this->PDO->query("SELECT * FROM Chat.Passwords WHERE PasswordsId = :PasswordsId");
             $this->PDO->bind(":PasswordsId", $this->getID());
             $this->PDO->execute();
             $this->setSalt($this->PDO->resultSet()[0]['PasswordsSalt']);
             $this->setHash($this->PDO->resultSet()[0]['PasswordsHash']);
-            if (password_hash($json->password . $this->getSalt(), PASSWORD_ARGON2I) == $this->getHash()) {
+            $this->setPassword($this->getPassword() . $this->getSalt());
+            if (password_verify($this->getPassword(), $this->getHash())) {
                 $this->setOtp($this->otpGenerate());
                 $user = array(
                     "username" => $this->getUsername(),
@@ -148,7 +150,7 @@ class User extends Password
                 $this->setID($this->PDO->resultSet()[0]['PasswordsId'] + 1);
             }
             $this->setPassword($this->generatePassword());
-            $this->Mail->send($this->getMailAddress(), "Registration Complete", "Your account with username, {$this->getUsername()} and password, {$this->getPassword()} has been created.  Please consUsernameer to change it after logging in!");
+            $this->Mail->send($this->getMailAddress(), "Registration Complete", "Your account with username, {$this->getUsername()} and password, {$this->getPassword()} has been created.  Please consider to change it after logging in!");
             $this->setSalt($this->generateSalt());
             $this->setPassword($this->getPassword() . $this->getSalt());
             $this->setHash(password_hash($this->getPassword(), PASSWORD_ARGON2I));
