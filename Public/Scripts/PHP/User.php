@@ -232,6 +232,13 @@ class User extends Password
         $this->PDO->bind(":UsersMailAddress", $this->getMailAddress());
         $this->PDO->execute();
         if (!empty($this->PDO->resultSet())) {
+            $this->PDO->query("SELECT * FROM Chat.Passwords ORDER BY PasswordsId DESC");
+            $this->PDO->execute();
+            if (empty($this->PDO->resultSet() || $this->PDO->resultSet()[0]['PasswordsId'] == null)) {
+                $this->setID(1);
+            } else {
+                $this->setID($this->PDO->resultSet()[0]['PasswordsId'] + 1);
+            }
             $this->setPassword($this->generatePassword());
             $this->Mail->send($this->getMailAddress(), "Password Reset!", "Your new password is {$this->getPassword()} and please consider to change it after logging in!");
             $this->setSalt($this->generateSalt());
@@ -241,11 +248,6 @@ class User extends Password
             $this->PDO->bind(":PasswordsSalt", $this->getSalt());
             $this->PDO->bind(":PasswordsHash", $this->getHash());
             $this->PDO->execute();
-            $this->PDO->query("SELECT * FROM Chats.Passwords WHERE PasswordsSalt = :PasswordSalt AND PasswordsHash = :PasswordsHash");
-            $this->PDO->bind(":PasswordsSalt", $this->getSalt());
-            $this->PDO->bind(":PasswordsHash", $this->getHash());
-            $this->PDO->execute();
-            $this->setID($this->PDO->resultSet()[0]['PasswordsId']);
             $this->PDO->query("UPDATE Chat.Users SET UsersPassword = :UsersPassword WHERE UsersMailAddress = :UsersMailAddress");
             $this->PDO->bind(":UsersPassword", $this->getID());
             $this->PDO->bind(":UsersMailAddress", $this->getMailAddress());
