@@ -115,8 +115,6 @@ class Application extends React.Component {
         fetch("/Controllers/UserAccount.php", {
             method: "POST",
             body: JSON.stringify({
-                username: this.state.username,
-                mailAddress: this.state.mailAddress,
                 oldPassword: this.state.oldPassword,
                 newPassword: this.state.newPassword,
                 confirmNewPassword: this.state.confirmNewPassword,

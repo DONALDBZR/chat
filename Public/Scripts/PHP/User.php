@@ -294,4 +294,71 @@ class User extends Password
             echo json_encode($json);
         }
     }
+    /**
+     * Changing the password of the user
+     */
+    public function changePassword()
+    {
+        $JSON = json_decode(file_get_contents("php://input"));
+        $this->setUsername($_SESSION['User']['username']);
+        $this->setMailAddress($_SESSION['User']['mailAddress']);
+        $this->setPassword($JSON->oldPassword);
+        $this->PDO->query("SELECT * FROM Chat.Users WHERE UsersUsername = :UsersUsername");
+        $this->PDO->bind(":UsersUsername", $this->getUsername());
+        $this->PDO->execute();
+        $this->setID($this->PDO->resultSet()[0]['UsersPassword']);
+        $this->PDO->query("SELECT * FROM Chat.Passwords WHERE PasswordsId = :PasswordsId");
+        $this->PDO->bind(":PasswordsId", $this->getID());
+        $this->PDO->execute();
+        $this->setSalt($this->PDO->resultSet()[0]['PasswordsSalt']);
+        $this->setHash($this->PDO->resultSet()[0]['PasswordsHash']);
+        $this->setPassword($this->getPassword() . $this->getSalt());
+        if (password_verify($this->getPassword(), $this->getHash())) {
+            if ($JSON->newPassword == $JSON->confirmNewPassword) {
+                $this->setPassword($JSON->newPassword);
+                $this->Mail->send($this->getMailAddress(), "Password Changed!", "Your new password is {$this->getPassword()} and you have just changed your old one.  If, you have not made that change, consider into reseting the password on this link:  {$this->domain}/ForgotPassword");
+                $this->PDO->query("SELECT * FROM Chat.Passwords");
+                $this->PDO->execute();
+                if (empty($this->PDO->resultSet()) || $this->PDO->resultSet()[0]['PasswordsId'] == null) {
+                    $this->setID(1);
+                } else {
+                    $this->setID($this->PDO->resultSet()[0]['PasswordsId'] + 1);
+                }
+                $this->setSalt($this->generateSalt());
+                $this->setPassword($this->getPassword() . $this->getSalt());
+                $this->setHash(password_hash($this->getPassword(), PASSWORD_ARGON2I));
+                $this->PDO->query("INSERT INTO Chat.Passwords(PasswordsSalt, PasswordsHash) VALUES (:PasswordsSalt, :PasswordsHash)");
+                $this->PDO->bind(":PasswordsSalt", $this->getSalt());
+                $this->PDO->bind(":PasswordsHash", $this->getHash());
+                $this->PDO->execute();
+                $this->PDO->query("UPDATE Chat.Users SET UsersPassword = :UsersPassword WHERE UsersUsername = :UsersUsername");
+                $this->PDO->bind(":UsersPassword", $this->getID());
+                $this->PDO->bind(":UsersUsername", $this->getUsername());
+                $this->PDO->execute();
+                $JSON = array(
+                    "success" => "success",
+                    "url" => "{$this->domain}/Sign-Out",
+                    "message" => "Your password has been changed!  You will be logged out of your account to test the new password!"
+                );
+                header('Content-Type: application/json');
+                echo json_encode($JSON);
+            } else {
+                $JSON = array(
+                    "success" => "failure",
+                    "url" => "{$this->domain}/User/Account/{$this->getUsername()}",
+                    "message" => "The Passwords are not identical!"
+                );
+                header('Content-Type: application/json');
+                echo json_encode($JSON);
+            }
+        } else {
+            $JSON = array(
+                "success" => "failure",
+                "url" => "{$this->domain}/User/Account/{$this->getUsername()}",
+                "message" => "Incorrect Password!"
+            );
+            header('Content-Type: application/json');
+            echo json_encode($JSON);
+        }
+    }
 }
