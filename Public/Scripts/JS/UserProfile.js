@@ -176,6 +176,9 @@ class NavigationBar extends Main {
                 <div class="link">
                     <a href={this.state.home} class="fa fa-home"></a>
                 </div>
+                <div class="link">
+                    <a href="/Users/Search" class="fa fa-search"></a>
+                </div>
                 <ProfileLink />
                 <div class="link">
                     <a href={this.state.security} class="fa fa-cog"></a>
