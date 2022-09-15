@@ -318,12 +318,45 @@ class ServerRendering extends Form {
         super(props);
     }
     /**
+     * Verifying whether a profile picture exists
+     * @param {string} UserProfilePicture
+     * @return {JSX} Component
+     */
+    verifyProfilePicture(UserProfilePicture) {
+        if (UserProfilePicture != null) {
+            return <img src={UserProfilePicture} />;
+        } else {
+            return <i class="fa fa-user"></i>;
+        }
+    }
+    /**
      * Returning components to the DOM for them to be rendered
      * @returns {Application} Components
      */
     render() {
         return (
-            <div id="serverRendering">ServerRendering</div>
+            <div id="serverRendering">
+                {
+                    this.state.users.map(
+                        (user) => <div class={"user_" + user.username}>
+                            <div class="profilePicture">
+                                {this.verifyProfilePicture(user.profilePicture)}
+                            </div>
+                            <div class="userDetails">
+                                <div class="username">
+                                    <h1>{user.username}</h1>
+                                </div>
+                                <div class="details">
+                                    <div class="mailAddress">{user.mailAddress}</div>
+                                    <div class="addButton">
+                                        <button>Add</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                }
+            </div>
         );
     }
 }
