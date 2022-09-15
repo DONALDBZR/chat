@@ -266,6 +266,7 @@ body {
     .details
     .mailAddress {
     margin: calc(var(--percentage) / 100) calc(var(--percentage) * 0);
+    width: calc(var(--percentage) * (3 / 4));
 }
 #usersSearch
     main
@@ -276,6 +277,7 @@ body {
     .details
     .addButton {
     margin: calc(var(--percentage) / 100) calc(var(--percentage) * 0);
+    width: calc(var(--percentage) / 4);
 }
 #usersSearch
     main
