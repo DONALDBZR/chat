@@ -80,32 +80,37 @@ body {
 #userDashboard header #clock,
 #userProfile header #clock,
 #userEditProfile header #clock,
-#userAccount header #clock {
+#userAccount header #clock,
+#usersSearch header #clock {
     margin: calc(var(--percentage) * 0);
     font-size: calc(var(--percentage) * var(--mobile) * 4);
 }
 #userDashboard main nav,
 #userProfile main nav,
 #userEditProfile main nav,
-#userAccount main nav {
+#userAccount main nav,
+#usersSearch main nav {
     width: calc(var(--percentage) * 0.1);
 }
 #userDashboard main #contacts,
 #userProfile main #profile,
 #userEditProfile main form,
-#userAccount main form {
+#userAccount main form,
+#usersSearch main #searchForm {
     width: calc(var(--percentage) * 0.9);
 }
 #userDashboard main nav .link,
 #userProfile main nav .link,
 #userEditProfile main nav .link,
-#userAccount main nav .link {
+#userAccount main nav .link,
+#usersSearch main nav .link {
     margin: calc(var(--percentage) * 0.2) calc(var(--percentage) * 0);
 }
 #userDashboard main nav .link a,
 #userProfile main nav .link a,
 #userEditProfile main nav .link a,
-#userAccount main nav .link a {
+#userAccount main nav .link a,
+#usersSearch main nav .link a {
     font-size: calc(var(--percentage) * var(--mobile) * 4);
 }
 #userDashboard main #contacts .foreverAlone {
@@ -159,7 +164,8 @@ body {
 #userDashboard main nav .link a img,
 #userProfile main nav .link a img,
 #userEditProfile main nav .link a img,
-#userAccount main nav .link a img {
+#userAccount main nav .link a img,
+#usersSearch main nav .link a img {
     width: calc(var(--percentage) * 0.9);
     padding: calc(var(--percentage) * 0) calc(var(--percentage) / 20);
     height: auto;
@@ -196,4 +202,19 @@ body {
 }
 #userAccount main form #button {
     margin: calc(var(--percentage) / 50) calc(var(--percentage) * 0);
+}
+#usersSearch main #searchForm form {
+    width: calc(var(--percentage) * 0.9);
+    margin: calc(var(--percentage) / 100) calc(var(--percentage) / 20);
+}
+#usersSearch main #searchForm form input {
+    padding: calc(var(--percentage) / 200);
+    font-size: calc(var(--percentage) * var(--mobile) * 2);
+    width: calc(var(--percentage) * 0.9);
+}
+#usersSearch main #searchForm form button {
+    padding: unset;
+    margin: unset;
+    width: calc(var(--percentage) / 10);
+    font-size: calc(var(--percentage) * var(--mobile) * 2);
 }

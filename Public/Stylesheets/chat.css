@@ -34,6 +34,7 @@
     --color3: rgb(255, 0, 0);
     --color4: rgb(0, 255, 0);
     --color5: rgba(255, 255, 255, 0.5);
+    --color6: rgb(0, 0, 0);
     --proximaNova: "Proxima Nova";
     --sourceCodePro: "Source Code Pro";
     --chopsic: "Chopsic";
@@ -75,7 +76,8 @@ body {
 #register header div,
 #forgotPassword header div,
 #userDashboard main nav .link,
-#userProfile main nav .link {
+#userProfile main nav .link,
+#usersSearch main nav .link {
     display: flex;
     justify-content: center;
 }
@@ -193,7 +195,8 @@ body {
 #userDashboard header #clock,
 #userProfile header #clock,
 #userEditProfile header #clock,
-#userAccount header #clock {
+#userAccount header #clock,
+#usersSearch header #clock {
     text-align: center;
     font-weight: normal;
     font-family: var(--digital7);
@@ -201,13 +204,15 @@ body {
 #userDashboard main,
 #userProfile main,
 #userEditProfile main,
-#userAccount main {
+#userAccount main,
+#usersSearch main {
     display: flex;
 }
 #userDashboard main nav .link a,
 #userProfile main nav .link a,
 #userEditProfile main nav .link a,
-#userAccount main nav .link a {
+#userAccount main nav .link a,
+#usersSearch main nav .link a {
     text-decoration: none;
     color: var(--color2);
     opacity: calc(var(--percentage) / 2);
@@ -215,7 +220,8 @@ body {
 #userDashboard main nav .link a:hover,
 #userProfile main nav .link a:hover,
 #userEditProfile main nav .link a:hover,
-#userAccount main nav .link a:hover {
+#userAccount main nav .link a:hover,
+#usersSearch main nav .link a:hover {
     opacity: var(--percentage);
 }
 #userDashboard main #contacts .foreverAlone {
@@ -311,4 +317,25 @@ body {
 }
 #userAccount main form #button {
     display: block;
+}
+#usersSearch main #searchForm form {
+    background-color: var(--color2);
+}
+#usersSearch main #searchForm form input {
+    font-family: var(--proximaNova);
+    font-weight: bold;
+    color: var(--color1);
+    background: none;
+    border: none;
+}
+#usersSearch main #searchForm form input::placeholder {
+    color: var(--color1);
+}
+#usersSearch main #searchForm form button {
+    border: unset;
+    background: none;
+    color: var(--color1);
+}
+#usersSearch main #searchForm form button:hover {
+    color: var(--color6);
 }
