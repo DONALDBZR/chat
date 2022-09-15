@@ -310,9 +310,11 @@ class SearchBar extends Form {
                 <input
                     type="search"
                     name="input"
+                    placeholder="Search..."
                     value={this.state.input}
                     onChange={this.handleChange.bind(this)}
                 />
+                <button class="fa fa-search"></button>
             </form>
         );
     }
