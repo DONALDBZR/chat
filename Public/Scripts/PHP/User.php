@@ -368,7 +368,7 @@ class User extends Password
     {
         $users = array();
         $this->setUsername($_SESSION['User']['username']);
-        $this->PDO->query("SELECT * FROM Chat.Users WHERE UsersUsername <> :Username");
+        $this->PDO->query("SELECT * FROM Chat.Users WHERE UsersUsername <> :UsersUsername");
         $this->PDO->bind(":UsersUsername", $this->getUsername());
         $this->PDO->execute();
         for ($index = 0; $index < count($this->PDO->resultSet()); $index++) {
