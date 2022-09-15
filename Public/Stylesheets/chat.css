@@ -77,7 +77,8 @@ body {
 #forgotPassword header div,
 #userDashboard main nav .link,
 #userProfile main nav .link,
-#usersSearch main nav .link {
+#usersSearch main nav .link,
+#usersSearch main #serverRendering div[class*="user_"] .profilePicture {
     display: flex;
     justify-content: center;
 }
@@ -205,7 +206,8 @@ body {
 #userProfile main,
 #userEditProfile main,
 #userAccount main,
-#usersSearch main {
+#usersSearch main,
+#usersSearch main #searchForm #serverRendering div[class*="user_"] {
     display: flex;
 }
 #userDashboard main nav .link a,
@@ -335,7 +337,66 @@ body {
     border: unset;
     background: none;
     color: var(--color1);
+    cursor: pointer;
 }
 #usersSearch main #searchForm form button:hover {
     color: var(--color6);
+}
+#usersSearch
+    main
+    #searchForm
+    #serverRendering
+    div[class*="user_"]
+    .userDetails
+    .username
+    h1 {
+    font-family: var(--proximaNova);
+    font-weight: bold;
+}
+#usersSearch
+    main
+    #searchForm
+    #serverRendering
+    div[class*="user_"]
+    .userDetails
+    .details {
+    display: flex;
+}
+#usersSearch
+    main
+    #searchForm
+    #serverRendering
+    div[class*="user_"]
+    .userDetails
+    .details
+    .mailAddress {
+    font-family: var(--sourceCodePro);
+}
+#usersSearch
+    main
+    #searchForm
+    #serverRendering
+    div[class*="user_"]
+    .userDetails
+    .details
+    .addButton
+    button {
+    font-family: var(--proximaNova);
+    border: none;
+    background-color: var(--color2);
+    color: var(--color1);
+    font-weight: bold;
+    cursor: pointer;
+}
+#usersSearch
+    main
+    #searchForm
+    #serverRendering
+    div[class*="user_"]
+    .userDetails
+    .details
+    .addButton
+    button:hover {
+    background-color: var(--color1);
+    color: var(--color2);
 }

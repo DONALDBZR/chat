@@ -203,7 +203,8 @@ body {
 #userAccount main form #button {
     margin: calc(var(--percentage) / 50) calc(var(--percentage) * 0);
 }
-#usersSearch main #searchForm form {
+#usersSearch main #searchForm form,
+#usersSearch main #searchForm #serverRendering div[class*="user_"] {
     width: calc(var(--percentage) * 0.9);
     margin: calc(var(--percentage) / 100) calc(var(--percentage) / 20);
 }
@@ -217,4 +218,77 @@ body {
     margin: unset;
     width: calc(var(--percentage) / 10);
     font-size: calc(var(--percentage) * var(--mobile) * 2);
+}
+#usersSearch main #searchForm #serverRendering div[class*="user_"] div,
+#usersSearch
+    main
+    #searchForm
+    #serverRendering
+    div[class*="user_"]
+    .userDetails
+    .details
+    div {
+    width: calc(var(--percentage) / 2);
+}
+#usersSearch
+    main
+    #searchForm
+    #serverRendering
+    div[class*="user_"]
+    .userDetails
+    .username,
+#usersSearch
+    main
+    #searchForm
+    #serverRendering
+    div[class*="user_"]
+    .userDetails
+    .details {
+    width: var(--percentage);
+}
+#usersSearch
+    main
+    #searchForm
+    #serverRendering
+    div[class*="user_"]
+    .userDetails
+    .username
+    h1 {
+    font-size: calc(var(--percentage) * var(--mobile) * 4);
+    margin: calc(var(--percentage) / 100) calc(var(--percentage) * 0);
+}
+#usersSearch
+    main
+    #searchForm
+    #serverRendering
+    div[class*="user_"]
+    .userDetails
+    .details
+    .mailAddress {
+    margin: calc(var(--percentage) / 100) calc(var(--percentage) * 0);
+}
+#usersSearch
+    main
+    #searchForm
+    #serverRendering
+    div[class*="user_"]
+    .userDetails
+    .details
+    .addButton {
+    margin: calc(var(--percentage) / 100) calc(var(--percentage) * 0);
+}
+#usersSearch
+    main
+    #searchForm
+    #serverRendering
+    div[class*="user_"]
+    .userDetails
+    .details
+    .addButton
+    button {
+    padding: calc(var(--percentage) / 50) calc(var(--percentage) / 25);
+}
+#usersSearch main #serverRendering div[class*="user_"] .profilePicture img {
+    width: calc(var(--percentage) / 3);
+    height: auto;
 }
