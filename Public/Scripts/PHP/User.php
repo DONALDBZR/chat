@@ -361,4 +361,28 @@ class User extends Password
             echo json_encode($JSON);
         }
     }
+    /**
+     * Getting all the users excepting the current user
+     */
+    public function getUsers()
+    {
+        $users = array();
+        $this->setUsername($_SESSION['User']['username']);
+        $this->PDO->query("SELECT * FROM Chat.Users WHERE UsersUsername <> :Username");
+        $this->PDO->bind(":UsersUsername", $this->getUsername());
+        $this->PDO->execute();
+        for ($index = 0; $index < count($this->PDO->resultSet()); $index++) {
+            $user = array(
+                'username' => $this->PDO->resultSet()[$index]['UsersUsername'],
+                'mailAddress' => $this->PDO->resultSet()[$index]['UsersMailAddress'],
+                'profilePicture' => $this->PDO->resultSet()[$index]['UsersProfilePicture']
+            );
+            array_push($users, $user);
+        }
+        $JSON = array(
+            "users" => $users
+        );
+        header('Content-Type: application/json');
+        echo json_encode($JSON);
+    }
 }

@@ -79,15 +79,6 @@ class Application extends React.Component {
                 security: `/User/Account/${data.username}`,
                 profilePicture: data.profilePicture,
             }));
-        fetch("/Contacts/Get", {
-            method: "GET"
-        })
-            .then((response) => response.json())
-            .then((data) => this.setState({
-                message: data.message,
-                contacts: data.contacts,
-                class: data.class,
-            }));
         fetch("/Users", {
             method: "GET"
         })
