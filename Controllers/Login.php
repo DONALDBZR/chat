@@ -23,7 +23,7 @@ if (json_decode(file_get_contents("php://input")) != null) {
             "message" => "The form must be completely filled!"
         );
         // Preparing the header for the JSON
-        header('Content-Type: application/json');
+        header('Content-Type: application/json', true, 200);
         // Sending the JSON
         echo json_encode($json);
     }
@@ -35,7 +35,7 @@ if (json_decode(file_get_contents("php://input")) != null) {
         "message" => "The form must be completely filled!"
     );
     // Preparing the header for the JSON
-    header('Content-Type: application/json');
+    header('Content-Type: application/json', true, 200);
     // Sending the JSON
     echo json_encode($json);
 }
