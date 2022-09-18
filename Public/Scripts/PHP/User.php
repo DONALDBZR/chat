@@ -287,7 +287,7 @@ class User extends Password
             $_SESSION['User']['profilePicture'] = $this->getProfilePicture();
             $json = array(
                 "success" => "success",
-                "url" => "{$this->domain}/User/Profile/{$this->getUsername()}",
+                "url" => "{$this->domain}/Users/Profile/{$this->getUsername()}",
                 "message" => "Your profile picture has been changed."
             );
             header('Content-Type: application/json', true, 200);
@@ -345,7 +345,7 @@ class User extends Password
             } else {
                 $JSON = array(
                     "success" => "failure",
-                    "url" => "{$this->domain}/User/Account/{$this->getUsername()}",
+                    "url" => "{$this->domain}/Users/Account/{$this->getUsername()}",
                     "message" => "The Passwords are not identical!"
                 );
                 header('Content-Type: application/json', true, 200);
@@ -354,7 +354,7 @@ class User extends Password
         } else {
             $JSON = array(
                 "success" => "failure",
-                "url" => "{$this->domain}/User/Account/{$this->getUsername()}",
+                "url" => "{$this->domain}/Users/Account/{$this->getUsername()}",
                 "message" => "Incorrect Password!"
             );
             header('Content-Type: application/json', true, 200);
@@ -391,5 +391,31 @@ class User extends Password
     public function search()
     {
         $JSON = json_decode(file_get_contents("php://input"));
+        $this->PDO->query("SELECT * FROM Chat.Users WHERE UsersUsername LIKE :UsersUsername");
+        $this->PDO->bind(":UsersUsername", "%{$JSON->input}%");
+        $this->PDO->execute();
+        if (!empty($this->PDO->resultSet())) {
+            for ($index = 0; $index < count($this->PDO->resultSet()); $index++) {
+                $user = array(
+                    'username' => $this->PDO->resultSet()[$index]['UsersUsername'],
+                    'mailAddress' => $this->PDO->resultSet()[$index]['UsersMailAddress'],
+                    'profilePicture' => $this->PDO->resultSet()[$index]['UsersProfilePicture']
+                );
+                array_push($users, $user);
+            }
+            $JSON = array(
+                "users" => $users
+            );
+            header('Content-Type: application/json', true, 200);
+            echo json_encode($JSON);
+        } else {
+            $JSON = array(
+                "success" => "failure",
+                "url" => "{$this->domain}/Users/Search",
+                "message" => "That user does not exists!"
+            );
+            header('Content-Type: application/json', true, 200);
+            echo json_encode($JSON);
+        }
     }
 }

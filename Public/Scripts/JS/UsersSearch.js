@@ -113,6 +113,7 @@ class Application extends React.Component {
      * @param {Event} event 
      */
     handleSubmit(event) {
+        const delay = 2000;
         event.preventDefault();
         fetch("/Controllers/UsersSearch.php", {
             method: "GET",
@@ -127,8 +128,23 @@ class Application extends React.Component {
             .then((data) => this.setState({
                 success: data.success,
                 message: data.message,
+                url: data.url,
                 users: data.users,
-            }));
+            }))
+            .then(() => {
+                if (this.state.url != null) {
+                    this.redirector(delay)
+                }
+            });
+    }
+    /**
+     * Redirecting the user to an intended url
+     * @param {int} delay 
+     */
+    redirector(delay) {
+        setTimeout(() => {
+            window.location.href = this.state.url;
+        }, delay);
     }
     /**
      * 1. Retrieving the session data as soon as the component is mount
