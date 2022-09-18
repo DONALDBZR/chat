@@ -80,7 +80,7 @@ class Application extends React.Component {
                         home: `/Users/Dashboard/${currentUser.username}`,
                         profile: `/Users/Profile/${currentUser.username}`,
                         security: `/Users/Account/${currentUser.username}`,
-                        profile: currentUser.profilePicture
+                        profilePicture: currentUser.profilePicture
                     }))
                 data[1]
                     .then((contacts) => this.setState({
