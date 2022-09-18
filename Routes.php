@@ -15,19 +15,19 @@ switch ($_SERVER['REQUEST_METHOD']) {
             case '/Register':
                 $Router = new Router("GET", "/Register", "/Views/Register.php");
                 break;
-            case "/User/Dashboard/{$_SESSION['User']['username']}":
+            case "/Users/Dashboard/{$_SESSION['User']['username']}":
                 $Router = new Router("GET", "/User/Dashboard/{$_SESSION['User']['username']}", "/Views/UserDashboard.php");
                 break;
-            case '/User':
-                $Router = new Router("GET", "/User", "/Controllers/User.php");
+            case '/Users/CurrentUser':
+                $Router = new Router("GET", "/User", "/Controllers/CurrentUser.php");
                 break;
             case '/Sign-Out':
                 $Router = new Router("GET", "/Sign-Out", "/Views/SignOut.php");
                 break;
-            case '/User/LogOut':
+            case '/LogOut':
                 $Router = new Router("GET", "/User/LogOut", "/Controllers/SignOut.php");
                 break;
-            case '/Login/Verification':
+            case '/Logins/Verification':
                 $Router = new Router("GET", "/Login/Verification", "/Views/LoginVerification.php");
                 break;
             case '/ForgotPassword':
@@ -36,13 +36,13 @@ switch ($_SERVER['REQUEST_METHOD']) {
             case '/Contacts/Get':
                 $Router = new Router("GET", "/Contacts/Get", "/Controllers/GetContacts.php");
                 break;
-            case "/User/Profile/{$_SESSION['User']['username']}":
+            case "/Users/Profile/{$_SESSION['User']['username']}":
                 $Router = new Router("GET", "/User/Profile/{$_SESSION['User']['username']}", "/Views/UserProfile.php");
                 break;
-            case "/User/Profile/{$_SESSION['User']['username']}/Edit":
+            case "/Users/Profile/{$_SESSION['User']['username']}/Edit":
                 $Router = new Router("GET", "/User/Profile/{$_SESSION['User']['username']}/Edit", "/Views/UserEditProfile.php");
                 break;
-            case "/User/Account/{$_SESSION['User']['username']}":
+            case "/Users/Account/{$_SESSION['User']['username']}":
                 $Router = new Router("GET", "/User/Account/{$_SESSION['User']['username']}", "/Views/UserAccount.php");
                 break;
             case "/Users/Search":
