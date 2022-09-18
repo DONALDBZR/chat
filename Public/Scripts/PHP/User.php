@@ -205,7 +205,7 @@ class User extends Password
             unset($_SESSION['User']['otp']);
             $json = array(
                 "success" => "success",
-                "url" => "{$this->domain}/Users/Dashboard/{$this->getUsername()}",
+                "url" => "{$this->domain}/Users/Dashboard/{$_SESSION['User']['username']}",
                 "message" => "You will be connected to the service as soon as possible..."
             );
             header('Content-Type: application/json');
