@@ -60,7 +60,7 @@ class Application extends React.Component {
      * Retrieving the Session data that is stored in the JSON to be used on the front-end
      */
     retrieveData() {
-        fetch("/User", {
+        fetch("/Users/CurrentUser", {
             method: "GET"
         })
             .then((response) => response.json())
