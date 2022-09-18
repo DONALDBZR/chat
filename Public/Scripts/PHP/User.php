@@ -73,16 +73,16 @@ class User extends Password
      */
     public function login()
     {
-        $json = json_decode(file_get_contents('php://input'));
+        $JSON = json_decode(file_get_contents("php://input"));
         $this->PDO->query("SELECT * FROM Chat.Users WHERE UsersUsername = :UsersUsername");
-        $this->PDO->bind(":UsersUsername", $json->username);
+        $this->PDO->bind(":UsersUsername", $this->getUsername());
         $this->PDO->execute();
         if (!empty($this->PDO->resultSet())) {
             $this->setUsername($this->PDO->resultSet()[0]['UsersUsername']);
             $this->setMailAddress($this->PDO->resultSet()[0]['UsersMailAddress']);
             $this->setId($this->PDO->resultSet()[0]['UsersPassword']);
-            $this->setPassword($json->password);
             $this->setProfilePicture($this->PDO->resultSet()[0]['UsersProfilePicture']);
+            $this->setPassword($JSON->password);
             $this->PDO->query("SELECT * FROM Chat.Passwords WHERE PasswordsId = :PasswordsId");
             $this->PDO->bind(":PasswordsId", $this->getID());
             $this->PDO->execute();
@@ -99,31 +99,31 @@ class User extends Password
                     "otp" => $this->getOtp()
                 );
                 $_SESSION['User'] = $user;
-                $this->Mail->send($this->getMailAddress(), "Verification Needed!", "Your one-time password is {$this->getOtp()}.  Please use this password to complete the log in process on {$this->domain}/Login/Verification");
-                $json = array(
+                $this->Mail->send($this->getMailAddress(), "Verification Needed!", "Your one-time password is {$this->getOtp()}.  Please use this password to complete the log in process on {$this->domain}/Login/Verification/{$_SESSION['Login']['id']}");
+                $JSON = array(
                     "success" => "success",
                     "url" => "{$this->domain}/Logins/Verification/{$_SESSION['Login']['id']}",
                     "message" => "You will be redirected to the verification process just to be sure and a password has been sent to you for that! 🙏"
                 );
                 header('Content-Type: application/json');
-                echo json_encode($json);
+                echo json_encode($JSON);
             } else {
-                $json = array(
+                $JSON = array(
                     "success" => "failure",
                     "url" => "{$this->domain}/Login",
                     "message" => "Your password is incorrect!"
                 );
                 header('Content-Type: application/json');
-                echo json_encode($json);
+                echo json_encode($JSON);
             }
         } else {
-            $json = array(
+            $JSON = array(
                 "success" => "failure",
                 "url" => "{$this->domain}",
                 "message" => "This account does not exist!"
             );
             header('Content-Type: application/json');
-            echo json_encode($json);
+            echo json_encode($JSON);
         }
     }
     /**
