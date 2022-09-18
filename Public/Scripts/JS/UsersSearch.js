@@ -60,10 +60,6 @@ class Application extends React.Component {
              * The data that is entered by the user
              */
             input: "",
-            /**
-             * Users that are searched by the current user
-             */
-            searchedUsers: this.state.users.filter(this.search()),
         };
     }
     /**
@@ -120,7 +116,7 @@ class Application extends React.Component {
         const delay = 2000;
         event.preventDefault();
         fetch("/Controllers/UsersSearch.php", {
-            method: "GET",
+            method: "POST",
             body: JSON.stringify({
                 input: this.state.input,
             }),
@@ -326,7 +322,7 @@ class SearchBar extends Form {
      */
     render() {
         return (
-            <form method="GET" onSubmit={this.handleSubmit.bind(this)}>
+            <form method="POST" onSubmit={this.handleSubmit.bind(this)}>
                 <input
                     type="search"
                     name="input"
