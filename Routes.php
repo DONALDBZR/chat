@@ -19,7 +19,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 $Router = new Router("GET", "/Users/Dashboard/{$_SESSION['User']['username']}", "/Views/UserDashboard.php");
                 break;
             case '/Users/CurrentUser':
-                $Router = new Router("GET", "/User", "/Controllers/CurrentUser.php");
+                $Router = new Router("GET", "/Users/CurrentUser", "/Controllers/CurrentUser.php");
                 break;
             case '/Sign-Out':
                 $Router = new Router("GET", "/Sign-Out", "/Views/SignOut.php");
