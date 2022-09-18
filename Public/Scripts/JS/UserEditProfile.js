@@ -68,9 +68,9 @@ class Application extends React.Component {
                 username: data.username,
                 mailAddress: data.mailAddress,
                 domain: data.domain,
-                home: `/User/Dashboard/${data.username}`,
-                profile: `/User/Profile/${data.username}`,
-                security: `/User/Account/${data.username}`,
+                home: `/Users/Dashboard/${data.username}`,
+                profile: `/Users/Profile/${data.username}`,
+                security: `/Users/Account/${data.username}`,
                 profilePicture: data.profilePicture,
             }));
     }
