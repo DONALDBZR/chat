@@ -66,26 +66,35 @@ class Application extends React.Component {
      * Retrieving the Session data that is stored in the JSON to be used on the front-end
      */
     retrieveData() {
-        fetch("/User", {
-            method: "GET"
-        })
-            .then((response) => response.json())
-            .then((data) => this.setState({
-                username: data.username,
-                mailAddress: data.mailAddress,
-                domain: data.domain,
-                home: `/User/Dashboard/${data.username}`,
-                profile: `/User/Profile/${data.username}`,
-                security: `/User/Account/${data.username}`,
-                profilePicture: data.profilePicture,
-            }));
-        fetch("/Users", {
-            method: "GET"
-        })
-            .then((response) => response.json())
-            .then((data) => this.setState({
-                users: data.users,
-            }));
+        Promise.all([
+            fetch("/Users/CurrentUser", {
+                method: "GET"
+            }),
+            fetch("/Users", {
+                method: "GET"
+            })
+        ])
+            .then(([currentUser, users]) => {
+                const currentUserJSON = currentUser.json()
+                const usersJSON = users.json()
+                return [currentUserJSON, usersJSON]
+            })
+            .then((data) => {
+                data[0]
+                    .then((currentUser) => this.setState({
+                        username: currentUser.username,
+                        mailAddress: currentUser.mailAddress,
+                        domain: currentUser.domain,
+                        home: `/Users/Dashboard/${currentUser.username}`,
+                        profile: `/Users/Profile/${currentUser.username}`,
+                        security: `/Users/Account/${currentUser.username}`,
+                        profilePicture: currentUser.profilePicture
+                    }))
+                data[1]
+                    .then((users) => this.setState({
+                        users: users.users
+                    }))
+            });
     }
     /**
      * Handling any change that is made in the user interface
