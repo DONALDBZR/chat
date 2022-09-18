@@ -394,28 +394,20 @@ class User extends Password
         $this->PDO->query("SELECT * FROM Chat.Users WHERE UsersUsername LIKE :UsersUsername");
         $this->PDO->bind(":UsersUsername", "%{$JSON->input}%");
         $this->PDO->execute();
-        if (!empty($this->PDO->resultSet())) {
-            for ($index = 0; $index < count($this->PDO->resultSet()); $index++) {
-                $user = array(
-                    'username' => $this->PDO->resultSet()[$index]['UsersUsername'],
-                    'mailAddress' => $this->PDO->resultSet()[$index]['UsersMailAddress'],
-                    'profilePicture' => $this->PDO->resultSet()[$index]['UsersProfilePicture']
-                );
-                array_push($users, $user);
-            }
-            $JSON = array(
-                "users" => $users
+        for ($index = 0; $index < count($this->PDO->resultSet()); $index++) {
+            $user = array(
+                'username' => $this->PDO->resultSet()[$index]['UsersUsername'],
+                'mailAddress' => $this->PDO->resultSet()[$index]['UsersMailAddress'],
+                'profilePicture' => $this->PDO->resultSet()[$index]['UsersProfilePicture']
             );
-            header('Content-Type: application/json', true, 200);
-            echo json_encode($JSON);
-        } else {
-            $JSON = array(
-                "success" => "failure",
-                "url" => "{$this->domain}/Users/Search",
-                "message" => "That user does not exists!"
-            );
-            header('Content-Type: application/json', true, 200);
-            echo json_encode($JSON);
+            array_push($users, $user);
         }
+        $_SESSION['Search'] = $JSON->input;
+        $JSON = array(
+            "users" => $users,
+            "url" => "{$this->domain}/Users/Search?q={$_SESSION['Search']}"
+        );
+        header('Content-Type: application/json', true, 200);
+        echo json_encode($JSON);
     }
 }
