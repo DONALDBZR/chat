@@ -60,6 +60,10 @@ class Application extends React.Component {
              * The data that is entered by the user
              */
             input: "",
+            /**
+             * Users that are searched by the current user
+             */
+            searchedUsers: this.state.users.filter(this.search()),
         };
     }
     /**
