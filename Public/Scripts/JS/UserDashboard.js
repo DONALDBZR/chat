@@ -67,21 +67,28 @@ class Application extends React.Component {
             })
         ])
             .then(([currentUser, contacts]) => {
-                currentUser.json()
-                contacts.json()
+                const currentUserJSON = currentUser.json()
+                const contactsJSON = contacts.json()
+                return [currentUserJSON, contactsJSON]
             })
-            .then(([currentUser, contacts]) => this.setState({
-                username: currentUser.username,
-                mailAddress: currentUser.mailAddress,
-                domain: currentUser.domain,
-                home: `/Users/Dashboard/${currentUser.username}`,
-                profile: `/Users/Profile/${currentUser.username}`,
-                security: `/Users/Account/${currentUser.username}`,
-                profilePicture: currentUser.profilePicture,
-                message: contacts.message,
-                contacts: contacts.contacts,
-                class: contacts.class
-            }));
+            .then((data) => {
+                data[0]
+                    .then((currentUser) => this.setState({
+                        username: currentUser.username,
+                        mailAddress: currentUser.mailAddress,
+                        domain: currentUser.domain,
+                        home: `/Users/Dashboard/${currentUser.username}`,
+                        profile: `/Users/Profile/${currentUser.username}`,
+                        security: `/Users/Account/${currentUser.username}`,
+                        profile: currentUser.profilePicture
+                    }))
+                data[1]
+                    .then((contacts) => this.setState({
+                        message: contacts.message,
+                        contacts: contacts.contacts,
+                        class: contacts.class,
+                    }))
+            });
     }
     /**
      * 1. Retrieving the session data as soon as the component is mount
@@ -251,7 +258,6 @@ class Contacts extends Main {
      * @returns {Application} Components
      */
     render() {
-        console.log(`Message: ${this.state.message}\nContacts: ${this.state.contacts}\n`);
         return (
             <div id="contacts">
                 {this.getContact()}
