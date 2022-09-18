@@ -125,8 +125,15 @@ class Application extends React.Component {
         })
             .then((response) => response.json())
             .then((data) => this.setState({
-                users: data.users,
-            }));
+                url: data.url,
+            }))
+            .then(() => this.redirector());
+    }
+    /**
+     * Redirecting the user to an intended url
+     */
+    redirector() {
+        window.location.href = this.state.url;
     }
     /**
      * 1. Retrieving the session data as soon as the component is mount
