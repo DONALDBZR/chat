@@ -58,27 +58,29 @@ class Application extends React.Component {
      * Retrieving the Session data that is stored in the JSON to be used on the front-end
      */
     retrieveData() {
-        fetch("/User", {
-            method: "GET"
-        })
-            .then((response) => response.json())
-            .then((data) => this.setState({
-                username: data.username,
-                mailAddress: data.mailAddress,
-                domain: data.domain,
-                home: `/User/Dashboard/${data.username}`,
-                profile: `/User/Profile/${data.username}`,
-                security: `/User/Account/${data.username}`,
-                profilePicture: data.profilePicture,
-            }));
-        fetch("/Contacts/Get", {
-            method: "GET"
-        })
-            .then((response) => response.json())
-            .then((data) => this.setState({
-                message: data.message,
-                contacts: data.contacts,
-                class: data.class,
+        Promise.all([
+            fetch("/Users/CurrentUser", {
+                method: "GET"
+            }),
+            fetch("/Contacts/Get", {
+                method: "GET"
+            })
+        ])
+            .then(([currentUser, contacts]) => {
+                currentUser.json()
+                contacts.json()
+            })
+            .then(([currentUser, contacts]) => this.setState({
+                username: currentUser.username,
+                mailAddress: currentUser.mailAddress,
+                domain: currentUser.domain,
+                home: `/Users/Dashboard/${currentUser.username}`,
+                profile: `/Users/Profile/${currentUser.username}`,
+                security: `/Users/Account/${currentUser.username}`,
+                profilePicture: currentUser.profilePicture,
+                message: contacts.message,
+                contacts: contacts.contacts,
+                class: contacts.class
             }));
     }
     /**

@@ -62,16 +62,16 @@ switch ($_SERVER['REQUEST_METHOD']) {
             case '/Register':
                 $Router = new Router("POST", "/Register", "/Controllers/Register.php");
                 break;
-            case '/Login/Verification':
+            case '/Logins/Verification':
                 $Router = new Router("POST", "/Login/Verification", "/Controllers/LoginVerification.php");
                 break;
             case '/ForgotPassword':
                 $Router = new Router("POST", "/ForgotPassword", "/Controllers/ForgotPassword.php");
                 break;
-            case "/User/Profile/{$_SESSION['User']['username']}/Edit":
+            case "/Users/Profile/{$_SESSION['User']['username']}/Edit":
                 $Router = new Router("POST", "/User/Profile/{$_SESSION['User']['username']}/Edit", "/Controllers/UserEditProfile.php");
                 break;
-            case "/User/Account/{$_SESSION['User']['username']}":
+            case "/Users/Account/{$_SESSION['User']['username']}":
                 $Router = new Router("POST", "/User/Account/{$_SESSION['User']['username']}", "/Controllers/UserAccount.php");
                 break;
         }
