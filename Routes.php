@@ -53,6 +53,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 break;
             case "/Users/Search?q={$_SESSION['Search']}":
                 $Router = new Router("GET", "/Users/Search?q={$_SESSION['Search']}", "/Views/UsersSearch.php");
+                break;
         }
         break;
     case 'POST':
@@ -78,6 +79,9 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 break;
             case "/Users/Search":
                 $Router = new Router("POST", "/Users/Search", "/Controllers/UsersSearch.php");
+                break;
+            case "/Users/Search?q={$_SESSION['Search']}":
+                $Router = new Router("POST", "/Users/Search?q={$_SESSION['Search']}", "/Controllers/UsersSearch.php");
                 break;
         }
         break;
