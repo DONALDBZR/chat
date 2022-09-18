@@ -102,7 +102,7 @@ class User extends Password
                 $this->Mail->send($this->getMailAddress(), "Verification Needed!", "Your one-time password is {$this->getOtp()}.  Please use this password to complete the log in process on {$this->domain}/Login/Verification");
                 $json = array(
                     "success" => "success",
-                    "url" => "{$this->domain}/Login/Verification",
+                    "url" => "{$this->domain}/Logins/Verification/{$_SESSION['Login']['id']}",
                     "message" => "You will be redirected to the verification process just to be sure and a password has been sent to you for that! 🙏"
                 );
                 header('Content-Type: application/json');
@@ -384,5 +384,12 @@ class User extends Password
         );
         header('Content-Type: application/json');
         echo json_encode($JSON);
+    }
+    /**
+     * Searching the required user
+     */
+    public function search()
+    {
+        $JSON = json_decode(file_get_contents("php://input"));
     }
 }
