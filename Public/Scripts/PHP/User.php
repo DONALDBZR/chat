@@ -368,9 +368,16 @@ class User extends Password
     {
         $users = array();
         $this->setUsername($_SESSION['User']['username']);
-        $this->PDO->query("SELECT * FROM Chat.Users WHERE UsersUsername <> :UsersUsername");
-        $this->PDO->bind(":UsersUsername", $this->getUsername());
-        $this->PDO->execute();
+        if ($_SERVER['REQUEST_URI'] == "/Users/Search") {
+            $this->PDO->query("SELECT * FROM Chat.Users WHERE UsersUsername <> :UsersUsername");
+            $this->PDO->bind(":UsersUsername", $this->getUsername());
+            $this->PDO->execute();
+        } else {
+            $this->PDO->query("SELECT * FROM Chat.Users WHERE UsersUsername <> :UsersUsername1 AND UsersUsername LIKE :UsersUsername2");
+            $this->PDO->bind(":UsersUsername1", $this->getUsername());
+            $this->PDO->bind(":UsersUsername2", "%{$_SESSION['Search']}%");
+            $this->PDO->execute();
+        }
         for ($index = 0; $index < count($this->PDO->resultSet()); $index++) {
             $user = array(
                 'username' => $this->PDO->resultSet()[$index]['UsersUsername'],
@@ -391,20 +398,8 @@ class User extends Password
     public function search()
     {
         $JSON = json_decode(file_get_contents("php://input"));
-        $this->PDO->query("SELECT * FROM Chat.Users WHERE UsersUsername LIKE :UsersUsername");
-        $this->PDO->bind(":UsersUsername", "%{$JSON->input}%");
-        $this->PDO->execute();
-        for ($index = 0; $index < count($this->PDO->resultSet()); $index++) {
-            $user = array(
-                'username' => $this->PDO->resultSet()[$index]['UsersUsername'],
-                'mailAddress' => $this->PDO->resultSet()[$index]['UsersMailAddress'],
-                'profilePicture' => $this->PDO->resultSet()[$index]['UsersProfilePicture']
-            );
-            array_push($users, $user);
-        }
         $_SESSION['Search'] = $JSON->input;
         $JSON = array(
-            "users" => $users,
             "url" => "{$this->domain}/Users/Search?q={$_SESSION['Search']}"
         );
         header('Content-Type: application/json', true, 200);
