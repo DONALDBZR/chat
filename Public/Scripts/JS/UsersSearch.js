@@ -340,6 +340,19 @@ class ServerRendering extends Form {
         }
     }
     /**
+     * Verifying whether the search form has actually been submitted before actually rendering the data
+     */
+    verifyURL() {
+        if (window.location.pathname == "/Users/Search") {
+            document.querySelectorAll("#serverRendering")[0].style.display = "none";
+        } else {
+            document.querySelectorAll("#serverRendering")[0].style.display = "block";
+        }
+    }
+    componentDidMount() {
+        this.verifyURL();
+    }
+    /**
      * Returning components to the DOM for them to be rendered
      * @returns {Application} Components
      */
