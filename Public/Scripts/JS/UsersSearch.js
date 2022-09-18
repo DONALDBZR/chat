@@ -125,9 +125,6 @@ class Application extends React.Component {
         })
             .then((response) => response.json())
             .then((data) => this.setState({
-                success: data.success,
-                message: data.message,
-                url: data.url,
                 users: data.users,
             }));
     }
