@@ -81,7 +81,7 @@ class Contact extends User
                 "message" => "",
                 "contacts" => $contacts
             );
-            header('Content-Type: application/json');
+            header('Content-Type: application/json', true, 200);
             echo json_encode($json);
         } else {
             $json = array(
@@ -89,7 +89,7 @@ class Contact extends User
                 "message" => "You do not have any contact yet! 😢",
                 "contacts" => $contacts
             );
-            header('Content-Type: application/json');
+            header('Content-Type: application/json', true, 200);
             echo json_encode($json);
         }
     }

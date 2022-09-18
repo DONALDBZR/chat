@@ -105,7 +105,7 @@ class Login extends User
                 "url" => "{$this->domain}/",
                 "message" => "You do not have an account!"
             );
-            header('Content-Type: application/json');
+            header('Content-Type: application/json', true, 200);
             echo json_encode($JSON);
         }
     }

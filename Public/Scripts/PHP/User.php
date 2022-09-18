@@ -168,7 +168,7 @@ class User extends Password
                 "url" => "{$this->domain}/Login",
                 "message" => "Account created!  Please check your mail to obtain your password!"
             );
-            header('Content-Type: application/json');
+            header('Content-Type: application/json', true, 200);
             echo json_encode($json);
         } else {
             $json = array(
@@ -176,7 +176,7 @@ class User extends Password
                 "url" => "{$this->domain}/Login",
                 "message" => "Account exists!"
             );
-            header('Content-Type: application/json');
+            header('Content-Type: application/json', true, 200);
             echo json_encode($json);
         }
     }
@@ -191,7 +191,7 @@ class User extends Password
             "url" => "{$this->domain}",
             "message" => "You have been successfully logged out!"
         );
-        header('Content-Type: application/json');
+        header('Content-Type: application/json', true, 200);
         echo json_encode($json);
     }
     /**
@@ -208,7 +208,7 @@ class User extends Password
                 "url" => "{$this->domain}/Users/Dashboard/{$_SESSION['User']['username']}",
                 "message" => "You will be connected to the service as soon as possible..."
             );
-            header('Content-Type: application/json');
+            header('Content-Type: application/json', true, 200);
             echo json_encode($json);
         } else {
             unset($_SESSION['User']);
@@ -217,7 +217,7 @@ class User extends Password
                 "url" => "{$this->domain}/",
                 "message" => "The Password does not correspond to the one that was sent to you!"
             );
-            header('Content-Type: application/json');
+            header('Content-Type: application/json', true, 200);
             echo json_encode($json);
         }
     }
@@ -257,7 +257,7 @@ class User extends Password
                 "url" => "{$this->domain}/Login",
                 "message" => "Password Reset!  Please check your mail to obtain your new password!"
             );
-            header('Content-Type: application/json');
+            header('Content-Type: application/json', true, 200);
             echo json_encode($json);
         } else {
             $json = array(
@@ -265,7 +265,7 @@ class User extends Password
                 "url" => "{$this->domain}",
                 "message" => "There is no account that is linked to this mail address!"
             );
-            header('Content-Type: application/json');
+            header('Content-Type: application/json', true, 200);
             echo json_encode($json);
         }
     }
@@ -290,7 +290,7 @@ class User extends Password
                 "url" => "{$this->domain}/User/Profile/{$this->getUsername()}",
                 "message" => "Your profile picture has been changed."
             );
-            header('Content-Type: application/json');
+            header('Content-Type: application/json', true, 200);
             echo json_encode($json);
         }
     }
@@ -340,7 +340,7 @@ class User extends Password
                     "url" => "{$this->domain}/Sign-Out",
                     "message" => "Your password has been changed!  You will be logged out of your account to test the new password!"
                 );
-                header('Content-Type: application/json');
+                header('Content-Type: application/json', true, 200);
                 echo json_encode($JSON);
             } else {
                 $JSON = array(
@@ -348,7 +348,7 @@ class User extends Password
                     "url" => "{$this->domain}/User/Account/{$this->getUsername()}",
                     "message" => "The Passwords are not identical!"
                 );
-                header('Content-Type: application/json');
+                header('Content-Type: application/json', true, 200);
                 echo json_encode($JSON);
             }
         } else {
@@ -357,7 +357,7 @@ class User extends Password
                 "url" => "{$this->domain}/User/Account/{$this->getUsername()}",
                 "message" => "Incorrect Password!"
             );
-            header('Content-Type: application/json');
+            header('Content-Type: application/json', true, 200);
             echo json_encode($JSON);
         }
     }
@@ -382,7 +382,7 @@ class User extends Password
         $JSON = array(
             "users" => $users
         );
-        header('Content-Type: application/json');
+        header('Content-Type: application/json', true, 200);
         echo json_encode($JSON);
     }
     /**
