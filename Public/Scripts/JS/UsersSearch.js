@@ -150,7 +150,7 @@ class Application extends React.Component {
          * Username of the user that will be added as contact when the button will be clicked
          */
         const username = event.currentTarget.id;
-        fetch("/Controllers/AddContact.php", {
+        fetch("/Controllers/ContactsAdd.php", {
             method: "POST",
             body: JSON.stringify({
                 username: username,
