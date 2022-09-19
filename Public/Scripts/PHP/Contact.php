@@ -106,7 +106,7 @@ class Contact extends User
         $this->PDO->bind(":ContactsFriend", $this->getFriend());
         $this->PDO->execute();
         $JSON = array(
-            "url" => "{$this->domain}/Users/Dashboard/{$this->getUsername()}"
+            "url" => "{$this->domain}/Users/Dashboard/{$this->getUser()}"
         );
         header('Content-Type: application/json', true, 200);
         echo json_encode($JSON);
