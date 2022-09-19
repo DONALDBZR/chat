@@ -241,12 +241,28 @@ class Contacts extends Main {
         super(props);
     }
     /**
+     * Verifying whether a profile picture exists
+     * @param {string} UserProfilePicture
+     * @return {JSX} Component
+     */
+    verifyProfilePicture(UserProfilePicture) {
+        if (UserProfilePicture != null) {
+            return <img src={UserProfilePicture} />;
+        } else {
+            return <i class="fa fa-user"></i>;
+        }
+    }
+    /**
      * Verifying whether there is a contact before rendering the correct state
-     * @returns {string | []}
+     * @returns {JSX}
      */
     getContact() {
         if (this.state.contacts.length > 0) {
-            return this.state.contacts;
+            return (
+                <div class={this.state.class}>
+                    {this.state.contacts.length}
+                </div>
+            );
         } else {
             return (
                 <div class={this.state.class}>{this.state.message}</div>
