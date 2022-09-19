@@ -93,4 +93,22 @@ class Contact extends User
             echo json_encode($json);
         }
     }
+    /**
+     * Adding contact for both users
+     */
+    public function add()
+    {
+        $JSON = json_decode(file_get_contents("php://input"));
+        $this->setUser($_SESSION['User']['username']);
+        $this->setFriend($JSON->username);
+        $this->PDO->query("INSERT INTO Chat.Contacts (ContactsUser, ContactsFriend) VALUES (:ContactsUser, :ContactsFriend)");
+        $this->PDO->bind(":ContactsUser", $this->getUser());
+        $this->PDO->bind(":ContactsFriend", $this->getFriend());
+        $this->PDO->execute();
+        $JSON = array(
+            "url" => "{$this->domain}/Users/Dashboard/{$this->getUsername()}"
+        );
+        header('Content-Type: application/json', true, 200);
+        echo json_encode($JSON);
+    }
 }
