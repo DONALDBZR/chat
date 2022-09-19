@@ -142,6 +142,30 @@ class Application extends React.Component {
         this.retrieveData();
     }
     /**
+     * Adding the contact
+     * @param {Event} event 
+     */
+    addContact(event) {
+        /**
+         * Username of the user that will be added as contact when the button will be clicked
+         */
+        const username = event.currentTarget.id;
+        fetch("/Controllers/AddContact.php", {
+            method: "POST",
+            body: JSON.stringify({
+                username: username,
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => this.setState({
+                url: data.url,
+            }))
+            .then(() => this.redirector());
+    }
+    /**
      * Returning components to the DOM for them to be rendered
      * @returns {Application} Components
      */
@@ -363,7 +387,7 @@ class ServerRendering extends Form {
                                 <div class="details">
                                     <div class="mailAddress">{user.mailAddress}</div>
                                     <div class="addButton">
-                                        <button>Add</button>
+                                        <button id={user.username} onClick={this.addContact.bind(this)}>Add</button>
                                     </div>
                                 </div>
                             </div>
