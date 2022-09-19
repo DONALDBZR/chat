@@ -46,13 +46,11 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 $Router = new Router("GET", "/Users/Account/{$_SESSION['User']['username']}", "/Views/UserAccount.php");
                 break;
             case "/Users/Search":
+            case "/Users/Search/{$_SESSION['Search']}":
                 $Router = new Router("GET", "/Users/Search", "/Views/UsersSearch.php");
                 break;
             case "/Users":
                 $Router = new Router("GET", "/Users", "/Controllers/Users.php");
-                break;
-            case "/Users/Search?q={$_SESSION['Search']}":
-                $Router = new Router("GET", "/Users/Search?q={$_SESSION['Search']}", "/Views/UsersSearch.php");
                 break;
         }
         break;
@@ -78,10 +76,8 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 $Router = new Router("POST", "/User/Account/{$_SESSION['User']['username']}", "/Controllers/UserAccount.php");
                 break;
             case "/Users/Search":
+            case "/Users/Search/{$_SESSION['Search']}":
                 $Router = new Router("POST", "/Users/Search", "/Controllers/UsersSearch.php");
-                break;
-            case "/Users/Search?q={$_SESSION['Search']}":
-                $Router = new Router("POST", "/Users/Search?q={$_SESSION['Search']}", "/Controllers/UsersSearch.php");
                 break;
         }
         break;
