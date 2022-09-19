@@ -126,6 +126,7 @@ class Router
             exit();
         }
         require_once "{$this->getRoot()}/{$path}";
+        http_response_code(200);
         exit();
     }
     /**
