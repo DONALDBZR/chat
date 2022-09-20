@@ -9,4 +9,4 @@ require_once "{$_SERVER['DOCUMENT_ROOT']}/Public/Scripts/PHP/User.php";
 require_once "{$_SERVER['DOCUMENT_ROOT']}/Public/Scripts/PHP/Contact.php";
 // Instantiating Contact
 $Contact = new Contact();
-$Contact->getContacts();
+$Contact->get();
