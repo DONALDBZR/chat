@@ -362,3 +362,6 @@ body {
     margin: calc(var(--percentage) / 100) calc(var(--percentage) * 0);
     font-size: calc(var(--percentage) * var(--tablet) * 2.34812358);
 }
+#userDashboard main #contacts .contact div[class*="user_"] .profilePicture i {
+    font-size: calc(var(--percentage) * var(--tablet) * 8.05255);
+}

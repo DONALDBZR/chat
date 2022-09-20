@@ -441,3 +441,11 @@ body {
     text-align: center;
     font-family: var(--proximaNova);
 }
+#userDashboard
+    main
+    #contacts
+    .contact
+    div[class*="user_"]
+    .profilePicture:has(i) {
+    text-align: center;
+}
