@@ -1,6 +1,6 @@
 {
     "name": "chat",
-    "version": "0.8.6",
+    "version": "0.9.6",
     "description": "A web-based chat application",
     "main": "index.php",
     "repository": {
