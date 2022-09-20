@@ -62,7 +62,7 @@ class Application extends React.Component {
             fetch("/Users/CurrentUser", {
                 method: "GET"
             }),
-            fetch("/Contacts/Get", {
+            fetch("/Contacts", {
                 method: "GET"
             })
         ])
@@ -242,7 +242,7 @@ class Contacts extends Main {
     }
     /**
      * Verifying whether a profile picture exists
-     * @param {string} UserProfilePicture
+     * @param {string|null} UserProfilePicture
      * @return {JSX} Component
      */
     verifyProfilePicture(UserProfilePicture) {
@@ -253,6 +253,19 @@ class Contacts extends Main {
         }
     }
     /**
+     * Ensuring that the contact name of the current user is actually being rendered.
+     * @param {string} user
+     * @param {string} friend
+     * @returns {string}
+     */
+    getName(user, friend) {
+        if (user != this.state.username) {
+            return user;
+        } else {
+            return friend;
+        }
+    }
+    /**
      * Verifying whether there is a contact before rendering the correct state
      * @returns {JSX}
      */
@@ -260,7 +273,23 @@ class Contacts extends Main {
         if (this.state.contacts.length > 0) {
             return (
                 <div class={this.state.class}>
-                    {this.state.contacts.length}
+                    {
+                        this.state.contacts.map(
+                            (contact) => <div class={"user_" + this.getName(contact.user, contact.friend)}>
+                                <div class="profilePicture">
+                                    {this.verifyProfilePicture(contact.profilePicture)}
+                                </div>
+                                <div class="userDetails">
+                                    <div class="username">
+                                        <h1>{this.getName(contact.user, contact.friend)}</h1>
+                                    </div>
+                                    <div class="messageButton">
+                                        <a href={"/Messages/" + this.state.username + "/" + this.getName(contact.user, contact.friend)} class="fa fa-envelope"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    }
                 </div>
             );
         } else {
@@ -276,6 +305,7 @@ class Contacts extends Main {
     render() {
         return (
             <div id="contacts">
+                <h1>Contact List</h1>
                 {this.getContact()}
             </div>
         );
