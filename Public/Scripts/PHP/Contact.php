@@ -58,21 +58,34 @@ class Contact extends User
     /**
      * Getting all the contacts that the current user has to send to the client as a response.
      */
-    public function getContacts()
+    public function get()
     {
         $contacts = array();
-        $this->PDO->query("SELECT * FROM Chat.Contacts WHERE ContactsUser = :ContactsUser");
+        $this->PDO->query("SELECT * FROM Chat.Contacts WHERE ContactsUser = :ContactsUser OR ContactsFriend = :ContactsFriend");
         $this->PDO->bind(":ContactsUser", $_SESSION["User"]["username"]);
+        $this->PDO->bind(":ContactsFriend", $_SESSION["User"]["username"]);
         $this->PDO->execute();
         if (!empty($this->PDO->resultSet())) {
             for ($index = 0; $index < count($this->PDO->resultSet()); $index++) {
                 $this->setId($this->PDO->resultSet()[$index]['ContactsId']);
                 $this->setUser($this->PDO->resultSet()[$index]['ContactsUser']);
                 $this->setFriend($this->PDO->resultSet()[$index]['ContactsFriend']);
+                if ($this->getUser() != $_SESSION['User']['username']) {
+                    $this->PDO->query("SELECT * FROM Chat.Users WHERE UsersUsername = :UsersUsername");
+                    $this->PDO->bind(":UsersUsername", $this->getUser());
+                    $this->PDO->execute();
+                    $this->setProfilePicture($this->PDO->resultSet()[0]['UsersProfilePicture']);
+                } else if ($this->getFriend() != $_SESSION['User']['username']) {
+                    $this->PDO->query("SELECT * FROM Chat.Users WHERE UsersUsername = :UsersUsername");
+                    $this->PDO->bind(":UsersUsername", $this->getFriend());
+                    $this->PDO->execute();
+                    $this->setProfilePicture($this->PDO->resultSet()[0]['UsersProfilePicture']);
+                }
                 $contact = array(
                     "id" => $this->getId(),
                     "user" => $this->getUser(),
-                    "friend" => $this->getFriend()
+                    "friend" => $this->getFriend(),
+                    "profilePicture" => $this->getProfilePicture()
                 );
                 array_push($contacts, $contact);
             }
