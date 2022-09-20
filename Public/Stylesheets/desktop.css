@@ -291,3 +291,67 @@ body {
     width: calc(var(--percentage) / 3);
     height: auto;
 }
+#userDashboard main #contacts .contact {
+    width: calc(var(--percentage) / 3);
+    margin: calc(var(--percentage) * 0) calc(var(--percentage) / 3);
+}
+#userDashboard main #contacts .contact div[class*="user_"] {
+    display: flex;
+    margin: calc(var(--percentage) / 50) calc(var(--percentage) * 0);
+}
+#userDashboard main #contacts .contact div[class*="user_"] .profilePicture {
+    width: calc(var(--percentage) / 4);
+}
+#userDashboard main #contacts .contact div[class*="user_"] .profilePicture img {
+    width: var(--percentage);
+    height: auto;
+}
+#userDashboard main #contacts .contact div[class*="user_"] .userDetails {
+    width: calc(var(--percentage) * (3 / 4));
+}
+#userDashboard
+    main
+    #contacts
+    .contact
+    div[class*="user_"]
+    .userDetails
+    .username {
+    margin: calc(var(--percentage) / 100) calc(var(--percentage) * 0);
+    width: calc(var(--percentage) * 0.99);
+    margin-left: calc(var(--percentage) / 100);
+}
+#userDashboard
+    main
+    #contacts
+    .contact
+    div[class*="user_"]
+    .userDetails
+    .username
+    h1 {
+    font-size: calc(var(--percentage) * 2);
+    margin: calc(var(--percentage) * 0);
+}
+#userDashboard
+    main
+    #contacts
+    .contact
+    div[class*="user_"]
+    .userDetails
+    .messageButton
+    a {
+    font-size: calc(var(--percentage) * 2);
+}
+#userDashboard
+    main
+    #contacts
+    .contact
+    div[class*="user_"]
+    .userDetails
+    .messageButton {
+    width: calc(var(--percentage) * 0.98);
+    margin-left: calc(var(--percentage) / 50);
+}
+#userDashboard main #contacts h1 {
+    margin: calc(var(--percentage) / 100) calc(var(--percentage) * 0);
+    font-size: calc(var(--percentage) * 1.458);
+}

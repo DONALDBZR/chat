@@ -400,3 +400,43 @@ body {
     background-color: var(--color1);
     color: var(--color2);
 }
+#userDashboard
+    main
+    #contacts
+    .contact
+    div[class*="user_"]
+    .userDetails
+    .username
+    h1 {
+    font-size: calc(var(--percentage) * 2);
+    margin: calc(var(--percentage) * 0);
+    font-family: var(--sourceCodePro);
+    font-weight: bold;
+    text-align: left;
+}
+#userDashboard
+    main
+    #contacts
+    .contact
+    div[class*="user_"]
+    .userDetails
+    .messageButton
+    a {
+    text-decoration: none;
+    color: var(--color2);
+    opacity: calc(var(--percentage) / 2);
+}
+#userDashboard
+    main
+    #contacts
+    .contact
+    div[class*="user_"]
+    .userDetails
+    .messageButton
+    a:hover {
+    opacity: var(--percentage);
+}
+#userDashboard main #contacts h1 {
+    text-align: center;
+    font-family: var(--proximaNova);
+}
