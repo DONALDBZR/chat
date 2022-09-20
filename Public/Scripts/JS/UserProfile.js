@@ -62,7 +62,7 @@ class Application extends React.Component {
             fetch("/Users/CurrentUser", {
                 method: "GET"
             }),
-            fetch("/Contacts/Get", {
+            fetch("/Contacts", {
                 method: "GET"
             })
         ])
