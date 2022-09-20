@@ -307,15 +307,16 @@ body {
 #userAccount main form div .input {
     display: block;
 }
-#userAccount main form div .input input {
+#userAccount main form div .input input,
+#userAccount main form div .input h1 {
     font-family: var(--proximaNova);
     color: var(--color1);
     background-color: var(--color2);
+    font-weight: normal;
+}
+#userAccount main form div .input input {
     border-color: var(--color1);
     border-style: solid;
-}
-#userAccount main form div .input input:disabled {
-    border: none;
 }
 #userAccount main form #button {
     display: block;

@@ -192,9 +192,13 @@ body {
     width: calc(var(--percentage) * 0.55);
     margin: calc(var(--percentage) * 0);
 }
-#userAccount main form div .input input {
+#userAccount main form div .input input,
+#userAccount main form div .input h1 {
     font-size: calc(var(--percentage) * var(--tablet) * 1.61051);
     width: calc(var(--percentage) * 0.98);
+    margin: calc(var(--percentage) * 0);
+}
+#userAccount main form div .input input {
     border-width: calc(var(--pixelate) / 1080);
 }
 #userAccount main form div {
