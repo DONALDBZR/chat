@@ -295,25 +295,13 @@ class Form extends Main {
                 <div id="username">
                     <div class="label">Username: </div>
                     <div class="input">
-                        <input
-                            type="text"
-                            name="username"
-                            value={this.state.username}
-                            onChange={this.handleChange.bind(this)}
-                            disabled
-                        />
+                        <h1>{this.state.username}</h1>
                     </div>
                 </div>
                 <div id="mailAddress">
                     <div class="label">Mail Address: </div>
                     <div class="input">
-                        <input
-                            type="email"
-                            name="mailAddress"
-                            value={this.state.mailAddress}
-                            onChange={this.handleChange.bind(this)}
-                            disabled
-                        />
+                        <h1>{this.state.mailAddress}</h1>
                     </div>
                 </div>
                 <div id="oldPassword">
