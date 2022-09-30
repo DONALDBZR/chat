@@ -13,6 +13,7 @@ class Chat {
          * @type {string}
          */
         this.__bodyId;
+        this.init();
     }
     /**
      * @returns {string}
@@ -39,5 +40,18 @@ class Chat {
      */
     setBodyId(body_id) {
         this.__bodyId = body_id;
+    }
+    /**
+     * It will initialize the application
+     */
+    init() {
+        const body = document.getElementsByTagName("body")[0];
+        this.setRequestUniformInformation(window.location.pathname);
+        if (this.getRequestUniformInformation() == "/") {
+            this.setBodyId("Homepage");
+        } else {
+            this.setBodyId(this.getRequestUniformInformation().replace("/", ""));
+        }
+        body.id = this.getBodyId();
     }
 }
