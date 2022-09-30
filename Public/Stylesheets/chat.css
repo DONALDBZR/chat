@@ -47,7 +47,7 @@ body {
     font-family: sans-serif;
 }
 #http404 header h1,
-#homepage header h1 {
+#Homepage header h1 {
     text-align: center;
 }
 #http404 header h1 {
@@ -56,18 +56,18 @@ body {
 #http404 header #code {
     color: var(--color3);
 }
-#homepage main {
+#Homepage main {
     display: flex;
     justify-content: space-evenly;
 }
-#homepage main a {
+#Homepage main a {
     font-family: var(--proximaNova);
     text-decoration: none;
     font-weight: bold;
     background-color: var(--color2);
     color: var(--color1);
 }
-#homepage main a:hover {
+#Homepage main a:hover {
     background-color: var(--color1);
     color: var(--color2);
 }

@@ -2,21 +2,22 @@
     --percentage: 100%;
     --pixelate: 1080px;
     --mobile: 0.59049;
+    --textSize: calc(var(--percentage) * var(--mobile) * 2);
 }
 body {
     margin: calc(var(--percentage) * 0);
-    font-size: calc(var(--percentage) * var(--mobile));
+    font-size: var(--textSize);
 }
 #http404 header h1,
-#homepage header h1 {
-    font-size: calc(var(--percentage) * var(--mobile) * 4);
+#Homepage header h1 {
+    font-size: calc(var(--textSize) * 2);
     margin: calc(var(--percentage) * 0);
 }
-#homepage main {
+#Homepage main {
     margin-top: calc(var(--percentage) * 0.02);
 }
-#homepage main a {
-    font-size: calc(var(--percentage) * var(--mobile) * 2.3958);
+#Homepage main a {
+    font-size: calc(var(--textSize) * 1.458);
     padding: calc(var(--pixelate) / 240) calc(var(--pixelate) / 120);
 }
 #login header div a,

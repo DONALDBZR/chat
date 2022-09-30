@@ -55,3 +55,4 @@ class Chat {
         body.id = this.getBodyId();
     }
 }
+const application = new Chat();
