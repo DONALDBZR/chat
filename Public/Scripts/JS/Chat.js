@@ -8,11 +8,16 @@ class Chat {
          * @type {string}
          */
         this.__requestUniformRequestInformation;
+        /**
+         * The ID of the body
+         * @type {string}
+         */
+        this.__bodyId;
     }
     /**
      * @returns {string}
      */
-    getRequestUniformRequestInformation() {
+    getRequestUniformInformation() {
         return this.__requestUniformRequestInformation;
     }
     /**
@@ -21,5 +26,18 @@ class Chat {
      */
     setRequestUniformInformation(request_uniform_information) {
         this.__requestUniformRequestInformation = request_uniform_information;
+    }
+    /**
+     * @returns {string}
+     */
+    getBodyId() {
+        return this.__bodyId;
+    }
+    /**
+     * 
+     * @param {string} body_id 
+     */
+    setBodyId(body_id) {
+        this.__bodyId = body_id;
     }
 }
