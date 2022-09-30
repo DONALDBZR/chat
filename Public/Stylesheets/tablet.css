@@ -22,61 +22,61 @@ body {
 }
 #login header div a,
 #loginVerification header div a,
-#register header div a,
+#Register header div a,
 #forgotPassword header div a {
-    font-size: calc(var(--percentage) * var(--tablet) * 3.22102);
+    font-size: calc(var(--textSize) * 2);
 }
 #login main form,
 #loginVerification main form,
-#register main form,
+#Register main form,
 #forgotPassword main form {
     width: calc(var(--percentage) * (2 / 3));
     padding: calc(var(--percentage) * 0.01);
 }
 #login main form .label,
 #loginVerification main form .label,
-#register main form .label,
+#Register main form .label,
 #forgotPassword main form .label {
     margin: calc(var(--percentage) * 0.02);
-    font-size: calc(var(--percentage) * var(--tablet) * 2.14358881);
+    font-size: calc(var(--textSize) * 1.331);
 }
 #login main form input,
 #loginVerification main form input,
-#register main form input,
+#Register main form input,
 #forgotPassword main form input,
 #userEditProfile main form input {
     width: calc(var(--percentage) * 0.94);
     margin: calc(var(--percentage) * 0.01) calc(var(--percentage) * 0.02);
-    font-size: calc(var(--percentage) * var(--tablet) * 1.61051);
+    font-size: var(--textSize);
 }
 #login main form #button,
 #loginVerification main form #button,
-#register main form #button,
+#Register main form #button,
 #forgotPassword main form #button,
 #userEditProfile main form #button {
     margin: calc(var(--percentage) * 0.02);
 }
 #login main form #button button,
 #loginVerification main form #button button,
-#register main form #button button,
+#Register main form #button button,
 #forgotPassword main form #button button,
 #userEditProfile main form #button button,
 #userAccount main form #button button {
     width: var(--percentage);
-    font-size: calc(var(--percentage) * var(--tablet) * 1.61051);
+    font-size: var(--textSize);
     padding: calc(var(--percentage) * 0.0125);
 }
 #login main form #serverRendering h1,
 #loginVerification main form #serverRendering h1,
-#register main form #serverRendering h1,
+#Register main form #serverRendering h1,
 #forgotPassword main form #serverRendering h1,
 #userEditProfile main form #serverRendering h1 {
-    font-size: calc(var(--percentage) * var(--tablet) * 2.14358881);
+    font-size: calc(var(--textSize) * 1.331);
 }
-#register footer,
+#Register footer,
 #login footer {
     margin-top: calc(var(--percentage) * 0.01);
-    font-size: calc(var(--percentage) * var(--tablet) * 1.61051);
+    font-size: calc(var(--textSize) * 0.729);
 }
 #userDashboard header #clock,
 #userProfile header #clock,

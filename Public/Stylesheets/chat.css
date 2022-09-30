@@ -73,7 +73,7 @@ body {
 }
 #login header div,
 #loginVerification header div,
-#register header div,
+#Register header div,
 #forgotPassword header div,
 #userDashboard main nav .link,
 #userProfile main nav .link,
@@ -84,7 +84,7 @@ body {
 }
 #login header div a,
 #loginVerification header div a,
-#register header div a,
+#Register header div a,
 #forgotPassword header div a {
     text-decoration: none;
     color: var(--color2);
@@ -92,20 +92,20 @@ body {
 }
 #login header div a:hover,
 #loginVerification header div a:hover,
-#register header div a:hover,
+#Register header div a:hover,
 #forgotPassword header div a:hover {
     text-decoration: underline;
 }
 #login main,
 #loginVerification main,
-#register main,
+#Register main,
 #forgotPassword main {
     display: flex;
     justify-content: center;
 }
 #login main form,
 #loginVerification main form,
-#register main form,
+#Register main form,
 #forgotPassword main form,
 #userEditProfile main form,
 #userAccount main form {
@@ -114,7 +114,7 @@ body {
 }
 #login main form .label,
 #loginVerification main form .label,
-#register main form .label,
+#Register main form .label,
 #forgotPassword main form .label,
 #userEditProfile main form #label {
     font-family: var(--sourceCodePro);
@@ -124,7 +124,7 @@ body {
 }
 #login main form input,
 #loginVerification main form input,
-#register main form input,
+#Register main form input,
 #forgotPassword main form input,
 #userEditProfile main form input,
 #userEditProfile main form input::file-selector-button {
@@ -133,7 +133,7 @@ body {
 }
 #login main form #button button,
 #loginVerification main form #button button,
-#register main form #button button,
+#Register main form #button button,
 #forgotPassword main form #button button,
 #userEditProfile main form #button button,
 #userAccount main form #button button {
@@ -146,7 +146,7 @@ body {
 }
 #login main form #button button:hover,
 #loginVerification main form #button button:hover,
-#register main form #button button:hover,
+#Register main form #button button:hover,
 #forgotPassword main form #button button:hover,
 #userEditProfile main form #button button:hover,
 #userAccount main form #button button:hover {
@@ -155,7 +155,7 @@ body {
 }
 #login main form #serverRendering,
 #loginVerification main form #serverRendering,
-#register main form #serverRendering,
+#Register main form #serverRendering,
 #forgotPassword main form #serverRendering,
 #userEditProfile main form #serverRendering,
 #userAccount main form #serverRendering {
@@ -164,7 +164,7 @@ body {
 }
 #login main form #serverRendering h1,
 #loginVerification main form #serverRendering h1,
-#register main form #serverRendering h1,
+#Register main form #serverRendering h1,
 #forgotPassword main form #serverRendering h1,
 #userEditProfile main form #serverRendering h1,
 #userAccount main form #serverRendering h1 {
@@ -178,18 +178,18 @@ body {
 #failure {
     color: var(--color3);
 }
-#register footer,
+#Register footer,
 #login footer {
     text-align: center;
     font-family: var(--sourceCodePro);
 }
-#register footer a,
+#Register footer a,
 #login footer a {
     text-decoration: none;
     color: var(--color2);
     font-weight: bold;
 }
-#register footer a:hover,
+#Register footer a:hover,
 #login footer a:hover {
     text-decoration: underline;
 }
