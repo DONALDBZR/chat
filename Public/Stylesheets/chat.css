@@ -108,7 +108,7 @@ body[id*="LoginsVerification"] main form,
 #Register main form,
 #ForgotPassword main form,
 body[id*="UsersProfile"][id*="Edit"] main form,
-#userAccount main form {
+body[id*="UsersAccount"] main form {
     background-color: var(--color2);
     color: var(--color1);
 }
@@ -140,7 +140,7 @@ body[id*="LoginsVerification"] main form #button button,
 #Register main form #button button,
 #ForgotPassword main form #button button,
 body[id*="UsersProfile"][id*="Edit"] main form #button button,
-#userAccount main form #button button {
+body[id*="UsersAccount"] main form #button button {
     color: var(--color2);
     background-color: var(--color1);
     cursor: pointer;
@@ -153,7 +153,7 @@ body[id*="LoginsVerification"] main form #button button:hover,
 #Register main form #button button:hover,
 #ForgotPassword main form #button button:hover,
 body[id*="UsersProfile"][id*="Edit"] main form #button button:hover,
-#userAccount main form #button button:hover {
+body[id*="UsersAccount"] main form #button button:hover {
     color: var(--color1);
     background-color: var(--color2);
 }
@@ -162,7 +162,7 @@ body[id*="LoginsVerification"] main form #serverRendering,
 #Register main form #serverRendering,
 #ForgotPassword main form #serverRendering,
 body[id*="UsersProfile"][id*="Edit"] main form #serverRendering,
-#userAccount main form #serverRendering {
+body[id*="UsersAccount"] main form #serverRendering {
     text-align: center;
     display: block;
 }
@@ -171,7 +171,7 @@ body[id*="LoginsVerification"] main form #serverRendering h1,
 #Register main form #serverRendering h1,
 #ForgotPassword main form #serverRendering h1,
 body[id*="UsersProfile"][id*="Edit"] main form #serverRendering h1,
-#userAccount main form #serverRendering h1 {
+body[id*="UsersAccount"] main form #serverRendering h1 {
     font-family: var(--proximaNova);
     font-weight: bold;
     width: unset;
@@ -200,7 +200,7 @@ body[id*="UsersProfile"][id*="Edit"] main form #serverRendering h1,
 body[id*="UsersDashboard"] header #clock,
 body[id*="UsersProfile"] header #clock,
 body[id*="UsersProfile"][id*="Edit"] header #clock,
-#userAccount header #clock,
+body[id*="UsersAccount"] header #clock,
 #UsersSearch header #clock {
     text-align: center;
     font-weight: normal;
@@ -209,7 +209,7 @@ body[id*="UsersProfile"][id*="Edit"] header #clock,
 body[id*="UsersDashboard"] main,
 body[id*="UsersProfile"] main,
 body[id*="UsersProfile"][id*="Edit"] main,
-#userAccount main,
+body[id*="UsersAccount"] main,
 #UsersSearch main,
 #UsersSearch main #searchForm #serverRendering div[class*="user_"] {
     display: flex;
@@ -217,7 +217,7 @@ body[id*="UsersProfile"][id*="Edit"] main,
 body[id*="UsersDashboard"] main nav .link a,
 body[id*="UsersProfile"] main nav .link a,
 body[id*="UsersProfile"][id*="Edit"] main nav .link a,
-#userAccount main nav .link a,
+body[id*="UsersAccount"] main nav .link a,
 #UsersSearch main nav .link a {
     text-decoration: none;
     color: var(--color2);
@@ -226,7 +226,7 @@ body[id*="UsersProfile"][id*="Edit"] main nav .link a,
 body[id*="UsersDashboard"] main nav .link a:hover,
 body[id*="UsersProfile"] main nav .link a:hover,
 body[id*="UsersProfile"][id*="Edit"] main nav .link a:hover,
-#userAccount main nav .link a:hover,
+body[id*="UsersAccount"] main nav .link a:hover,
 #UsersSearch main nav .link a:hover {
     opacity: var(--percentage);
 }
@@ -300,36 +300,36 @@ body[id*="UsersProfile"]
 body[id*="UsersDashboard"] main nav .link,
 body[id*="UsersProfile"] main nav .link,
 body[id*="UsersProfile"][id*="Edit"] main nav .link,
-#userAccount main nav .link {
+body[id*="UsersAccount"] main nav .link {
     text-align: center;
 }
-#userAccount main form #header {
+body[id*="UsersAccount"] main form #header {
     font-family: var(--sourceCodePro);
     text-align: center;
     display: block;
 }
-#userAccount main form div {
+body[id*="UsersAccount"] main form div {
     display: flex;
 }
-#userAccount main form div .label {
+body[id*="UsersAccount"] main form div .label {
     display: block;
     font-family: var(--sourceCodePro);
 }
-#userAccount main form div .input {
+body[id*="UsersAccount"] main form div .input {
     display: block;
 }
-#userAccount main form div .input input,
-#userAccount main form div .input h1 {
+body[id*="UsersAccount"] main form div .input input,
+body[id*="UsersAccount"] main form div .input h1 {
     font-family: var(--proximaNova);
     color: var(--color1);
     background-color: var(--color2);
     font-weight: normal;
 }
-#userAccount main form div .input input {
+body[id*="UsersAccount"] main form div .input input {
     border-color: var(--color1);
     border-style: solid;
 }
-#userAccount main form #button {
+body[id*="UsersAccount"] main form #button {
     display: block;
 }
 #UsersSearch main #searchForm form {

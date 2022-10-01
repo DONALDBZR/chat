@@ -60,7 +60,7 @@ body[id*="LoginsVerification"] main form #button button,
 #Register main form #button button,
 #ForgotPassword main form #button button,
 body[id*="UsersProfile"][id*="Edit"] main form #button button,
-#userAccount main form #button button {
+body[id*="UsersAccount"] main form #button button {
     width: var(--percentage);
     font-size: var(--textSize);
     padding: calc(var(--percentage) * 0.0125);
@@ -80,7 +80,7 @@ body[id*="UsersProfile"][id*="Edit"] main form #serverRendering h1 {
 body[id*="UsersDashboard"] header #clock,
 body[id*="UsersProfile"] header #clock,
 body[id*="UsersProfile"][id*="Edit"] header #clock,
-#userAccount header #clock,
+body[id*="UsersAccount"] header #clock,
 #UsersSearch header #clock {
     margin: calc(var(--percentage) * 0);
     font-size: calc(var(--textSize) * 2);
@@ -88,28 +88,28 @@ body[id*="UsersProfile"][id*="Edit"] header #clock,
 body[id*="UsersDashboard"] main nav,
 body[id*="UsersProfile"] main nav,
 body[id*="UsersProfile"][id*="Edit"] main nav,
-#userAccount main nav,
+body[id*="UsersAccount"] main nav,
 #UsersSearch main nav {
     width: calc(var(--percentage) * 0.05);
 }
 body[id*="UsersDashboard"] main #contacts,
 body[id*="UsersProfile"] main #profile,
 body[id*="UsersProfile"][id*="Edit"] main form,
-#userAccount main form,
+body[id*="UsersAccount"] main form,
 #UsersSearch main #searchForm {
     width: calc(var(--percentage) * 0.95);
 }
 body[id*="UsersDashboard"] main nav .link,
 body[id*="UsersProfile"] main nav .link,
 body[id*="UsersProfile"][id*="Edit"] main nav .link,
-#userAccount main nav .link,
+body[id*="UsersAccount"] main nav .link,
 #UsersSearch main nav .link {
     margin: calc(var(--percentage) * 0.2) calc(var(--percentage) * 0);
 }
 body[id*="UsersDashboard"] main nav .link a,
 body[id*="UsersProfile"] main nav .link a,
 body[id*="UsersProfile"][id*="Edit"] main nav .link a,
-#userAccount main nav .link a,
+body[id*="UsersAccount"] main nav .link a,
 #UsersSearch main nav .link a {
     font-size: calc(var(--textSize) * 2);
 }
@@ -168,7 +168,7 @@ body[id*="UsersProfile"][id*="Edit"] main form #label {
 body[id*="UsersDashboard"] main nav .link a img,
 body[id*="UsersProfile"] main nav .link a img,
 body[id*="UsersProfile"][id*="Edit"] main nav .link a img,
-#userAccount main nav .link a img,
+body[id*="UsersAccount"] main nav .link a img,
 #UsersSearch main nav .link a img {
     width: calc(var(--percentage) * 0.9);
     padding: calc(var(--percentage) * 0) calc(var(--percentage) / 20);
@@ -178,37 +178,37 @@ body[id*="UsersProfile"] main #profile #header div img {
     width: var(--percentage);
     height: auto;
 }
-#userAccount main form #header {
-    font-size: calc(var(--percentage) * 1.331);
+body[id*="UsersAccount"] main form #header {
+    font-size: calc(var(--textSize) * 1.331);
     margin: calc(var(--percentage) / 100) calc(var(--percentage) * 0);
 }
-#userAccount main form {
+body[id*="UsersAccount"] main form {
     padding: calc(var(--percentage) / 100);
     margin: calc(var(--percentage) * 0) calc(var(--percentage) * 0.29);
     width: calc(var(--percentage) * 0.4);
 }
-#userAccount main form div .label {
-    font-size: var(--percentage);
+body[id*="UsersAccount"] main form div .label {
+    font-size: var(--textSize);
     width: calc(var(--percentage) * 0.45);
     margin: calc(var(--percentage) * 0);
 }
-#userAccount main form div .input {
+body[id*="UsersAccount"] main form div .input {
     width: calc(var(--percentage) * 0.55);
     margin: calc(var(--percentage) * 0);
 }
-#userAccount main form div .input input,
-#userAccount main form div .input h1 {
-    font-size: var(--percentage);
+body[id*="UsersAccount"] main form div .input input,
+body[id*="UsersAccount"] main form div .input h1 {
+    font-size: var(--textSize);
     width: calc(var(--percentage) * 0.98);
     margin: calc(var(--percentage) * 0);
 }
-#userAccount main form div .input input {
+body[id*="UsersAccount"] main form div .input input {
     border-width: calc(var(--pixelate) / 1080);
 }
-#userAccount main form div {
+body[id*="UsersAccount"] main form div {
     margin: calc(var(--percentage) / 100) calc(var(--percentage) * 0);
 }
-#userAccount main form #button {
+body[id*="UsersAccount"] main form #button {
     margin: calc(var(--percentage) / 50) calc(var(--percentage) * 0);
 }
 #UsersSearch main #searchForm form,

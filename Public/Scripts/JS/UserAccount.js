@@ -379,4 +379,4 @@ class Clock extends Header {
     }
 }
 // Rendering page
-ReactDOM.render(<Application />, document.getElementById("userAccount"));
+ReactDOM.render(<Application />, document.body);
