@@ -91,14 +91,14 @@ body[id*="UsersDashboard"] main nav,
 #userEditProfile main nav,
 #userAccount main nav,
 #usersSearch main nav {
-    width: calc(var(--percentage) * 0.1);
+    width: calc(var(--percentage) / 5);
 }
 body[id*="UsersDashboard"] main #contacts,
 #userProfile main #profile,
 #userEditProfile main form,
 #userAccount main form,
 #usersSearch main #searchForm {
-    width: calc(var(--percentage) * 0.9);
+    width: calc(var(--percentage) * 0.8);
 }
 body[id*="UsersDashboard"] main nav .link,
 #userProfile main nav .link,
@@ -329,7 +329,7 @@ body[id*="UsersDashboard"]
     .contact
     div[class*="user_"]
     .profilePicture {
-    width: calc(var(--percentage) / 4);
+    width: calc(var(--percentage) / 3);
 }
 body[id*="UsersDashboard"]
     main
@@ -347,7 +347,7 @@ body[id*="UsersDashboard"]
     .contact
     div[class*="user_"]
     .userDetails {
-    width: calc(var(--percentage) * (3 / 4));
+    width: calc(var(--percentage) * (2 / 3));
 }
 body[id*="UsersDashboard"]
     main
@@ -368,7 +368,7 @@ body[id*="UsersDashboard"]
     .userDetails
     .username
     h1 {
-    font-size: calc(var(--textSize) * 2);
+    font-size: calc(var(--textSize) * 0.6973568802);
     margin: calc(var(--percentage) * 0);
 }
 body[id*="UsersDashboard"]
@@ -379,7 +379,7 @@ body[id*="UsersDashboard"]
     .userDetails
     .messageButton
     a {
-    font-size: calc(var(--textSize) * 2);
+    font-size: calc(var(--textSize) * 1.458);
 }
 body[id*="UsersDashboard"]
     main
@@ -402,5 +402,5 @@ body[id*="UsersDashboard"]
     div[class*="user_"]
     .profilePicture
     i {
-    font-size: calc(var(--textSize) * 5);
+    font-size: calc(var(--textSize) * 2.95245);
 }

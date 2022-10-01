@@ -352,7 +352,7 @@ body[id*="UsersDashboard"]
     .userDetails
     .username
     h1 {
-    font-size: calc(var(--textSize) * 2);
+    font-size: calc(var(--textSize) * 1.3122);
     margin: calc(var(--percentage) * 0);
 }
 body[id*="UsersDashboard"]
@@ -363,7 +363,7 @@ body[id*="UsersDashboard"]
     .userDetails
     .messageButton
     a {
-    font-size: calc(var(--textSize) * 2);
+    font-size: calc(var(--textSize) * 1.458);
 }
 body[id*="UsersDashboard"]
     main
@@ -386,5 +386,5 @@ body[id*="UsersDashboard"]
     div[class*="user_"]
     .profilePicture
     i {
-    font-size: calc(var(--textSize) * 5);
+    font-size: calc(var(--textSize) * 3.2805);
 }
