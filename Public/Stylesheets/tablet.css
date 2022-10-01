@@ -78,45 +78,45 @@ body[id*="LoginsVerification"] main form #serverRendering h1,
     margin-top: calc(var(--percentage) * 0.01);
     font-size: calc(var(--textSize) * 0.729);
 }
-#userDashboard header #clock,
+body[id*="UsersDashboard"] header #clock,
 #userProfile header #clock,
 #userEditProfile header #clock,
 #userAccount header #clock,
 #usersSearch header #clock {
     margin: calc(var(--percentage) * 0);
-    font-size: calc(var(--percentage) * var(--tablet) * 3.22102);
+    font-size: calc(var(--textSize) * 2);
 }
-#userDashboard main nav,
+body[id*="UsersDashboard"] main nav,
 #userProfile main nav,
 #userEditProfile main nav,
 #userAccount main nav,
 #usersSearch main nav {
     width: calc(var(--percentage) * 0.0805255);
 }
-#userDashboard main #contacts,
+body[id*="UsersDashboard"] main #contacts,
 #userProfile main #profile,
 #userEditProfile main form,
 #userAccount main form,
 #usersSearch main #searchForm {
     width: calc(var(--percentage) * 0.9194745);
 }
-#userDashboard main nav .link,
+body[id*="UsersDashboard"] main nav .link,
 #userProfile main nav .link,
 #userEditProfile main nav .link,
 #userAccount main nav .link,
 #usersSearch main nav .link {
     margin: calc(var(--percentage) * 0.2) calc(var(--percentage) * 0);
 }
-#userDashboard main nav .link a,
+body[id*="UsersDashboard"] main nav .link a,
 #userProfile main nav .link a,
 #userEditProfile main nav .link a,
 #userAccount main nav .link a,
 #usersSearch main nav .link a {
-    font-size: calc(var(--percentage) * var(--tablet) * 3.22102);
+    font-size: calc(var(--textSize) * 2);
 }
-#userDashboard main #contacts .foreverAlone {
+body[id*="UsersDashboard"] main #contacts .foreverAlone {
     height: var(--percentage);
-    font-size: calc(var(--percentage) * var(--tablet) * 2.898918);
+    font-size: calc(var(--textSize) * 2);
 }
 #signOut header h1 {
     font-size: calc(var(--percentage) * var(--tablet) * 2);
@@ -162,7 +162,7 @@ body[id*="LoginsVerification"] main form #serverRendering h1,
     margin: calc(var(--percentage) * 0.02);
     font-size: calc(var(--percentage) * var(--tablet) * 1.61051);
 }
-#userDashboard main nav .link a img,
+body[id*="UsersDashboard"] main nav .link a img,
 #userProfile main nav .link a img,
 #userEditProfile main nav .link a img,
 #userAccount main nav .link a img,
@@ -299,25 +299,41 @@ body[id*="LoginsVerification"] main form #serverRendering h1,
     width: calc(var(--percentage) / 3);
     height: auto;
 }
-#userDashboard main #contacts .contact {
+body[id*="UsersDashboard"] main #contacts .contact {
     width: calc(var(--percentage) / 2);
     margin: calc(var(--percentage) * 0) calc(var(--percentage) / 4);
 }
-#userDashboard main #contacts .contact div[class*="user_"] {
+body[id*="UsersDashboard"] main #contacts .contact div[class*="user_"] {
     display: flex;
     margin: calc(var(--percentage) / 50) calc(var(--percentage) * 0);
 }
-#userDashboard main #contacts .contact div[class*="user_"] .profilePicture {
+body[id*="UsersDashboard"]
+    main
+    #contacts
+    .contact
+    div[class*="user_"]
+    .profilePicture {
     width: calc(var(--percentage) / 4);
 }
-#userDashboard main #contacts .contact div[class*="user_"] .profilePicture img {
+body[id*="UsersDashboard"]
+    main
+    #contacts
+    .contact
+    div[class*="user_"]
+    .profilePicture
+    img {
     width: var(--percentage);
     height: auto;
 }
-#userDashboard main #contacts .contact div[class*="user_"] .userDetails {
+body[id*="UsersDashboard"]
+    main
+    #contacts
+    .contact
+    div[class*="user_"]
+    .userDetails {
     width: calc(var(--percentage) * (3 / 4));
 }
-#userDashboard
+body[id*="UsersDashboard"]
     main
     #contacts
     .contact
@@ -328,7 +344,7 @@ body[id*="LoginsVerification"] main form #serverRendering h1,
     width: calc(var(--percentage) * 0.99);
     margin-left: calc(var(--percentage) / 100);
 }
-#userDashboard
+body[id*="UsersDashboard"]
     main
     #contacts
     .contact
@@ -336,10 +352,10 @@ body[id*="LoginsVerification"] main form #serverRendering h1,
     .userDetails
     .username
     h1 {
-    font-size: calc(var(--percentage) * var(--tablet) * 3.22102);
+    font-size: calc(var(--textSize) * 2);
     margin: calc(var(--percentage) * 0);
 }
-#userDashboard
+body[id*="UsersDashboard"]
     main
     #contacts
     .contact
@@ -347,9 +363,9 @@ body[id*="LoginsVerification"] main form #serverRendering h1,
     .userDetails
     .messageButton
     a {
-    font-size: calc(var(--percentage) * var(--tablet) * 3.22102);
+    font-size: calc(var(--textSize) * 2);
 }
-#userDashboard
+body[id*="UsersDashboard"]
     main
     #contacts
     .contact
@@ -359,10 +375,16 @@ body[id*="LoginsVerification"] main form #serverRendering h1,
     width: calc(var(--percentage) * 0.98);
     margin-left: calc(var(--percentage) / 50);
 }
-#userDashboard main #contacts h1 {
+body[id*="UsersDashboard"] main #contacts h1 {
     margin: calc(var(--percentage) / 100) calc(var(--percentage) * 0);
-    font-size: calc(var(--percentage) * var(--tablet) * 2.34812358);
+    font-size: calc(var(--textSize) * 1.458);
 }
-#userDashboard main #contacts .contact div[class*="user_"] .profilePicture i {
-    font-size: calc(var(--percentage) * var(--tablet) * 8.05255);
+body[id*="UsersDashboard"]
+    main
+    #contacts
+    .contact
+    div[class*="user_"]
+    .profilePicture
+    i {
+    font-size: calc(var(--textSize) * 5);
 }

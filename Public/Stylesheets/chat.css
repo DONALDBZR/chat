@@ -75,7 +75,7 @@ body[id="404"] header #code {
 body[id*="LoginsVerification"] header div,
 #Register header div,
 #ForgotPassword header div,
-#userDashboard main nav .link,
+body[id*="UsersDashboard"] main nav .link,
 #userProfile main nav .link,
 #usersSearch main nav .link,
 #usersSearch main #serverRendering div[class*="user_"] .profilePicture {
@@ -193,7 +193,7 @@ body[id*="LoginsVerification"] main form #serverRendering h1,
 #Login footer a:hover {
     text-decoration: underline;
 }
-#userDashboard header #clock,
+body[id*="UsersDashboard"] header #clock,
 #userProfile header #clock,
 #userEditProfile header #clock,
 #userAccount header #clock,
@@ -202,7 +202,7 @@ body[id*="LoginsVerification"] main form #serverRendering h1,
     font-weight: normal;
     font-family: var(--digital7);
 }
-#userDashboard main,
+body[id*="UsersDashboard"] main,
 #userProfile main,
 #userEditProfile main,
 #userAccount main,
@@ -210,7 +210,7 @@ body[id*="LoginsVerification"] main form #serverRendering h1,
 #usersSearch main #searchForm #serverRendering div[class*="user_"] {
     display: flex;
 }
-#userDashboard main nav .link a,
+body[id*="UsersDashboard"] main nav .link a,
 #userProfile main nav .link a,
 #userEditProfile main nav .link a,
 #userAccount main nav .link a,
@@ -219,14 +219,14 @@ body[id*="LoginsVerification"] main form #serverRendering h1,
     color: var(--color2);
     opacity: calc(var(--percentage) / 2);
 }
-#userDashboard main nav .link a:hover,
+body[id*="UsersDashboard"] main nav .link a:hover,
 #userProfile main nav .link a:hover,
 #userEditProfile main nav .link a:hover,
 #userAccount main nav .link a:hover,
 #usersSearch main nav .link a:hover {
     opacity: var(--percentage);
 }
-#userDashboard main #contacts .foreverAlone {
+body[id*="UsersDashboard"] main #contacts .foreverAlone {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -286,7 +286,7 @@ body[id*="LoginsVerification"] main form #serverRendering h1,
     background-color: var(--color2);
     color: var(--color1);
 }
-#userDashboard main nav .link,
+body[id*="UsersDashboard"] main nav .link,
 #userProfile main nav .link,
 #userEditProfile main nav .link,
 #userAccount main nav .link {
@@ -401,7 +401,7 @@ body[id*="LoginsVerification"] main form #serverRendering h1,
     background-color: var(--color1);
     color: var(--color2);
 }
-#userDashboard
+body[id*="UsersDashboard"]
     main
     #contacts
     .contact
@@ -415,7 +415,7 @@ body[id*="LoginsVerification"] main form #serverRendering h1,
     font-weight: bold;
     text-align: left;
 }
-#userDashboard
+body[id*="UsersDashboard"]
     main
     #contacts
     .contact
@@ -427,7 +427,7 @@ body[id*="LoginsVerification"] main form #serverRendering h1,
     color: var(--color2);
     opacity: calc(var(--percentage) / 2);
 }
-#userDashboard
+body[id*="UsersDashboard"]
     main
     #contacts
     .contact
@@ -437,11 +437,11 @@ body[id*="LoginsVerification"] main form #serverRendering h1,
     a:hover {
     opacity: var(--percentage);
 }
-#userDashboard main #contacts h1 {
+body[id*="UsersDashboard"] main #contacts h1 {
     text-align: center;
     font-family: var(--proximaNova);
 }
-#userDashboard
+body[id*="UsersDashboard"]
     main
     #contacts
     .contact
