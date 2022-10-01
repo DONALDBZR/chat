@@ -22,27 +22,27 @@ body {
 #Login header div a,
 #LoginVerification header div a,
 #Register header div a,
-#forgotPassword header div a {
+#ForgotPassword header div a {
     font-size: calc(var(--textSize) * 2);
 }
 #Login main form,
 #LoginVerification main form,
 #Register main form,
-#forgotPassword main form {
+#ForgotPassword main form {
     width: calc(var(--percentage) / 3);
     padding: calc(var(--percentage) * 0.01);
 }
 #Login main form .label,
 #LoginVerification main form .label,
 #Register main form .label,
-#forgotPassword main form .label {
+#ForgotPassword main form .label {
     margin: calc(var(--percentage) * 0.02);
     font-size: calc(var(--textSize) * 1.331);
 }
 #Login main form input,
 #LoginVerification main form input,
 #Register main form input,
-#forgotPassword main form input,
+#ForgotPassword main form input,
 #userEditProfile main form input {
     width: calc(var(--percentage) * 0.94);
     margin: calc(var(--percentage) * 0.01) calc(var(--percentage) * 0.02);
@@ -51,14 +51,14 @@ body {
 #Login main form #button,
 #LoginVerification main form #button,
 #Register main form #button,
-#forgotPassword main form #button,
+#ForgotPassword main form #button,
 #userEditProfile main form #button {
     margin: calc(var(--percentage) * 0.02);
 }
 #Login main form #button button,
 #LoginVerification main form #button button,
 #Register main form #button button,
-#forgotPassword main form #button button,
+#ForgotPassword main form #button button,
 #userEditProfile main form #button button,
 #userAccount main form #button button {
     width: var(--percentage);
@@ -68,7 +68,7 @@ body {
 #Login main form #serverRendering h1,
 #LoginVerification main form #serverRendering h1,
 #Register main form #serverRendering h1,
-#forgotPassword main form #serverRendering h1,
+#ForgotPassword main form #serverRendering h1,
 #userEditProfile main form #serverRendering h1 {
     font-size: calc(var(--textSize) * 1.331);
 }
