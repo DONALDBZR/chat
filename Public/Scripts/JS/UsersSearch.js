@@ -427,4 +427,4 @@ class Clock extends Header {
     }
 }
 // Rendering page
-ReactDOM.render(<Application />, document.getElementById("usersSearch"));
+ReactDOM.render(<Application />, document.body);

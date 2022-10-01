@@ -77,8 +77,8 @@ body[id*="LoginsVerification"] header div,
 #ForgotPassword header div,
 body[id*="UsersDashboard"] main nav .link,
 #userProfile main nav .link,
-#usersSearch main nav .link,
-#usersSearch main #serverRendering div[class*="user_"] .profilePicture {
+#UsersSearch main nav .link,
+#UsersSearch main #serverRendering div[class*="user_"] .profilePicture {
     display: flex;
     justify-content: center;
 }
@@ -197,7 +197,7 @@ body[id*="UsersDashboard"] header #clock,
 #userProfile header #clock,
 #userEditProfile header #clock,
 #userAccount header #clock,
-#usersSearch header #clock {
+#UsersSearch header #clock {
     text-align: center;
     font-weight: normal;
     font-family: var(--digital7);
@@ -206,15 +206,15 @@ body[id*="UsersDashboard"] main,
 #userProfile main,
 #userEditProfile main,
 #userAccount main,
-#usersSearch main,
-#usersSearch main #searchForm #serverRendering div[class*="user_"] {
+#UsersSearch main,
+#UsersSearch main #searchForm #serverRendering div[class*="user_"] {
     display: flex;
 }
 body[id*="UsersDashboard"] main nav .link a,
 #userProfile main nav .link a,
 #userEditProfile main nav .link a,
 #userAccount main nav .link a,
-#usersSearch main nav .link a {
+#UsersSearch main nav .link a {
     text-decoration: none;
     color: var(--color2);
     opacity: calc(var(--percentage) / 2);
@@ -223,7 +223,7 @@ body[id*="UsersDashboard"] main nav .link a:hover,
 #userProfile main nav .link a:hover,
 #userEditProfile main nav .link a:hover,
 #userAccount main nav .link a:hover,
-#usersSearch main nav .link a:hover {
+#UsersSearch main nav .link a:hover {
     opacity: var(--percentage);
 }
 body[id*="UsersDashboard"] main #contacts .foreverAlone {
@@ -321,29 +321,29 @@ body[id*="UsersDashboard"] main nav .link,
 #userAccount main form #button {
     display: block;
 }
-#usersSearch main #searchForm form {
+#UsersSearch main #searchForm form {
     background-color: var(--color2);
 }
-#usersSearch main #searchForm form input {
+#UsersSearch main #searchForm form input {
     font-family: var(--proximaNova);
     font-weight: bold;
     color: var(--color1);
     background: none;
     border: none;
 }
-#usersSearch main #searchForm form input::placeholder {
+#UsersSearch main #searchForm form input::placeholder {
     color: var(--color1);
 }
-#usersSearch main #searchForm form button {
+#UsersSearch main #searchForm form button {
     border: unset;
     background: none;
     color: var(--color1);
     cursor: pointer;
 }
-#usersSearch main #searchForm form button:hover {
+#UsersSearch main #searchForm form button:hover {
     color: var(--color6);
 }
-#usersSearch
+#UsersSearch
     main
     #searchForm
     #serverRendering
@@ -354,7 +354,7 @@ body[id*="UsersDashboard"] main nav .link,
     font-family: var(--proximaNova);
     font-weight: bold;
 }
-#usersSearch
+#UsersSearch
     main
     #searchForm
     #serverRendering
@@ -363,7 +363,7 @@ body[id*="UsersDashboard"] main nav .link,
     .details {
     display: flex;
 }
-#usersSearch
+#UsersSearch
     main
     #searchForm
     #serverRendering
@@ -373,7 +373,7 @@ body[id*="UsersDashboard"] main nav .link,
     .mailAddress {
     font-family: var(--sourceCodePro);
 }
-#usersSearch
+#UsersSearch
     main
     #searchForm
     #serverRendering
@@ -389,7 +389,7 @@ body[id*="UsersDashboard"] main nav .link,
     font-weight: bold;
     cursor: pointer;
 }
-#usersSearch
+#UsersSearch
     main
     #searchForm
     #serverRendering

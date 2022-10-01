@@ -81,7 +81,7 @@ body[id*="UsersDashboard"] header #clock,
 #userProfile header #clock,
 #userEditProfile header #clock,
 #userAccount header #clock,
-#usersSearch header #clock {
+#UsersSearch header #clock {
     margin: calc(var(--percentage) * 0);
     font-size: calc(var(--textSize) * 2);
 }
@@ -89,28 +89,28 @@ body[id*="UsersDashboard"] main nav,
 #userProfile main nav,
 #userEditProfile main nav,
 #userAccount main nav,
-#usersSearch main nav {
+#UsersSearch main nav {
     width: calc(var(--percentage) * 0.05);
 }
 body[id*="UsersDashboard"] main #contacts,
 #userProfile main #profile,
 #userEditProfile main form,
 #userAccount main form,
-#usersSearch main #searchForm {
+#UsersSearch main #searchForm {
     width: calc(var(--percentage) * 0.95);
 }
 body[id*="UsersDashboard"] main nav .link,
 #userProfile main nav .link,
 #userEditProfile main nav .link,
 #userAccount main nav .link,
-#usersSearch main nav .link {
+#UsersSearch main nav .link {
     margin: calc(var(--percentage) * 0.2) calc(var(--percentage) * 0);
 }
 body[id*="UsersDashboard"] main nav .link a,
 #userProfile main nav .link a,
 #userEditProfile main nav .link a,
 #userAccount main nav .link a,
-#usersSearch main nav .link a {
+#UsersSearch main nav .link a {
     font-size: calc(var(--textSize) * 2);
 }
 body[id*="UsersDashboard"] main #contacts .foreverAlone {
@@ -165,7 +165,7 @@ body[id*="UsersDashboard"] main nav .link a img,
 #userProfile main nav .link a img,
 #userEditProfile main nav .link a img,
 #userAccount main nav .link a img,
-#usersSearch main nav .link a img {
+#UsersSearch main nav .link a img {
     width: calc(var(--percentage) * 0.9);
     padding: calc(var(--percentage) * 0) calc(var(--percentage) / 20);
     height: auto;
@@ -207,24 +207,24 @@ body[id*="UsersDashboard"] main nav .link a img,
 #userAccount main form #button {
     margin: calc(var(--percentage) / 50) calc(var(--percentage) * 0);
 }
-#usersSearch main #searchForm form,
-#usersSearch main #searchForm #serverRendering div[class*="user_"] {
+#UsersSearch main #searchForm form,
+#UsersSearch main #searchForm #serverRendering div[class*="user_"] {
     width: calc(var(--percentage) * 0.9);
     margin: calc(var(--percentage) / 100) calc(var(--percentage) / 20);
 }
-#usersSearch main #searchForm form input {
+#UsersSearch main #searchForm form input {
     padding: calc(var(--percentage) / 200);
-    font-size: var(--percentage);
+    font-size: var(--textSize);
     width: calc(var(--percentage) * 0.9);
 }
-#usersSearch main #searchForm form button {
+#UsersSearch main #searchForm form button {
     padding: unset;
     margin: unset;
     width: calc(var(--percentage) / 10);
-    font-size: var(--percentage);
+    font-size: var(--textSize);
 }
-#usersSearch main #searchForm #serverRendering div[class*="user_"] div,
-#usersSearch
+#UsersSearch main #searchForm #serverRendering div[class*="user_"] div,
+#UsersSearch
     main
     #searchForm
     #serverRendering
@@ -234,14 +234,14 @@ body[id*="UsersDashboard"] main nav .link a img,
     div {
     width: calc(var(--percentage) / 2);
 }
-#usersSearch
+#UsersSearch
     main
     #searchForm
     #serverRendering
     div[class*="user_"]
     .userDetails
     .username,
-#usersSearch
+#UsersSearch
     main
     #searchForm
     #serverRendering
@@ -250,7 +250,7 @@ body[id*="UsersDashboard"] main nav .link a img,
     .details {
     width: var(--percentage);
 }
-#usersSearch
+#UsersSearch
     main
     #searchForm
     #serverRendering
@@ -258,10 +258,10 @@ body[id*="UsersDashboard"] main nav .link a img,
     .userDetails
     .username
     h1 {
-    font-size: calc(var(--percentage) * 2);
+    font-size: calc(var(--textSize) * 2);
     margin: calc(var(--percentage) / 100) calc(var(--percentage) * 0);
 }
-#usersSearch
+#UsersSearch
     main
     #searchForm
     #serverRendering
@@ -271,7 +271,7 @@ body[id*="UsersDashboard"] main nav .link a img,
     .mailAddress {
     margin: calc(var(--percentage) / 100) calc(var(--percentage) * 0);
 }
-#usersSearch
+#UsersSearch
     main
     #searchForm
     #serverRendering
@@ -281,7 +281,7 @@ body[id*="UsersDashboard"] main nav .link a img,
     .addButton {
     margin: calc(var(--percentage) / 100) calc(var(--percentage) * 0);
 }
-#usersSearch
+#UsersSearch
     main
     #searchForm
     #serverRendering
@@ -292,7 +292,7 @@ body[id*="UsersDashboard"] main nav .link a img,
     button {
     padding: calc(var(--percentage) / 50) calc(var(--percentage) / 25);
 }
-#usersSearch main #serverRendering div[class*="user_"] .profilePicture img {
+#UsersSearch main #serverRendering div[class*="user_"] .profilePicture img {
     width: calc(var(--percentage) / 3);
     height: auto;
 }
@@ -380,6 +380,15 @@ body[id*="UsersDashboard"]
     main
     #contacts
     .contact
+    div[class*="user_"]
+    .profilePicture
+    i {
+    font-size: calc(var(--textSize) * 5);
+}
+#UsersSearch
+    main
+    #searchForm
+    #serverRendering
     div[class*="user_"]
     .profilePicture
     i {
