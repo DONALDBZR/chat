@@ -118,8 +118,8 @@ body[id*="UsersDashboard"] main #contacts .foreverAlone {
     height: var(--percentage);
     font-size: calc(var(--textSize) * 2);
 }
-#signOut header h1 {
-    font-size: calc(var(--percentage) * var(--mobile) * 2);
+#Sign-Out header h1 {
+    font-size: calc(var(--textSize) * 2);
 }
 body[id*="UsersProfile"] main #profile #header,
 body[id*="UsersProfile"] main #profile #username,

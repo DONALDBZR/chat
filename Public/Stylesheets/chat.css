@@ -236,7 +236,7 @@ body[id*="UsersDashboard"] main #contacts .foreverAlone {
     align-items: center;
     font-family: var(--proximaNova);
 }
-#signOut header h1 {
+#Sign-Out header h1 {
     text-align: center;
     font-family: var(--sourceCodePro);
 }
