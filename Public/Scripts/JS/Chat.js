@@ -115,7 +115,8 @@ class Chat {
         const body = document.getElementsByTagName("body")[0];
         this.setHttpStatusCode(parseInt(document.getElementsByTagName("title")[0].innerHTML));
         this.setRequestUniformInformation(window.location.pathname);
-        if (this.getHttpStatusCode() != null) {
+        if (!isNaN(this.getHttpStatusCode())) {
+            console.log(`HTTP ERROR ${this.getHttpStatusCode()}`);
             switch (this.getHttpStatusCode()) {
                 case 404:
                     this.setBodyId(this.getHttpStatusCode());
