@@ -49,4 +49,4 @@ class Header extends Application {
     }
 }
 // Rendering page
-ReactDOM.render(<Application />, document.getElementById("404"));
+ReactDOM.render(<Application />, document.body);

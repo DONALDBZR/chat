@@ -169,4 +169,4 @@ class Footer extends Application {
     }
 }
 // Rendering page
-ReactDOM.render(<Application />, document.getElementById("Register"));
+ReactDOM.render(<Application />, document.body);

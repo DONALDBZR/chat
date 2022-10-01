@@ -191,4 +191,4 @@ class Footer extends Application {
     }
 }
 // Rendering page
-ReactDOM.render(<Application />, document.getElementById("loginVerification"));
+ReactDOM.render(<Application />, document.body);

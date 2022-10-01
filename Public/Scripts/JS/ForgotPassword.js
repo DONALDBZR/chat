@@ -162,4 +162,4 @@ class Footer extends Application {
     }
 }
 // Rendering page
-ReactDOM.render(<Application />, document.getElementById("ForgotPassword"));
+ReactDOM.render(<Application />, document.body);

@@ -72,7 +72,7 @@ body[id="404"] header #code {
     color: var(--color2);
 }
 #Login header div,
-#LoginVerification header div,
+body[id*="LoginsVerification"] header div,
 #Register header div,
 #ForgotPassword header div,
 #userDashboard main nav .link,
@@ -83,7 +83,7 @@ body[id="404"] header #code {
     justify-content: center;
 }
 #Login header div a,
-#LoginVerification header div a,
+body[id*="LoginsVerification"] header div a,
 #Register header div a,
 #ForgotPassword header div a {
     text-decoration: none;
@@ -91,20 +91,20 @@ body[id="404"] header #code {
     font-family: var(--sourceCodePro);
 }
 #Login header div a:hover,
-#LoginVerification header div a:hover,
+body[id*="LoginsVerification"] header div a:hover,
 #Register header div a:hover,
 #ForgotPassword header div a:hover {
     text-decoration: underline;
 }
 #Login main,
-#LoginVerification main,
+body[id*="LoginsVerification"] main,
 #Register main,
 #ForgotPassword main {
     display: flex;
     justify-content: center;
 }
 #Login main form,
-#LoginVerification main form,
+body[id*="LoginsVerification"] main form,
 #Register main form,
 #ForgotPassword main form,
 #userEditProfile main form,
@@ -113,7 +113,7 @@ body[id="404"] header #code {
     color: var(--color1);
 }
 #Login main form .label,
-#LoginVerification main form .label,
+body[id*="LoginsVerification"] main form .label,
 #Register main form .label,
 #ForgotPassword main form .label,
 #userEditProfile main form #label {
@@ -123,7 +123,7 @@ body[id="404"] header #code {
     text-align: center;
 }
 #Login main form input,
-#LoginVerification main form input,
+body[id*="LoginsVerification"] main form input,
 #Register main form input,
 #ForgotPassword main form input,
 #userEditProfile main form input,
@@ -132,7 +132,7 @@ body[id="404"] header #code {
     color: var(--color1);
 }
 #Login main form #button button,
-#LoginVerification main form #button button,
+body[id*="LoginsVerification"] main form #button button,
 #Register main form #button button,
 #ForgotPassword main form #button button,
 #userEditProfile main form #button button,
@@ -145,7 +145,7 @@ body[id="404"] header #code {
     border: none;
 }
 #Login main form #button button:hover,
-#LoginVerification main form #button button:hover,
+body[id*="LoginsVerification"] main form #button button:hover,
 #Register main form #button button:hover,
 #ForgotPassword main form #button button:hover,
 #userEditProfile main form #button button:hover,
@@ -154,7 +154,7 @@ body[id="404"] header #code {
     background-color: var(--color2);
 }
 #Login main form #serverRendering,
-#LoginVerification main form #serverRendering,
+body[id*="LoginsVerification"] main form #serverRendering,
 #Register main form #serverRendering,
 #ForgotPassword main form #serverRendering,
 #userEditProfile main form #serverRendering,
@@ -163,7 +163,7 @@ body[id="404"] header #code {
     display: block;
 }
 #Login main form #serverRendering h1,
-#LoginVerification main form #serverRendering h1,
+body[id*="LoginsVerification"] main form #serverRendering h1,
 #Register main form #serverRendering h1,
 #ForgotPassword main form #serverRendering h1,
 #userEditProfile main form #serverRendering h1,

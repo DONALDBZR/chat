@@ -20,27 +20,27 @@ body[id="404"] header h1,
     padding: calc(var(--percentage) * 0.1) calc(var(--percentage) * 0.2);
 }
 #Login header div a,
-#LoginVerification header div a,
+body[id*="LoginsVerification"] header div a,
 #Register header div a,
 #ForgotPassword header div a {
     font-size: calc(var(--textSize) * 2);
 }
 #Login main form,
-#LoginVerification main form,
+body[id*="LoginsVerification"] main form,
 #Register main form,
 #ForgotPassword main form {
     width: calc(var(--percentage) / 3);
     padding: calc(var(--percentage) * 0.01);
 }
 #Login main form .label,
-#LoginVerification main form .label,
+body[id*="LoginsVerification"] main form .label,
 #Register main form .label,
 #ForgotPassword main form .label {
     margin: calc(var(--percentage) * 0.02);
     font-size: calc(var(--textSize) * 1.331);
 }
 #Login main form input,
-#LoginVerification main form input,
+body[id*="LoginsVerification"] main form input,
 #Register main form input,
 #ForgotPassword main form input,
 #userEditProfile main form input {
@@ -49,14 +49,14 @@ body[id="404"] header h1,
     font-size: var(--textSize);
 }
 #Login main form #button,
-#LoginVerification main form #button,
+body[id*="LoginsVerification"] main form #button,
 #Register main form #button,
 #ForgotPassword main form #button,
 #userEditProfile main form #button {
     margin: calc(var(--percentage) * 0.02);
 }
 #Login main form #button button,
-#LoginVerification main form #button button,
+body[id*="LoginsVerification"] main form #button button,
 #Register main form #button button,
 #ForgotPassword main form #button button,
 #userEditProfile main form #button button,
@@ -66,7 +66,7 @@ body[id="404"] header h1,
     padding: calc(var(--percentage) * 0.0125);
 }
 #Login main form #serverRendering h1,
-#LoginVerification main form #serverRendering h1,
+body[id*="LoginsVerification"] main form #serverRendering h1,
 #Register main form #serverRendering h1,
 #ForgotPassword main form #serverRendering h1,
 #userEditProfile main form #serverRendering h1 {

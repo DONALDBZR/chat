@@ -112,7 +112,7 @@ class Chat {
      * It will initialize the application
      */
     init() {
-        const body = document.getElementsByTagName("body")[0];
+        const body = document.body;
         this.setHttpStatusCode(parseInt(document.getElementsByTagName("title")[0].innerHTML));
         this.setRequestUniformInformation(window.location.pathname);
         if (!isNaN(this.getHttpStatusCode())) {
@@ -126,7 +126,7 @@ class Chat {
             if (this.getRequestUniformInformation() == "/") {
                 this.setBodyId("Homepage");
             } else {
-                this.setBodyId(this.getRequestUniformInformation().replace("/", ""));
+                this.setBodyId(this.getRequestUniformInformation().replaceAll("/", ""));
             }
         }
         body.id = this.getBodyId();
