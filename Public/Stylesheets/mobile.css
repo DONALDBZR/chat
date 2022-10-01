@@ -44,7 +44,7 @@ body[id*="LoginsVerification"] main form .label,
 body[id*="LoginsVerification"] main form input,
 #Register main form input,
 #ForgotPassword main form input,
-#userEditProfile main form input {
+body[id*="UsersProfile"][id*="Edit"] main form input {
     width: calc(var(--percentage) * 0.94);
     margin: calc(var(--percentage) * 0.01) calc(var(--percentage) * 0.02);
     font-size: calc(var(--textSize) * 0.9);
@@ -53,14 +53,14 @@ body[id*="LoginsVerification"] main form input,
 body[id*="LoginsVerification"] main form #button,
 #Register main form #button,
 #ForgotPassword main form #button,
-#userEditProfile main form #button {
+body[id*="UsersProfile"][id*="Edit"] main form #button {
     margin: calc(var(--percentage) * 0.02);
 }
 #Login main form #button button,
 body[id*="LoginsVerification"] main form #button button,
 #Register main form #button button,
 #ForgotPassword main form #button button,
-#userEditProfile main form #button button,
+body[id*="UsersProfile"][id*="Edit"] main form #button button,
 #userAccount main form #button button {
     width: var(--percentage);
     font-size: calc(var(--textSize) * 0.9);
@@ -70,7 +70,7 @@ body[id*="LoginsVerification"] main form #button button,
 body[id*="LoginsVerification"] main form #serverRendering h1,
 #Register main form #serverRendering h1,
 #ForgotPassword main form #serverRendering h1,
-#userEditProfile main form #serverRendering h1 {
+body[id*="UsersProfile"][id*="Edit"] main form #serverRendering h1 {
     font-size: calc(var(--textSize) * 1.331);
 }
 #Register footer,
@@ -80,7 +80,7 @@ body[id*="LoginsVerification"] main form #serverRendering h1,
 }
 body[id*="UsersDashboard"] header #clock,
 body[id*="UsersProfile"] header #clock,
-#userEditProfile header #clock,
+body[id*="UsersProfile"][id*="Edit"] header #clock,
 #userAccount header #clock,
 #UsersSearch header #clock {
     margin: calc(var(--percentage) * 0);
@@ -88,28 +88,28 @@ body[id*="UsersProfile"] header #clock,
 }
 body[id*="UsersDashboard"] main nav,
 body[id*="UsersProfile"] main nav,
-#userEditProfile main nav,
+body[id*="UsersProfile"][id*="Edit"] main nav,
 #userAccount main nav,
 #UsersSearch main nav {
     width: calc(var(--percentage) / 5);
 }
 body[id*="UsersDashboard"] main #contacts,
 body[id*="UsersProfile"] main #profile,
-#userEditProfile main form,
+body[id*="UsersProfile"][id*="Edit"] main form,
 #userAccount main form,
 #UsersSearch main #searchForm {
     width: calc(var(--percentage) * 0.8);
 }
 body[id*="UsersDashboard"] main nav .link,
 body[id*="UsersProfile"] main nav .link,
-#userEditProfile main nav .link,
+body[id*="UsersProfile"][id*="Edit"] main nav .link,
 #userAccount main nav .link,
 #UsersSearch main nav .link {
     margin: calc(var(--percentage) * 0.2) calc(var(--percentage) * 0);
 }
 body[id*="UsersDashboard"] main nav .link a,
 body[id*="UsersProfile"] main nav .link a,
-#userEditProfile main nav .link a,
+body[id*="UsersProfile"][id*="Edit"] main nav .link a,
 #userAccount main nav .link a,
 #UsersSearch main nav .link a {
     font-size: calc(var(--textSize) * 2);
@@ -151,20 +151,24 @@ body[id*="UsersProfile"] main #profile #contacts #amountContacts {
 body[id*="UsersProfile"] main #profile #header div i {
     font-size: calc(var(--textSize) * 4);
 }
-#userEditProfile main form {
+body[id*="UsersProfile"][id*="Edit"] main form {
     padding: calc(var(--percentage) * 0.01);
     margin: calc(var(--percentage) * 0) calc(var(--percentage) / 48);
 }
-#userEditProfile main form input::-webkit-file-upload-button {
+body[id*="UsersProfile"]
+    [id*="Edit"]
+    main
+    form
+    input::-webkit-file-upload-button {
     padding: calc(var(--percentage) / 100) calc(var(--percentage) / 50);
 }
-#userEditProfile main form #label {
+body[id*="UsersProfile"][id*="Edit"] main form #label {
     margin: calc(var(--percentage) * 0.02);
-    font-size: calc(var(--percentage) * var(--mobile) * 2);
+    font-size: calc(var(--textSize) * 0.81);
 }
 body[id*="UsersDashboard"] main nav .link a img,
 body[id*="UsersProfile"] main nav .link a img,
-#userEditProfile main nav .link a img,
+body[id*="UsersProfile"][id*="Edit"] main nav .link a img,
 #userAccount main nav .link a img,
 #UsersSearch main nav .link a img {
     width: calc(var(--percentage) * 0.9);
@@ -422,4 +426,8 @@ body[id*="UsersDashboard"]
     .userDetails
     .details {
     display: block;
+}
+body[id*="UsersProfile"][id*="Edit"] main form input,
+body[id*="UsersProfile"][id*="Edit"] main form #button button {
+    font-size: calc(var(--textSize) * 0.81);
 }

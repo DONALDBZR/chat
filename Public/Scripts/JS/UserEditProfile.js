@@ -323,4 +323,4 @@ class Clock extends Header {
     }
 }
 // Rendering page
-ReactDOM.render(<Application />, document.getElementById("userEditProfile"));
+ReactDOM.render(<Application />, document.body);
