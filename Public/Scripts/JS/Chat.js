@@ -41,6 +41,11 @@ class Chat {
             "screen and (min-width: 640px) and (max-width: 1023px)",
             "screen and (max-width: 639px)"
         ];
+        /**
+         * HTTP status code
+         * @type {int}
+         */
+        this.__httpStatusCode;
         this.init();
     }
     /**
@@ -92,15 +97,36 @@ class Chat {
         this.__mimeType = mime_type;
     }
     /**
+     * @returns {int}
+     */
+    getHttpStatusCode() {
+        return this.__httpStatusCode;
+    }
+    /**
+     * @param {int} http_status_code 
+     */
+    setHttpStatusCode(http_status_code) {
+        this.__httpStatusCode = http_status_code;
+    }
+    /**
      * It will initialize the application
      */
     init() {
         const body = document.getElementsByTagName("body")[0];
+        this.setHttpStatusCode(parseInt(document.getElementsByTagName("title")[0].innerHTML));
         this.setRequestUniformInformation(window.location.pathname);
-        if (this.getRequestUniformInformation() == "/") {
-            this.setBodyId("Homepage");
+        if (this.getHttpStatusCode() != null) {
+            switch (this.getHttpStatusCode()) {
+                case 404:
+                    this.setBodyId(this.getHttpStatusCode());
+                    break;
+            }
         } else {
-            this.setBodyId(this.getRequestUniformInformation().replace("/", ""));
+            if (this.getRequestUniformInformation() == "/") {
+                this.setBodyId("Homepage");
+            } else {
+                this.setBodyId(this.getRequestUniformInformation().replace("/", ""));
+            }
         }
         body.id = this.getBodyId();
         this.style();

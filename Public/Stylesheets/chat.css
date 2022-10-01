@@ -46,14 +46,14 @@ body {
     color: var(--color2);
     font-family: sans-serif;
 }
-#http404 header h1,
+body[id="404"] header h1,
 #Homepage header h1 {
     text-align: center;
 }
-#http404 header h1 {
+body[id="404"] header h1 {
     text-transform: uppercase;
 }
-#http404 header #code {
+body[id="404"] header #code {
     color: var(--color3);
 }
 #Homepage main {

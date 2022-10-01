@@ -8,7 +8,7 @@ body {
     margin: calc(var(--percentage) * 0);
     font-size: var(--textSize);
 }
-#http404 header h1,
+body[id="404"] header h1,
 #Homepage header h1 {
     font-size: calc(var(--textSize) * 2);
     margin: calc(var(--percentage) * 0);
