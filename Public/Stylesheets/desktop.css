@@ -78,7 +78,7 @@ body[id*="LoginsVerification"] main form #serverRendering h1,
     font-size: var(--textSize);
 }
 body[id*="UsersDashboard"] header #clock,
-#userProfile header #clock,
+body[id*="UsersProfile"] header #clock,
 #userEditProfile header #clock,
 #userAccount header #clock,
 #UsersSearch header #clock {
@@ -86,28 +86,28 @@ body[id*="UsersDashboard"] header #clock,
     font-size: calc(var(--textSize) * 2);
 }
 body[id*="UsersDashboard"] main nav,
-#userProfile main nav,
+body[id*="UsersProfile"] main nav,
 #userEditProfile main nav,
 #userAccount main nav,
 #UsersSearch main nav {
     width: calc(var(--percentage) * 0.05);
 }
 body[id*="UsersDashboard"] main #contacts,
-#userProfile main #profile,
+body[id*="UsersProfile"] main #profile,
 #userEditProfile main form,
 #userAccount main form,
 #UsersSearch main #searchForm {
     width: calc(var(--percentage) * 0.95);
 }
 body[id*="UsersDashboard"] main nav .link,
-#userProfile main nav .link,
+body[id*="UsersProfile"] main nav .link,
 #userEditProfile main nav .link,
 #userAccount main nav .link,
 #UsersSearch main nav .link {
     margin: calc(var(--percentage) * 0.2) calc(var(--percentage) * 0);
 }
 body[id*="UsersDashboard"] main nav .link a,
-#userProfile main nav .link a,
+body[id*="UsersProfile"] main nav .link a,
 #userEditProfile main nav .link a,
 #userAccount main nav .link a,
 #UsersSearch main nav .link a {
@@ -120,34 +120,34 @@ body[id*="UsersDashboard"] main #contacts .foreverAlone {
 #signOut header h1 {
     font-size: calc(var(--percentage) * 2);
 }
-#userProfile main #profile #header,
-#userProfile main #profile #username,
-#userProfile main #profile #mailAddress,
-#userProfile main #profile #contacts {
+body[id*="UsersProfile"] main #profile #header,
+body[id*="UsersProfile"] main #profile #username,
+body[id*="UsersProfile"] main #profile #mailAddress,
+body[id*="UsersProfile"] main #profile #contacts {
     width: var(--percentage);
 }
-#userProfile main #profile #header div {
+body[id*="UsersProfile"] main #profile #header div {
     width: calc(var(--percentage) / 6);
 }
-#userProfile main #profile #header div a {
-    font-size: calc(var(--percentage) * 2);
+body[id*="UsersProfile"] main #profile #header div a {
+    font-size: calc(var(--textSize) * 2);
     border-style: solid;
     border-width: calc(var(--pixelate) / 1080);
     height: max-content;
     border-radius: calc(var(--percentage) / 2);
     padding: calc(var(--percentage) / 80) calc(var(--percentage) / 20);
 }
-#userProfile main #profile #mailAddress {
-    font-size: var(--percentage);
+body[id*="UsersProfile"] main #profile #mailAddress {
+    font-size: var(--textSize);
 }
-#userProfile main #profile #username {
-    font-size: calc(var(--percentage) * 2);
+body[id*="UsersProfile"] main #profile #username {
+    font-size: calc(var(--textSize) * 2);
 }
-#userProfile main #profile #contacts #amountContacts {
+body[id*="UsersProfile"] main #profile #contacts #amountContacts {
     margin-right: calc(var(--percentage) * 0.01);
 }
-#userProfile main #profile #header div i {
-    font-size: calc(var(--percentage) * 4);
+body[id*="UsersProfile"] main #profile #header div i {
+    font-size: calc(var(--textSize) * 4);
 }
 #userEditProfile main form {
     padding: calc(var(--percentage) / 100);
@@ -162,7 +162,7 @@ body[id*="UsersDashboard"] main #contacts .foreverAlone {
     font-size: var(--percentage);
 }
 body[id*="UsersDashboard"] main nav .link a img,
-#userProfile main nav .link a img,
+body[id*="UsersProfile"] main nav .link a img,
 #userEditProfile main nav .link a img,
 #userAccount main nav .link a img,
 #UsersSearch main nav .link a img {
@@ -170,7 +170,7 @@ body[id*="UsersDashboard"] main nav .link a img,
     padding: calc(var(--percentage) * 0) calc(var(--percentage) / 20);
     height: auto;
 }
-#userProfile main #profile #header div img {
+body[id*="UsersProfile"] main #profile #header div img {
     width: var(--percentage);
     height: auto;
 }

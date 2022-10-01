@@ -76,7 +76,7 @@ body[id*="LoginsVerification"] header div,
 #Register header div,
 #ForgotPassword header div,
 body[id*="UsersDashboard"] main nav .link,
-#userProfile main nav .link,
+body[id*="UsersProfile"] main nav .link,
 #UsersSearch main nav .link,
 #UsersSearch main #serverRendering div[class*="user_"] .profilePicture {
     display: flex;
@@ -194,7 +194,7 @@ body[id*="LoginsVerification"] main form #serverRendering h1,
     text-decoration: underline;
 }
 body[id*="UsersDashboard"] header #clock,
-#userProfile header #clock,
+body[id*="UsersProfile"] header #clock,
 #userEditProfile header #clock,
 #userAccount header #clock,
 #UsersSearch header #clock {
@@ -203,7 +203,7 @@ body[id*="UsersDashboard"] header #clock,
     font-family: var(--digital7);
 }
 body[id*="UsersDashboard"] main,
-#userProfile main,
+body[id*="UsersProfile"] main,
 #userEditProfile main,
 #userAccount main,
 #UsersSearch main,
@@ -211,7 +211,7 @@ body[id*="UsersDashboard"] main,
     display: flex;
 }
 body[id*="UsersDashboard"] main nav .link a,
-#userProfile main nav .link a,
+body[id*="UsersProfile"] main nav .link a,
 #userEditProfile main nav .link a,
 #userAccount main nav .link a,
 #UsersSearch main nav .link a {
@@ -220,7 +220,7 @@ body[id*="UsersDashboard"] main nav .link a,
     opacity: calc(var(--percentage) / 2);
 }
 body[id*="UsersDashboard"] main nav .link a:hover,
-#userProfile main nav .link a:hover,
+body[id*="UsersProfile"] main nav .link a:hover,
 #userEditProfile main nav .link a:hover,
 #userAccount main nav .link a:hover,
 #UsersSearch main nav .link a:hover {
@@ -236,42 +236,42 @@ body[id*="UsersDashboard"] main #contacts .foreverAlone {
     text-align: center;
     font-family: var(--sourceCodePro);
 }
-#userProfile main #profile {
+body[id*="UsersProfile"] main #profile {
     display: flex;
     flex-wrap: wrap;
 }
-#userProfile main #profile #header {
+body[id*="UsersProfile"] main #profile #header {
     display: flex;
 }
-#userProfile main #profile #header div {
+body[id*="UsersProfile"] main #profile #header div {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-#userProfile main #profile #header div a {
+body[id*="UsersProfile"] main #profile #header div a {
     color: var(--color2);
     border-color: var(--color2);
     font-family: var(--proximaNova);
     text-decoration: none;
 }
-#userProfile main #profile #header div a:hover {
+body[id*="UsersProfile"] main #profile #header div a:hover {
     color: var(--color1);
     background-color: var(--color2);
 }
-#userProfile main #profile #mailAddress a {
+body[id*="UsersProfile"] main #profile #mailAddress a {
     font-family: var(--sourceCodePro);
     font-weight: normal;
     color: var(--color2);
     text-decoration: none;
 }
-#userProfile main #profile #mailAddress a:hover {
+body[id*="UsersProfile"] main #profile #mailAddress a:hover {
     text-decoration: underline;
 }
-#userProfile main #profile #username {
+body[id*="UsersProfile"] main #profile #username {
     font-family: var(--proximaNova);
     font-weight: bold;
 }
-#userProfile main #profile #contacts {
+body[id*="UsersProfile"] main #profile #contacts {
     display: flex;
 }
 #userEditProfile main form input::-webkit-file-upload-button {
@@ -287,7 +287,7 @@ body[id*="UsersDashboard"] main #contacts .foreverAlone {
     color: var(--color1);
 }
 body[id*="UsersDashboard"] main nav .link,
-#userProfile main nav .link,
+body[id*="UsersProfile"] main nav .link,
 #userEditProfile main nav .link,
 #userAccount main nav .link {
     text-align: center;
