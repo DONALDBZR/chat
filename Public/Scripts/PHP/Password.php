@@ -31,6 +31,10 @@ class Password
      * The one-time password needed for the user to complete the login process
      */
     private string $otp;
+    /**
+     * The domain of the application
+     */
+    public $domain = "http://chat.local";
     // Constructor method
     public function __construct()
     {
@@ -130,5 +134,32 @@ class Password
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
         return $randomString;
+    }
+    /**
+     * Verifying the one-time password that was sent to the user
+     */
+    public function otpVerify()
+    {
+        $JSON = json_decode(file_get_contents('php://input'));
+        $this->setOtp($_SESSION['User']['otp']);
+        if ($JSON->oneTimePassword == $this->getOtp()) {
+            unset($_SESSION['User']['otp']);
+            $json = array(
+                "success" => "success",
+                "url" => "{$this->domain}/Users/Dashboard/{$_SESSION['User']['username']}",
+                "message" => "You will be connected to the service as soon as possible..."
+            );
+            header('Content-Type: application/json', true, 200);
+            echo json_encode($json);
+        } else {
+            unset($_SESSION['User']);
+            $json = array(
+                "success" => "failure",
+                "url" => "{$this->domain}/",
+                "message" => "The Password does not correspond to the one that was sent to you!"
+            );
+            header('Content-Type: application/json', true, 200);
+            echo json_encode($json);
+        }
     }
 }

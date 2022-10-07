@@ -16,10 +16,6 @@ class User extends Password
      */
     private string $mailAddress;
     /**
-     * The domain of the application
-     */
-    public $domain = "http://chat.local";
-    /**
      * Mail which will interact with PHPMailer
      */
     protected Mail $Mail;
@@ -193,33 +189,6 @@ class User extends Password
         );
         header('Content-Type: application/json', true, 200);
         echo json_encode($json);
-    }
-    /**
-     * Verifying the one-time password that was sent to the user
-     */
-    public function otpVerify()
-    {
-        $JSON = json_decode(file_get_contents('php://input'));
-        $this->setOtp($_SESSION['User']['otp']);
-        if ($JSON->oneTimePassword == $this->getOtp()) {
-            unset($_SESSION['User']['otp']);
-            $json = array(
-                "success" => "success",
-                "url" => "{$this->domain}/Users/Dashboard/{$_SESSION['User']['username']}",
-                "message" => "You will be connected to the service as soon as possible..."
-            );
-            header('Content-Type: application/json', true, 200);
-            echo json_encode($json);
-        } else {
-            unset($_SESSION['User']);
-            $json = array(
-                "success" => "failure",
-                "url" => "{$this->domain}/",
-                "message" => "The Password does not correspond to the one that was sent to you!"
-            );
-            header('Content-Type: application/json', true, 200);
-            echo json_encode($json);
-        }
     }
     /**
      * Resetting the password, updating it and sending it back to the user
