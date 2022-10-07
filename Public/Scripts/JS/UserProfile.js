@@ -52,6 +52,10 @@ class Application extends React.Component {
              * Profile Picture of the user
              */
             profilePicture: "",
+            /**
+             * The account security link for the user's account
+             */
+            security: "",
         };
     }
     /**

@@ -64,6 +64,10 @@ class Application extends React.Component {
              * The cofirmation of the new password
              */
             confirmNewPassword: "",
+            /**
+             * The account security link for the user's account
+             */
+            security: "",
         };
     }
     /**

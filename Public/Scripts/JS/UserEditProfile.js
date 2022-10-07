@@ -53,6 +53,10 @@ class Application extends React.Component {
              */
             profilePicture: "",
             array: [],
+            /**
+             * The account security link for the user's account
+             */
+            security: "",
         };
         this.handleFileChange = this.handleFileChange.bind(this);
     }

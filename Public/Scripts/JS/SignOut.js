@@ -44,6 +44,10 @@ class Application extends React.Component {
              * the url to be redirected after displying the message
              */
             url: "",
+            /**
+             * The account security link for the user's account
+             */
+            security: "",
         };
     }
     /**

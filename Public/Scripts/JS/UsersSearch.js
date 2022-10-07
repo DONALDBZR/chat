@@ -60,6 +60,10 @@ class Application extends React.Component {
              * The data that is entered by the user
              */
             input: "",
+            /**
+             * The account security link for the user's account
+             */
+            security: "",
         };
     }
     /**
