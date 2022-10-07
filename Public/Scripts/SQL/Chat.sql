@@ -30,3 +30,16 @@ CREATE TABLE Chat.Contacts (
     CONSTRAINT fkContactsUserUsersUsername FOREIGN KEY (ContactsUser) REFERENCES Chat.Users (UsersUsername),
     CONSTRAINT fkContactsFriendsUsersUsername FOREIGN KEY (ContactsFriend) REFERENCES Chat.Users (UsersUsername)
 );
+-- Creating the Conversations table
+CREATE TABLE Chat.Conversations (
+    ConversationsId INT PRIMARY KEY AUTO_INCREMENT,
+    ConversationsContact INT,
+    CONSTRAINT fkConversationsContactContactsId FOREIGN KEY (ConversationsContact) REFERENCES Chat.Contacts (ContactsId)
+);
+-- Creating the Messages table
+CREATE TABLE Chat.Messages (
+    MessagesId INT PRIMARY KEY AUTO_INCREMENT,
+    MessagesConversation INT,
+    MessagesCipher VARCHAR(512),
+    CONSTRAINT fkMessagesConversationConversationsId FOREIGN KEY (MessagesConversation) REFERENCES Chat.Conversations (ConversationsId)
+);
