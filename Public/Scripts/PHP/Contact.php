@@ -22,8 +22,6 @@ class Contact extends User
     {
         // Instantiating PDO
         $this->PDO = new PHPDataObject();
-        // Instantiating Mail
-        $this->Mail = new Mail();
     }
     // ID accessor method
     public function getId()
