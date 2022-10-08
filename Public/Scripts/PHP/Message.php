@@ -1,9 +1,10 @@
 <?php
-
+// Importing Conversation
+require_once "{$_SERVER['DOCUMENT_ROOT']}/Public/Scripts/PHP/Coversation.php";
 /**
  * • The class that stores all the properties related to the messages given that it should inherit from the conversation
  */
-class Conversation extends Contact
+class Message extends Conversation
 {
     /**
      * Primary Key of the record
@@ -17,11 +18,25 @@ class Conversation extends Contact
      * Cipher text to be decrypted
      */
     private string $cipherText;
+    /**
+     * Sender of the message
+     */
+    private string $sender;
+    /**
+     * Time at which the message was sent
+     */
+    private string $timestamp;
+    /**
+     * • The class that stores all the properties related to the conversations given that it is a class which is composed of Contact and Group Member
+     */
+    private Conversation $Conversation;
     // Constructor method
     public function __construct()
     {
         // Instantiating PDO
         $this->PDO = new PHPDataObject();
+        // Instantiating Conversation
+        $this->Conversation = new Conversation();
     }
     // ID accessor method
     public function getId()
@@ -52,5 +67,35 @@ class Conversation extends Contact
     public function setCipherText(string $cipher_text)
     {
         $this->cipherText = $cipher_text;
+    }
+    // Conversation.ID accessor method
+    public function getConversationId()
+    {
+        $this->Conversation->getId();
+    }
+    // Conversation.ID mutator method
+    public function setConversationId(int $conversation_id)
+    {
+        $this->Conversation->setID($conversation_id);
+    }
+    // Sender accessor method
+    public function getSender()
+    {
+        return $this->sender;
+    }
+    // Sender mutator method
+    public function setSender(string $sender)
+    {
+        $this->sender = $sender;
+    }
+    // Timestamp accessor method
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
+    // Timestamp mutator method
+    public function setTimestamp(string $timestamp)
+    {
+        $this->timestamp = $timestamp;
     }
 }
