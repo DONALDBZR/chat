@@ -22,6 +22,11 @@ CREATE TABLE Chat.Logins (
     LoginsTimeOut VARCHAR(32),
     CONSTRAINT fkLoginsUsers FOREIGN KEY (LoginsUser) REFERENCES Chat.Users (UsersUsername)
 );
+-- Creating the Groups table
+CREATE TABLE Chat.Groups (
+    GroupsId INT PRIMARY KEY AUTO_INCREMENT,
+    GroupsName VARCHAR(64)
+);
 -- Creating the Contacts table
 CREATE TABLE Chat.Contacts (
     ContactsId INT PRIMARY KEY AUTO_INCREMENT,
@@ -30,16 +35,28 @@ CREATE TABLE Chat.Contacts (
     CONSTRAINT fkContactsUserUsersUsername FOREIGN KEY (ContactsUser) REFERENCES Chat.Users (UsersUsername),
     CONSTRAINT fkContactsFriendsUsersUsername FOREIGN KEY (ContactsFriend) REFERENCES Chat.Users (UsersUsername)
 );
+-- Creating the Group Members table
+CREATE TABLE Chat.GroupMembers (
+    GroupMembersId INT PRIMARY KEY AUTO_INCREMENT,
+    GroupMembersUser VARCHAR(32),
+    GroupMembersGroup INT,
+    CONSTRAINT fkGroupMembersUserUsersUsername FOREIGN KEY (GroupMembersUser) REFERENCES Chat.Users (UsersUsername),
+    CONSTRAINT fkGroupMembersGroupGroupsId FOREIGN KEY (GroupMembersGroup) REFERENCES Chat.Groups (GroupsId)
+);
 -- Creating the Conversations table
 CREATE TABLE Chat.Conversations (
     ConversationsId INT PRIMARY KEY AUTO_INCREMENT,
-    ConversationsContact INT,
-    CONSTRAINT fkConversationsContactContactsId FOREIGN KEY (ConversationsContact) REFERENCES Chat.Contacts (ContactsId)
+    ConversationsContact INT NULL,
+    ConversationsGroupMember INT NULL,
+    CONSTRAINT fkConversationsContactContactsId FOREIGN KEY (ConversationsContact) REFERENCES Chat.Contacts (ContactsId),
+    CONSTRAINT fkConversationsGroupMemberGroupMembersId FOREIGN KEY (ConversationsGroupMember) REFERENCES Chat.GroupMembers (GroupMembersId)
 );
 -- Creating the Messages table
 CREATE TABLE Chat.Messages (
     MessagesId INT PRIMARY KEY AUTO_INCREMENT,
     MessagesConversation INT,
     MessagesCipher VARCHAR(512),
+    MessagesSender VARCHAR(32),
+    MessagesTimestamp VARCHAR(32),
     CONSTRAINT fkMessagesConversationConversationsId FOREIGN KEY (MessagesConversation) REFERENCES Chat.Conversations (ConversationsId)
 );
