@@ -11,10 +11,6 @@ class Login extends User
      */
     private int $id;
     /**
-     * The username of the user which is also the foreign key
-     */
-    private string $user;
-    /**
      * The time at which the user has logged in the application
      */
     private string $timeIn;
@@ -38,16 +34,6 @@ class Login extends User
     {
         $this->id = $id;
     }
-    // User accessor method
-    public function getUser()
-    {
-        return $this->user;
-    }
-    // User mutator method
-    public function setUser(string $user)
-    {
-        $this->user = $user;
-    }
     // Time In accessor method
     public function getTimeIn()
     {
@@ -70,6 +56,16 @@ class Login extends User
         date_default_timezone_set('Indian/Mauritius');
         $this->timeOut = date("Y-m-d H:i:s");
     }
+    // Users.Username accessor method
+    public function getUsersUsername()
+    {
+        $this->getUsername();
+    }
+    // Users.Username mutator method
+    public function setUsersUsername(string $Users_username)
+    {
+        $this->setUsername($Users_username);
+    }
     /**
      * 1. Verifying whether the user exists before allowing it to log into the application.
      */
@@ -80,21 +76,20 @@ class Login extends User
         $this->PDO->bind(":UsersUsername", $JSON->username);
         $this->PDO->execute();
         if (!empty($this->PDO->resultSet())) {
-            $this->setUsername($this->PDO->resultSet()[0]['UsersUsername']);
-            $this->setUser($this->getUsername());
+            $this->setUsersUsername($this->PDO->resultSet()[0]['UsersUsername']);
             $this->setTimeIn();
             $this->PDO->query("INSERT INTO Chat.Logins (LoginsUser, LoginsTimeIn) VALUES (:LoginsUser, :LoginsTimeIn)");
-            $this->PDO->bind(":LoginsUser", $this->getUser());
+            $this->PDO->bind(":LoginsUser", $this->getUsersUsername());
             $this->PDO->bind(":LoginsTimeIn", $this->getTimeIn());
             $this->PDO->execute();
             $this->PDO->query("SELECT * FROM Chat.Logins WHERE LoginsUser = :LoginsUser AND LoginsTimeIn = :LoginsTimeIn");
-            $this->PDO->bind(":LoginsUser", $this->getUser());
+            $this->PDO->bind(":LoginsUser", $this->getUsersUsername());
             $this->PDO->bind(":LoginsTimeIn", $this->getTimeIn());
             $this->PDO->execute();
             $this->setId($this->PDO->resultSet()[0]['LoginsId']);
             $login = array(
                 "id" => $this->getId(),
-                "user" => $this->getUser(),
+                "user" => $this->getUsersUsername(),
                 "timeIn" => $this->getTimeIn()
             );
             $_SESSION['Login'] = $login;

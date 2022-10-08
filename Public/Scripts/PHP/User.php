@@ -61,6 +61,16 @@ class User extends Password
     {
         $this->profilePicture = $profilePicture;
     }
+    // Password.ID accessor method
+    public function getPasswordID()
+    {
+        $this->getID();
+    }
+    // Password.ID mutator method
+    public function setPasswordID(int $Password_id)
+    {
+        $this->setID($Password_id);
+    }
     /**
      * 1. Checking whether the mail address or username retrieved from the JSON exists in the database.
      * 2. In the condition that the mail address or username existed, verify that the password retrieved is the same as the one that is in the database.
@@ -76,11 +86,11 @@ class User extends Password
         if (!empty($this->PDO->resultSet())) {
             $this->setUsername($this->PDO->resultSet()[0]['UsersUsername']);
             $this->setMailAddress($this->PDO->resultSet()[0]['UsersMailAddress']);
-            $this->setId($this->PDO->resultSet()[0]['UsersPassword']);
+            $this->setPasswordID($this->PDO->resultSet()[0]['UsersPassword']);
             $this->setProfilePicture($this->PDO->resultSet()[0]['UsersProfilePicture']);
             $this->setPassword($JSON->password);
             $this->PDO->query("SELECT * FROM Chat.Passwords WHERE PasswordsId = :PasswordsId");
-            $this->PDO->bind(":PasswordsId", $this->getID());
+            $this->PDO->bind(":PasswordsId", $this->getPasswordID());
             $this->PDO->execute();
             $this->setSalt($this->PDO->resultSet()[0]['PasswordsSalt']);
             $this->setHash($this->PDO->resultSet()[0]['PasswordsHash']);
@@ -141,9 +151,9 @@ class User extends Password
             $this->PDO->query("SELECT * FROM Chat.Passwords ORDER BY PasswordsId DESC");
             $this->PDO->execute();
             if (empty($this->PDO->resultSet() || $this->PDO->resultSet()[0]['PasswordsId'] == null)) {
-                $this->setID(1);
+                $this->setPasswordID(1);
             } else {
-                $this->setID($this->PDO->resultSet()[0]['PasswordsId'] + 1);
+                $this->setPasswordID($this->PDO->resultSet()[0]['PasswordsId'] + 1);
             }
             $this->setPassword($this->generatePassword());
             $this->Mail->send($this->getMailAddress(), "Registration Complete", "Your account with username, {$this->getUsername()} and password, {$this->getPassword()} has been created.  Please consider to change it after logging in!");
@@ -157,7 +167,7 @@ class User extends Password
             $this->PDO->query("INSERT INTO Chat.Users(UsersUsername, UsersMailAddress, UsersPassword) VALUES (:UsersUsername, :UsersMailAddress, :UsersPassword)");
             $this->PDO->bind(":UsersUsername", $this->getUsername());
             $this->PDO->bind(":UsersMailAddress", $this->getMailAddress());
-            $this->PDO->bind(":UsersPassword", $this->getID());
+            $this->PDO->bind(":UsersPassword", $this->getPasswordID());
             $this->PDO->execute();
             $json = array(
                 "success" => "success",
@@ -204,9 +214,9 @@ class User extends Password
             $this->PDO->query("SELECT * FROM Chat.Passwords ORDER BY PasswordsId DESC");
             $this->PDO->execute();
             if (empty($this->PDO->resultSet() || $this->PDO->resultSet()[0]['PasswordsId'] == null)) {
-                $this->setID(1);
+                $this->setPasswordID(1);
             } else {
-                $this->setID($this->PDO->resultSet()[0]['PasswordsId'] + 1);
+                $this->setPasswordID($this->PDO->resultSet()[0]['PasswordsId'] + 1);
             }
             $this->setPassword($this->generatePassword());
             $this->Mail->send($this->getMailAddress(), "Password Reset!", "Your new password is {$this->getPassword()} and please consider to change it after logging in!");
@@ -218,7 +228,7 @@ class User extends Password
             $this->PDO->bind(":PasswordsHash", $this->getHash());
             $this->PDO->execute();
             $this->PDO->query("UPDATE Chat.Users SET UsersPassword = :UsersPassword WHERE UsersMailAddress = :UsersMailAddress");
-            $this->PDO->bind(":UsersPassword", $this->getID());
+            $this->PDO->bind(":UsersPassword", $this->getPasswordID());
             $this->PDO->bind(":UsersMailAddress", $this->getMailAddress());
             $this->PDO->execute();
             $json = array(
@@ -277,7 +287,7 @@ class User extends Password
         $this->PDO->execute();
         $this->setID($this->PDO->resultSet()[0]['UsersPassword']);
         $this->PDO->query("SELECT * FROM Chat.Passwords WHERE PasswordsId = :PasswordsId");
-        $this->PDO->bind(":PasswordsId", $this->getID());
+        $this->PDO->bind(":PasswordsId", $this->getPasswordID());
         $this->PDO->execute();
         $this->setSalt($this->PDO->resultSet()[0]['PasswordsSalt']);
         $this->setHash($this->PDO->resultSet()[0]['PasswordsHash']);
@@ -289,9 +299,9 @@ class User extends Password
                 $this->PDO->query("SELECT * FROM Chat.Passwords ORDER BY PasswordsId DESC");
                 $this->PDO->execute();
                 if (empty($this->PDO->resultSet()) || $this->PDO->resultSet()[0]['PasswordsId'] == null) {
-                    $this->setID(1);
+                    $this->setPasswordID(1);
                 } else {
-                    $this->setID($this->PDO->resultSet()[0]['PasswordsId'] + 1);
+                    $this->setPasswordID($this->PDO->resultSet()[0]['PasswordsId'] + 1);
                 }
                 $this->setSalt($this->generateSalt());
                 $this->setPassword($this->getPassword() . $this->getSalt());
@@ -301,7 +311,7 @@ class User extends Password
                 $this->PDO->bind(":PasswordsHash", $this->getHash());
                 $this->PDO->execute();
                 $this->PDO->query("UPDATE Chat.Users SET UsersPassword = :UsersPassword WHERE UsersUsername = :UsersUsername");
-                $this->PDO->bind(":UsersPassword", $this->getID());
+                $this->PDO->bind(":UsersPassword", $this->getPasswordID());
                 $this->PDO->bind(":UsersUsername", $this->getUsername());
                 $this->PDO->execute();
                 $JSON = array(

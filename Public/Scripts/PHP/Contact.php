@@ -9,14 +9,6 @@ class Contact extends User
      * Primary Key of the record
      */
     private int $id;
-    /**
-     * The user which has the contact list
-     */
-    private string $user;
-    /**
-     * The contact of the user
-     */
-    private string $friend;
     // Constructor method
     public function __construct()
     {
@@ -36,32 +28,34 @@ class Contact extends User
     // User accessor method
     public function getUser()
     {
-        return $this->user;
+        $this->getUsername();
     }
     // User mutator method
     public function setUser(string $user)
     {
-        $this->user = $user;
+        $this->setUsername($user);
     }
     // Friend accessor method
     public function getFriend()
     {
-        return $this->friend;
+        $this->getUsername();
     }
     // Friend mutator method
     public function setFriend(string $friend)
     {
-        $this->friend = $friend;
+        $this->setUsername($friend);
     }
     /**
      * Getting all the contacts that the current user has to send to the client as a response.
      */
     public function get()
     {
+        $this->setUser($_SESSION["User"]["username"]);
+        $this->setFriend($_SESSION["User"]["username"]);
         $contacts = array();
         $this->PDO->query("SELECT * FROM Chat.Contacts WHERE ContactsUser = :ContactsUser OR ContactsFriend = :ContactsFriend");
-        $this->PDO->bind(":ContactsUser", $_SESSION["User"]["username"]);
-        $this->PDO->bind(":ContactsFriend", $_SESSION["User"]["username"]);
+        $this->PDO->bind(":ContactsUser", $this->getUser());
+        $this->PDO->bind(":ContactsFriend", $this->getFriend());
         $this->PDO->execute();
         if (!empty($this->PDO->resultSet())) {
             for ($index = 0; $index < count($this->PDO->resultSet()); $index++) {
